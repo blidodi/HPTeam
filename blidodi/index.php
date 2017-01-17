@@ -23,6 +23,16 @@ $time = array("pagi","siang","sore","malam");
 	}
 }
 
+switch ($time) {
+	case 1:
+		echo "selamat siang";
+	break;
+	case 2:
+		echo "selamat pagi";
+	break;
+	
+}
+
 */
 
 
