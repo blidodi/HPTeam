@@ -39,8 +39,6 @@ switch ($time) {
 $angka = array("satu", "dua", "tiga");
 
 
-
-
 for($i=0; $i < count($angka); $i++) {
 	echo $angka[$i];
 	echo "<br/>";
