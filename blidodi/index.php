@@ -39,7 +39,7 @@ switch ($time) {
 $angka = array("satu", "dua", "tiga");
 
 
-for($i=0; $i < count($angka); $i++) {
+for($i=0; $i < count($angka); $i++) { //count adalah contoh dari function pre-defined
 	echo $angka[$i];
 	echo "<br/>";
 }
