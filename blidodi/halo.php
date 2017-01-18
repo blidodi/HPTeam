@@ -26,25 +26,28 @@
 
 	// fungsi operator aritmatika 
 	function aritmatika($a, $b, $operator) {
+
 		switch($operator) {
 			case "tambah":
-				return $a + $b;
+				$c = $a + $b;
 			break;
 			case "kali":
-				return $a * $b;
+				$c = $a * $b;
 			break;
 			case "bagi":
-				return $a / $b;
+				$c = $a / $b;
 			break;
 			case "kurang":
-				return $a - $b;
+				$c=  $a - $b;
 			break;
 			default:
-				return "tidak ada operator.";
+				$c = "tidak ada operator.";
 		}
+
+		return $c;
 	}
 
-	echo aritmatika(5, 5, "kurang");
+	echo aritmatika(20, 15, "kurang");
 
 
 	
