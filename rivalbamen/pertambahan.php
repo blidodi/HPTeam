@@ -26,4 +26,8 @@
 		}
 		return $c;
 	}
-	echo aritmatika(20, 10, "tambah");
+	echo aritmatika(20, 10, "tambah"); 
+
+	
+
+
