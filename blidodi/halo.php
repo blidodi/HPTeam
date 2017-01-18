@@ -38,7 +38,7 @@
 				$c = $a / $b;
 			break;
 			case "kurang":
-				$c=  $a - $b;
+				$c =  $a - $b;
 			break;
 			default:
 				$c = "tidak ada operator.";
