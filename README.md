@@ -11,7 +11,7 @@ Here the member :
 #Basic Code
 
  ```bash
-    > git clone https://github.com/blidodi/HPTeam.git
+    > git clone https://github.com/<username>/HPTeam.git
 	> cd HPTeam/
 	> git init
 	> git config --global user.name "<username>"
