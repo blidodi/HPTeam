@@ -6,6 +6,7 @@ function fibo($baris) {
 	$b = 1;
 
 	$pesan = "";
+	
 	for ($i=0; $i < $baris; $i++) {
 	 	$pesan .= " ".$a;
 	 	$c = $a + $b;
