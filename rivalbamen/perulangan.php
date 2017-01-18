@@ -18,9 +18,24 @@ function fibo($count) {
 		for ($i=0; $i<$count; $i++) {
 			$hasil .= " ".$a;
 			$c=$a + $b;
-			$a=$c;
+			$a=$b;
 			$b=$c;
+			
 		}
-		return $hasil;
+		return $hasil."<br/><br/>";
 	}
-	echo fibo(5);
+	echo fibo(10);
+
+function ganjil($count) {
+	$pesan = "";
+	
+		for ($i=1; $i<$count; $i++) {
+			if ($i%2 == 0){ 
+			$pesan.="$i | Genap<br/>"; 
+		}else {
+			$pesan.="$i | Ganjil<br/>"; 
+		}		 		
+	}	
+	return $pesan;
+}
+echo ganjil(6);
