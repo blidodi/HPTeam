@@ -26,8 +26,3 @@ Here the member :
 	> git push origin master
  ```
 
- #Link Tutorial
-
- ```bash
- 	> http://bit.ly/500Tutor
- ```
