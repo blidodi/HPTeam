@@ -1,6 +1,6 @@
 <?php
 
-  function bilangan($an) {
+function bilangan($an) {
       $angka = array("", "satu", "dua", "tiga", "empat", "lima","enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
     $bilang = "";
     if ($an <12) {
@@ -26,6 +26,6 @@
     }     
       return $bilang;
   }
-  //echo bilangan(3456100100);
+  #echo bilangan(3456100100);
 
 ?>

@@ -1,50 +1,12 @@
-<?php
+<?php include "latihanhtml/header.php";?>
 
-/**function tambah($a,$b){
-return $a + $b;
-
-function kurang($a,$b){
-return $a - $b;
-}
-function kali($a,$b){
-return $a * $b;
-}
-function bagi($a,$b){
-return $a / $b;
-}*/
+<form action="latihanhtml/eksekusi.php" method="post">
+	No. : <input type="text" name="no" value="<?php echo @$_POST['nama']?>" /></br></br>
+	Diterima Dari : <input type="text" name="diterima" value="<?php echo @$_POST['bilangan']?>" /></br></br>
+	Nominal Uang : <input type="text" name="nominal" value="<?php echo @$_POST['bilangan']?>" /></br></br>
+	Untuk Pembayaran : <input type="text" name="untuk" value="<?php echo @$_POST['bilangan']?>" /></br></br>
+	<input type="submit" name="terbilang" value="Input" />
+</form>
 
 
-function aritmatika($a,$b,$operator){
-	$hasil;
-	if($operator == "tambah"){
-		$hasil = $a + $b;
-	}else if ($operator == "kurang") {
-		$hasil = $a - $b;
-	}else if ($operator == "kali") {
-		$hasil = $a * $b;
-	}else if ($operator == "bagi") {
-		$hasil = $a / $b;
-	}
-	return $hasil;
-}
-
-$a = 10;
-$b = 5;
-$operator = "kali";
-
-echo aritmatika($a,$b,$operator);
-
-// switch (aritmatika($operator)) {
-// 	case 'tambah':
-// 		echo aritmatika($a,$b,$operator);
-// 		break;
-// 	case 'kurang':
-// 		echo aritmatika($a,$b,$operator);
-// 		break;
-// 	case 'kali':
-// 		echo aritmatika($a,$b,$operator);
-// 		break;
-// 	case 'bagi':
-// 		echo aritmatika($a,$b,$operator);
-// 		break;
-// }
+<?php include "latihanhtml/footer.php";?>

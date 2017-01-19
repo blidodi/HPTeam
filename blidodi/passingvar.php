@@ -1,5 +1,7 @@
-<?php
+<?php 
+	require "konfigurasi.php";
+	
+		echo "<p>".$_POST['nama']."<br/>".bilangan($_POST['bilangan'])."</p>";
+	
 
-require "konfigurasi.php";
-
-echo "Saya suka ".$makanan." dan saya bisa habis ".bilangan(15)." kg seminggu";
+?>
