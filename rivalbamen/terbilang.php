@@ -32,7 +32,7 @@ function terbilang($an){
 	    }     
 	        return $bilang;
 	}
-echo terbilang(12911);
+//echo terbilang(12911);
 
 ?>
 </body>
