@@ -25,3 +25,9 @@ Here the member :
 	> git commit -am "Add new directory <username>"
 	> git push origin master
  ```
+
+ #Link Tutorial
+
+ ```bash
+ 	> http://bit.ly/500Tutor
+ ```
