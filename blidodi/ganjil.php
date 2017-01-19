@@ -27,7 +27,12 @@
 		$spasi = "";
 
 		for ($j=0; $j < $i; $j++) {
-			$bintang .="* ";
+			$bintang .=" * ";
 		}
+
+		for ($j=7; $j > $i; $j--) {
+			$spasi .="&nbsp;";
+		}
+
 		echo "$spasi $bintang <br/>";
 	}
