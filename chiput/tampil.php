@@ -27,7 +27,7 @@
 			<tr>
 				<td>Terbilang</td>
 				<td>:</td>
-				<td><?php echo Bilangan($_GET['bilangan']) ."</br>"; ?></td>
+				<td><?php echo Bilangan($_GET['bilangan']) ."rupiah"; ?></td>
 			</tr>
 	</table>
 	 	<?php
