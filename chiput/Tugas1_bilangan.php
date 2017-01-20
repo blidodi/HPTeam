@@ -23,27 +23,28 @@ if ($angka)
 <?php
     
 
-    function Bilangan($x){
-
+    function Bilangan($angka){
       $hurfAngka = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
-      if ($x < 12)
-        return " " . $hurfAngka[$x];
-      elseif ($x < 20)
-        return Bilangan ($x - 10) . "belas";
-      elseif ($x < 100)
-        return Bilangan ($x / 10) . " puluh" . Bilangan ($x % 10);
-      elseif ($x < 200)
-        return " seratus" . Bilangan ($x - 100);
-      elseif ($x < 1000)
-        return Bilangan ($x / 100) . " ratus" . Bilangan ($x % 100);
-      elseif ($x < 2000)
-        return " seribu" . Bilangan ($x - 1000);
-      elseif ($x < 1000000)
-        return Bilangan ($x / 1000) . " ribu" . Bilangan ($x % 1000);
-      elseif ($x < 1000000000)
-        return Bilangan ($x / 1000000) . " juta" . Bilangan ($x % 1000000);
+      if ($angka < 12)
+        return " " . $hurfAngka[$angka];
+      elseif ($angka < 20)
+        return Bilangan ($angka - 10) . "belas";
+      elseif ($angka < 100)
+        return Bilangan ($angka / 10) . " puluh" . Bilangan ($angka % 10);
+      elseif ($angka < 200)
+        return " seratus" . Bilangan ($angka - 100);
+      elseif ($angka < 1000)
+        return Bilangan ($angka / 100) . " ratus" . Bilangan ($angka % 100);
+      elseif ($angka < 2000)
+        return " seribu" . Bilangan ($angka - 1000);
+      elseif ($angka < 1000000)
+        return Bilangan ($angka / 1000) . " ribu" . Bilangan ($angka % 1000);
+      elseif ($angka < 1000000000)
+        return Bilangan ($angka / 1000000) . " juta" . Bilangan ($angka % 1000000);
+        elseif ($angka < 1000000000000)
+        return Bilangan ($angka / 1000000000) . " milyar" . Bilangan (fmod($angka,1000000000));
     }
 
-    echo "<h1>" .Bilangan(400000). "</h1>" ;
+    // echo "<h1>" .Bilangan(234345345123). "</h1>" ; 
 
 ?>

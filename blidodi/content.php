@@ -1,6 +1,7 @@
 <?php include "main/header.php"; ?>
 
 <h1>This is a Form</h1>
+
 <form action="passingvar.php" method="post">
 	Nama : <input type="text" name="nama" value="<?php echo @$_GET['nama'] ?>"  />
 	<br/>

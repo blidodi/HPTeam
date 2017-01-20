@@ -35,8 +35,5 @@ if ($nilaisi <= 50) {
 	echo "NILAI BAGUS";
 }
 
-
-
-
 ?>
 

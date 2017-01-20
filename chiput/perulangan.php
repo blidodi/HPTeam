@@ -66,26 +66,3 @@ for ($i=1; $i <= $count; $i++) {
 
 echo ganjilgenap(4);
 */
-
-function terbilang($i){
-	angkakata = array("satu", "dua", "tiga");
-
-	if ($i < 12) {
-		return " " . $huruf[$i];
-	} elseif ($i < 20) {
-		return terbilang($i - 10) . " belas";
-	} elseif ($i < 100) {
-		return terbilang($i / 10) . " puluh" . terbilang($i % 10);
-	} elseif ($i < 200) {
-		return " seratus" . terbilang($i - 100);
-	} elseif ($i < 1000) {
-		return terbilang($i / 100) . " ratus" . terbilang($i % 100);
-	} elseif ($i < 2000) {
-		return " seribu" . terbilang($i - 1000);
-	} elseif ($i < 1000000) {
-		return terbilang($i / 1000) . " ribu" . terbilang($i % 1000);
-	} else ($i < 1000000000) {
-		return terbilang($i / 1000000) . " juta" . terbilang($i % 1000000);  
-	}   
-}
-}
