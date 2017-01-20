@@ -4,7 +4,7 @@
 	<title>Latihan HTML Part 1</title>
 </head>
 <body>
-<form action="main.php" method="get">
+<form action="tampil.php" method="get">
 <table>
 	<tr>
 		<td>No.</td>
