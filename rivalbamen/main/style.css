@@ -1,0 +1,20 @@
+
+table {
+	border: 1px #CCCCCC;
+}
+
+td {
+	padding: 5px 10px 3px 7px;
+}
+
+.abu {
+	background: #CCCCCC;
+}
+
+input[type=submit] {
+	padding: 5px;
+	border: none;
+	background: green;
+	border-radius: 5px;
+	color: white;
+}
