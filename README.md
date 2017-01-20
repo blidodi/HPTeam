@@ -25,4 +25,15 @@ Here the member :
 	> git commit -am "Add new directory <username>"
 	> git push origin master
  ```
+#Homework Week #1
+ ```bash
+    1. Buat Folder Baru yang isinya :
+    	- file konfigurasi terbilang
+    	- file form kwitansi
+    	- file hasil kwitansi
+    	- file form login
+    	- file css
+    2. Rapikan file yang dikerjakan sebelumnya
+    3. Selamat bekerja
+ ```
 

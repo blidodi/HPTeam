@@ -6,8 +6,11 @@
 </head>
 
 <body>
-	<?php if(isset($_POST['tampilkan'])) { ?>
-	<h1><u>Bukti Kwitansi</u></h1>
+	<?php require "terbilang.php"; 
+		if(isset($_POST['tampilkan'])) { ?>
+
+	<h1>Bukti Kwitansi</h1>
+	<hr><br/>
 	<table>
 		<tr>
 			<td>No.</td>
@@ -22,7 +25,7 @@
 		<tr>
 			<td>Uang Sejumlah</td>
 			<td>:</td>
-			<td><?php echo $_POST['jumlah']?></td>
+			<td><?php echo terbilang($_POST['jumlah'])?></td>
 		</tr>
 		<tr>
 			<td>Untuk Pembayaran</td>
