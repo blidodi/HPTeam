@@ -1,6 +1,34 @@
 <?php
 include "fungsi.php";
 if (isset($_POST['terbilang'])) {
- 	echo "<p>"."no : ".$_POST['no']."</br>"."Diterima Dari : ".$_POST['diterima']."</br>"."Nominal uang : Rp. ".$_POST['nominal']."</br>"."untuk Pembayaran : ".$_POST['untuk']."</br>".fungsi1($_POST['nominal'])."rupiah</p>";
+?>
+	<table>
+		<tr>
+			<td>No.</td>
+			<td> : </td>
+			<td><?php echo $_POST['no'] ?></td>
+		</tr>
+
+		<tr>
+			<td>Diterima dari</td>
+			<td> : </td>
+			<td><?php echo $_POST['diterima'] ?></td>
+		</tr>
+
+		<tr>
+			<td>Nominal</td>
+			<td> : </td>
+			<td><?php echo "Rp ".$_POST['nominal'] ?></td>
+		</tr>
+
+		<tr>
+			<td>Untuk Pembayaran</td>
+			<td> : </td>
+			<td><?php echo $_POST['untuk'] ?></td>
+		</tr>
+		<tr>
+			<td><?php echo fungsi1($_POST['nominal'])."rupiah"?></td>
+		</tr>
+	</table><?php
  } 
  ?>
