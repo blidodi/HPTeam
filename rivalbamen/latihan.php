@@ -2,13 +2,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="main/style.css">
 	<title>Form Kwitansi</title>
 </head>
 
 <body>
-	<h1><u>Form Kwitansi</u></h1>
+	<h1>Form Kwitansi</h1> 
+	<hr>
 	<form action="hasilkwi.php" method="post" >
-	<table>
+	<table >
 		
 		<tr>
 			<td>No.</td>
@@ -31,7 +33,7 @@
 			<td><input type="text" name="bayar" /></td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="3" align="right">
 				<input type="submit" value="Tampilkan" name="tampilkan" />
 			</td>
 		</tr>
