@@ -1,13 +1,38 @@
 <?php include "latihanhtml/header.php";?>
 
-<form action = "<?php $_SERVER['PHP_SELF']?>" method="post">
-	<input type="text" name="bilangan"/><input type="submit" name="terbilang" value="Terbilang" />
+<form action="latihanhtml/eksekusi.php" method="post">
+<table>
+		<tr>
+			<td>No.</td>
+			<td> : </td>
+			<td><input type="text" name="no" value="<?php echo @$_POST['nama']?>" /></td>
+		</tr>
+
+		<tr>
+			<td>Diterima dari</td>
+			<td> : </td>
+			<td><input type="text" name="diterima" value="<?php echo @$_POST['bilangan']?>" /></td>
+		</tr>
+
+		<tr>
+			<td>Nominal</td>
+			<td> : </td>
+			<td><input type="text" name="nominal" value="<?php echo @$_POST['bilangan']?>" /></td>
+		</tr>
+
+		<tr>
+			<td>Untuk Pembayaran</td>
+			<td> : </td>
+			<td><input type="text" name="untuk" value="<?php echo @$_POST['bilangan']?>" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td><input type="submit" name="terbilang" value="Input" /></td>
+		</tr>
+	</table>
+	
 </form>
 
 
-<?php
-require "latihanhtml/fungsi.php";
-if (isset($_POST['terbilang'])) {
- 	echo "<p>".fungsi($_POST['bilangan'])."</p>";
- } 
- include "latihanhtml/footer.php";?>
+<?php include "latihanhtml/footer.php";?>
