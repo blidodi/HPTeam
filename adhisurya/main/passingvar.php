@@ -9,7 +9,7 @@
 <body>
 	<?php
 	if (isset($_POST['terbilang'])) {
-		require "konfigurasi.php";
+		require "main/konfigurasi.php";
 	?>	
 	<table width="400" height="200" border="1" align="center" cellpadding="5" cellspacing="0" style="background-color:#FFFFFF;border:solid 1px #C3C3C3;">
 		<th colspan="3" bgcolor="#CCCCCC">Bukti Pembayaran</th>
