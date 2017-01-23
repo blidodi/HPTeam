@@ -40,7 +40,7 @@
     </div>
     
     <div class="signinButton">
-        <center><input type="submit" name="submit" id="submit" value="Signin" /></center>
+        <center><input type="submit" name="submit" id="submit" value="Sign In"/></center>
     </div>
     </form>
         

@@ -1,5 +1,5 @@
 *{
-	/* Resetting the default styles of the page */
+
 	margin:0;
 	padding:0;
 }
@@ -9,7 +9,7 @@ html{
 }
 
 body{
-	/* Setting default text color, background and a font stack */
+
 	font-size:0.825em;
 	color:#eee;
 	background:url("img/bg.png") repeat-x #222222;
@@ -17,7 +17,7 @@ body{
 }
 
 #carbonForm{
-	/* The main form container */
+
 	background-color:#1C1C1C;
 	border:1px solid #080808;
 	margin:20px auto;
@@ -111,9 +111,7 @@ label{
 	border-radius:6px;
 }
 
-#submit.active{
-	background-image:url("img/preloader.gif");
-}
+
 
 #submit:hover{
 	background-color:#dcf2ff;
