@@ -12,9 +12,13 @@
 <body>
 
 <div id="carbonForm">
-    <h1><center>Sign In Your Account</center></h1>
+    <center>
+    <img src="img/users.png" class="image" width="10%">
+    <h2>Sign In Your Account</h2>
+    </center>
     <div class="fieldContainer">
         
+        <center>
         <div class="formRow">
             <div class="label">
                 <label for="email"></label>
@@ -30,12 +34,13 @@
                 <input type="password" name="pass" id="pass" />
             </div>
         </div>
+        </center>
         
         
     </div>
     
     <div class="signinButton">
-        <input type="submit" name="submit" id="submit" value="Signin" />
+        <center><input type="submit" name="submit" id="submit" value="Signin" /></center>
     </div>
     </form>
         
