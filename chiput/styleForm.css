@@ -79,7 +79,7 @@ label{
 }
 
 .field input{
-	/* The text boxes */
+
 	border:1px solid white;
 	color:#666666;
 	font-family:Arial,Helvetica,sans-serif;
@@ -89,14 +89,14 @@ label{
 	outline:none; 
 }
 
-.signupButton{
-	/* The submit button container */
+.signinButton{
+
 	text-align:center;
 	padding:30px 0 10px;
 }
 
 #submit{
-	/* The submit button */
+
 	border:1px solid #f4f4f4;
 	cursor:pointer;
 	height:40px;
@@ -125,20 +125,6 @@ input:focus{
 	-moz-box-shadow:0 0 8px lightblue;
 	-webkit-box-shadow:0 0 8px lightblue;
 	box-shadow:0 0 8px lightblue;
-}
-
-.errorTip{
-	background-color:#970F08;
-	color:white;
-	font-size:10px;
-	height:26px;
-	letter-spacing:0.4px;
-	margin-left:20px;
-	padding:5px 0 5px 10px;
-	position:absolute;
-	text-shadow:1px 1px 0 #555555;
-	width:200px;
-	right:-130px;
 }
 
 
