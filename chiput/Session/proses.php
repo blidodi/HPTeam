@@ -20,7 +20,7 @@ if (isset($_POST['simpan']) && $_POST['simpan'] == "Simpan") {
 	# code...
 	if (empty($_POST['nama']) && empty($_POST['data'])) {
 		# code...
-		header('location:index.php');
+		header('location:index.php?$pesan=1');
 	
 	} elseif (isset($_POST['data']) && $_POST['data'] == '123' && isset($_POST['nama']) && $_POST['nama'] == 'chiput') {
 		# code...
@@ -28,9 +28,11 @@ if (isset($_POST['simpan']) && $_POST['simpan'] == "Simpan") {
 		$_SESSION['data'] = $_POST['data'];
 		$_SESSION['nama'] = $_POST['nama'];
 		header('location:dashboard.php');
-	} 
-	else {
+	} else {
+		header('location:index.php?pesan=2');
+	}
+} else {
 		header('location:index.php');
 	}
-}
+
 ?>
