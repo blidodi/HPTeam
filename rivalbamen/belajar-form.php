@@ -10,7 +10,6 @@
 		.box {
 			float: left;
 			width: 500px;
-
 		}
 	</style>
 </head>
@@ -34,15 +33,15 @@
 			if (empty($_POST['data'])){
 				echo "Tidak ada masukan data.";
 			} else if(preg_match("/^[a-zA-Z ]*$/", $_POST['data'])) {
-				echo $_POST['data'];		 
+				echo "Nama : ".$_POST['data'];		 
 			} else {
 				echo "Parameter tidak diperbolehkan."; 
 			} 
-		echo "<br/>";
+		echo "<br/><br/>";
 		if (empty($_POST['angka'])){
 				echo "Tidak ada masukan angka.";
 			} else if(preg_match("/^[0-9 ]*$/", $_POST['angka'])) {
-				echo $_POST['angka'];		 
+				echo "Telpon : ".$_POST['angka'];		 
 			} else {
 				echo "Parameter tidak diperbolehkan.";
 			} 
