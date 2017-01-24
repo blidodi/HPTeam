@@ -53,7 +53,7 @@
 </head>
 
 <body>
-	<form action="passingvar.php" method="post">
+	<form action="main/passingvar.php" method="post">
 		<table  width="400" height="200">
 			<th colspan="3">Bukti Pembayaran</th>
 			<tr class="abu">
@@ -84,4 +84,5 @@
 		</table>
 	</form>
 </body>
+
 </html>
