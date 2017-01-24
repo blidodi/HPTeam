@@ -9,5 +9,7 @@
 		} else {
 			header('location:index.php?pesan=2');
 		}
+	} else {
+		header('location:index.php');
 	}
 ?>
