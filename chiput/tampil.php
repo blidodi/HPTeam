@@ -2,6 +2,8 @@
 		require "Tugas1_bilangan.php";
 	 	if (isset($_GET['terbilang'])) {
 	 	?>
+	 	<fieldset>
+	 	<legend><h2>Kwitansi</h2></legend>
 	 	<table>
 			<tr>
 				<td>Nomor</td>
@@ -30,6 +32,7 @@
 				<td><?php echo Bilangan($_GET['bilangan']) ."rupiah"; ?></td>
 			</tr>
 	</table>
+	</fieldset>
 	 	<?php
 	 	}
 	 ?>
