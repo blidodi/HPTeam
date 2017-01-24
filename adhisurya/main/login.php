@@ -67,10 +67,10 @@
 </style>
 </head>
 <body>
-  <form action="latihan/proseslogin.php" method="post" name="form1">
+  <form action="main/proseslogin.php" method="post" name="form1">
   <table width="400" height="200">
     <tr>
-      <th><img src="main/logo_djingga.png" style="width:100px; height:100px;"></th>
+      <th><img src="../main/logo_djingga.png" style="width:100px; height:100px;"></th>
     </tr>
     <tr>
       <td><input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="admin" required></td>
