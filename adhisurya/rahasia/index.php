@@ -1,7 +1,8 @@
 <?php
 	session_start();
-	if(isset($_SESSION['data']) && $_SESSION['data'] == '123'&& isset($_SESSION['huruf']) && $_SESSION['huruf'] == 'surya') {
-		header('location:dashboard.php');
+	if(isset($_SESSION['data']) && $_SESSION['data'] == '123'&& 
+		isset($_SESSION['huruf']) && $_SESSION['huruf'] == 'surya') {
+			header('location:dashboard.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -66,7 +67,7 @@
 	<form action="proses.php" method="post">
 	<table>
 		<tr>
-			<th></th>
+			<th>FORM <br/><br/></th>
 		</tr>
 		<tr>
 			<td>Masukan Name :
@@ -78,6 +79,40 @@
 				<input type="password" name="data" />
 			</td>
 		</tr>
+		<br/>
+		<tr>
+			<td>
+				<?php
+					if(isset($_GET['pesan']) && !empty($_GET['pesan']) && isset($_GET['nama']) && !empty($_GET['nama'])) {
+						switch ($_GET['nama']) {
+							case '1':
+									$nama = "Nama tidak boleh kosong.";
+								break;
+							case '2':
+									$nama = "Nama tidak tepat.";
+								break;	
+							default:
+									$nama = "Anda tidak berhak mengakses pesan ini.";
+								break;
+						}
+							echo "Pesan : ".$nama;
+							echo "<br/>";	
+						switch ($_GET['pesan']) {
+							case '1':
+									$pesan = "Kata Sandi tidak boleh kosong.";
+								break;
+							case '2':
+									$pesan = "Kata Sandi tidak tepat.";
+								break;	
+							default:
+									$pesan = "Anda tidak berhak mengakses pesan ini.";
+								break;
+						}
+							echo "Pesan : ".$pesan;				
+					}
+				?>
+			</td>
+		</tr>		
 		<tr>	
 			<td><input type="submit" name="save" value="Save">
 			</td>
