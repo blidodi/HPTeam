@@ -3,6 +3,10 @@
 	<head>
 		<title>Coba Form</title>
 		<style>
+
+			table{
+				border-style: none;
+			}
 			input{
 				margin-top: 10px;
 				/*display: block;*/
@@ -11,22 +15,19 @@
 	</head>
 	<body>
 		<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-			<div>
+		<table>
+			
 				<tr>
 					<td>abjat</td>
 					<td> : </td>
 					<td><input type="text" name="abjat"></td>
 				</tr>
-			</div>
-			
-			<div>
 				<tr>
 					<td>angka</td>
 					<td> : </td>
-					<td><input type="text" name="angka"></tr>
-			</div>
-			
-			<input type="submit" name="save" value="Save">
+					<td><input type="text" name="angka"></td></tr>			
+				<td><input type="submit" name="save" value="Save"><td>
+		</table>
 		</form>
 		<br/>
 			<?php
@@ -52,5 +53,6 @@
 					}
 				}
 			?>
+
 	</body>
 </html>
