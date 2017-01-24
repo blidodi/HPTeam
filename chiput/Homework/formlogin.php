@@ -20,10 +20,6 @@
         
         <center>
         <div class="formRow">
-            <div class="label">
-                <label for="email"></label>
-            </div>
-            
             <div class="field">
                 <input type="text" name="email" id="email" />
             </div>
@@ -36,12 +32,12 @@
         </div>
         </center>
         
-        
-    </div>
-    
-    <div class="signinButton">
+        <div class="signinButton">
         <center><input type="submit" name="submit" id="submit" value="Sign In"/></center>
     </div>
+    </div>
+    
+    
     </form>
         
 </div>
