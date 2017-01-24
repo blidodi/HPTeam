@@ -1,6 +1,10 @@
 *{
 
+<<<<<<< HEAD
+	margin:0;
+=======
 	margin:10px;
+>>>>>>> upstream/master
 	padding:0;
 }
 
@@ -9,6 +13,10 @@ html{
 }
 
 body{
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/master
 	font-size:0.825em;
 	color:#eee;
 	background:url("img/bg.png") repeat-x #222222;
@@ -16,6 +24,10 @@ body{
 }
 
 #carbonForm{
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/master
 	background-color:#1C1C1C;
 	border:1px solid #080808;
 	margin:20px auto;
@@ -27,6 +39,20 @@ body{
 	box-shadow:0 0 1px #444 inset;
 }
 
+<<<<<<< HEAD
+#carbonForm h2{
+	font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	font-weight:normal;
+	padding:10px 20px;
+}
+
+.fieldContainer{
+
+	background-color:#1E1E1E;
+	border:1px solid #0E0E0E;
+	padding:30px 10px;
+	
+=======
 #carbonForm h1{
 	/* The form heading */
 	font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
@@ -42,11 +68,23 @@ body{
 	border:1px solid #0E0E0E;
 	padding:30px 10px;
 
+>>>>>>> upstream/master
 	-moz-box-shadow:0 0 20px #292929 inset;
 	-webkit-box-shadow:0 0 20px #292929 inset;
 	box-shadow:0 0 20px #292929 inset;
 }
 
+<<<<<<< HEAD
+#carbonForm,.fieldContainer,.errorTip{
+	/* Rounding the divs at once */
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+
+=======
+>>>>>>> upstream/master
 .formRow{
 	height:35px;
 	padding:10px;
@@ -68,16 +106,28 @@ label{
 }
 
 .field{
+<<<<<<< HEAD
+	padding: 0px auto;
+}
+
+.field input{
+
+=======
 	float:left;
 }
 
 .field input{
 	/* The text boxes */
+>>>>>>> upstream/master
 	border:1px solid white;
 	color:#666666;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:22px;
 	padding:4px 5px;
+<<<<<<< HEAD
+	background:url("img/box_bg.png") repeat-x scroll left top #FFFFFF;
+=======
+>>>>>>> upstream/master
 	outline:none; 
 }
 
@@ -96,16 +146,37 @@ label{
 	text-transform:uppercase;
 	width:110px;
 	
+<<<<<<< HEAD
+	background:url("img/submit.png") no-repeat center center #d0ecfd;
+	
+=======
+>>>>>>> upstream/master
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
 }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> upstream/master
 #submit:hover{
 	background-color:#dcf2ff;
 	border:1px solid white;
 }
 
+<<<<<<< HEAD
+input:hover,
+input:focus{
+	-moz-box-shadow:0 0 8px lightblue;
+	-webkit-box-shadow:0 0 8px lightblue;
+	box-shadow:0 0 8px lightblue;
+}
+
+
+=======
+>>>>>>> upstream/master
 #footer{
 	position:fixed;
 	bottom:0;
@@ -115,4 +186,21 @@ label{
 	text-align:center;
 	font-weight:normal;
 	font-style:italic;
+<<<<<<< HEAD
+}
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a img{
+	border:none;
+=======
+>>>>>>> upstream/master
 }
