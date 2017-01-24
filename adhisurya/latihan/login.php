@@ -70,6 +70,9 @@
   <form action="latihan/proseslogin.php" method="post" name="form1">
   <table width="400" height="200">
     <tr>
+      <th>Form Information</th>
+    </tr>
+    <tr>
       <th><img src="main/logo_djingga.png" style="width:100px; height:100px;"></th>
     </tr>
     <tr>
