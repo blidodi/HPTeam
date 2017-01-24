@@ -1,3 +1,11 @@
+<?php
+session_start();
+	if (!isset($_SESSION['pass']) && !$_SESSION['pass'] == 'chiput1993' && !isset($_SESSION['user']) && !$_SESSION['user'] == 'chiput') {
+		header('location:index.php');
+	}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
