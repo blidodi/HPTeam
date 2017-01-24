@@ -31,13 +31,41 @@
 	</style>
 </head>
 <body>
-	<h2>Isi Form Berikut :</h2>
+	<h2>Isi Form Berikut :</h2><hr><br/>
 	<form action="proses.php" method="post">
 		Nama : <br/>
 		<input type="text" name="nama" /> <br/>
 		Kata Sandi : <br/>
 		<input type="password" name="data" />
 		<input type="submit" name="save" value="Save" />
+		<hr><br/>
+		<?php 
+			if(isset($_GET['pesan']) && !empty($_GET['pesan']) && isset($_GET['pass']) && !empty($_GET['pass'])) {
+				switch ($_GET['pesan']) {
+					case 1:
+						$pesan = "Nama tidak boleh kosong";
+						break;
+					case 2:
+						$pesan = "Nama salah";
+						break;
+					default:
+						$pesan = "Anda tidak berhak mengakses pesan ini";
+				}
+				echo "Pesan : ".$pesan;
+				echo "<br/>";
+				switch ($_GET['pass']) {
+					case 1:
+						$pesan = "Kata Sandi tidak boleh kosong";
+						break;
+					case 2:
+						$pesan = "Kata Sandi salah";
+						break;
+					default:
+						$pesan = "Anda tidak berhak mengakses pesan ini";
+				}
+				echo "Pesan : ".$pesan;
+			}
+		?>
 	</form>
 </body>
 </html>
