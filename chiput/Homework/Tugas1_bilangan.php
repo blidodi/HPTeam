@@ -9,11 +9,11 @@
 </form>
 <pre>
 <?php
-$angka = isset($_POST['angka']) ? $_POST['angka'] : "0";
-if ($angka)
+//$angka = isset($_POST['angka']) ? $_POST['angka'] : "0";
+//if ($angka)
 {
-        echo number_format($angka, 0) . " =";
-        echo ucwords(Bilangan($angka));
+ //       echo number_format($angka, 0) . " =";
+  //      echo ucwords(Bilangan($angka));
 }
 ?>
 </pre>
@@ -28,7 +28,7 @@ if ($angka)
       if ($angka < 12)
         return " " . $hurfAngka[$angka];
       elseif ($angka < 20)
-        return Bilangan ($angka - 10) . "belas";
+        return Bilangan ($angka - 10) . " belas";
       elseif ($angka < 100)
         return Bilangan ($angka / 10) . " puluh" . Bilangan ($angka % 10);
       elseif ($angka < 200)
