@@ -3,7 +3,7 @@
 }
 table {
     border-collapse: collapse;
-    width: 75%;
+    width: 100%;
 }
 
 table, th, td {
@@ -23,5 +23,87 @@ td {
 }
 
 tr:nth-child(even){
-	background-color: #f2f2f2
+	background-color: rgb(226, 247, 255);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+	color: black;
+    text-decoration: underline;
+}
+
+.button {
+    background-color: rgb(255, 12, 21);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button:hover {
+	background-color: rgb(255, 213, 237);
+}
+
+.button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button1:hover {
+	background-color: rgb(165, 255, 159);
+}
+
+.button2 {
+    background-color: blue; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button2:hover {
+	background-color: rgb(150, 222, 254);
+}
+
+input, select {
+	margin-top: 10px;
+	display: block;
+	height: 35px;
+	width: 300px;
+	margin-top: 2px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 0px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+	border: none;
+	background: rgb(0, 196, 146);
+	border-radius: 5px;
+	color: white;
 }
