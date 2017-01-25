@@ -9,18 +9,20 @@
 			}
 
 			th, td {
-			    text-align: left;
+			   
 			    padding: 8px;
+			    font-family: Arial;
 			}
 
 			tr:nth-child(even){background-color: #f2f2f2}
 
 			th {
-			    background-color: #CCCCCC;
-			    color: white;
+			    background-color: #FFFFFF;
+			    color: #000000;
 			}
-			button {
-			    background-color: blue; /* Green */
+
+			.button {
+			    background-color: #4CAF50; /* Green */
 			    border: none;
 			    color: white;
 			    padding: 10px 20px;
@@ -30,27 +32,30 @@
 			    font-size: 16px;
 			    margin: 4px 2px;
 			    cursor: pointer;
-			    -webkit-transition-duration: 0.4s; /* Safari */
-			    transition-duration: 0.4s;
 			}
-			.button2:hover {
-			    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-			}
+			.button1 {background-color: blue;} /*Blue */
+			.button2 {background-color: orange;} /* Orange */
+			.button3 {background-color: red;} /* Red */ 
+
+			
 		</style>
 </head>
 <body>
 	<table>
 		<tr>
-			<th colspan="7">Form Data</th>
+			<th colspan="7"><b><h2>DATA KWITANSI</h2></b></th>
 	    </tr>
+	    <tr>
+    		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah.php">Tambah</a></th>
+    	</tr>
 		<tr>
 			<th>No</th>	
 			<th>Nama</th>	
 			<th>Nominal</th>	
-			<th>Kebutuhan</th>	
-			<th align="center">Detail</th>
-			<th align="center">Edit</th>
-			<th align="center">Hapus</th>
+			<th>Kebutuhan</th>
+			<th>Status</th>	
+			<th align="center" colspan="3">Action</th>
+
 		</tr>
 				<?php
 					$host = "localhost";
@@ -62,7 +67,7 @@
 					$con = mysql_connect($host, $user, $pass) or die("Server ERROR.");
 					mysql_select_db($base);
 
-					$sql = "SELECT * FROM `data`";
+					$sql = "SELECT `data`.*, `status`.`nama` as status FROM `data` JOIN `status` WHERE `data`.`ID`=`status`.`id_data`";
 
 					$data = mysql_query($sql);
 
@@ -71,12 +76,12 @@
 					?>	
 							<tr>
 								<td align="center"><?php echo $row['ID'] ?></td>
-								<td align="center"><?php echo $row['nama'] ?></td>
-								<td align="center"><?php echo $row['nominal'] ?></td>
+								<td><?php echo $row['nama'] ?></td>
+								<td><?php echo $row['nominal'] ?></td>
 								<td><?php echo $row['kebutuhan'] ?></td>
-								<td><button class="button button2">Edit</button></td>
-								<td><button class="button button2">Edit</button></td>
-								<td><button class="button button2">Hapus</button></td>
+								<td><?php echo $row['status'] ?></td>
+								<td><center><a class="button button2" href="edit.php?id=<?php echo $row['ID'] ?>"> Edit </center></a></td>
+								<td><center><a class="button button3" href="hapus.php?id=<?php echo $row['ID'] ?>"> Hapus </center></a></td>
 							</tr>
 					<?php
 						}
