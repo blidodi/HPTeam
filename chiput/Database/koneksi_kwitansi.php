@@ -36,25 +36,42 @@
 		    font-style: italic;
 		}
 
-		tr:nth-child(even){background-color: #FFC0CB}
+		tr:nth-child(even){background-color: #FFDAB9}
 
 		th {
-		    background-color: #FF007F;
+		    background-color: #DC143C;
 		    color: white;
 		}
 
-		h2{
-			font-family: "Times New Roman";
-			font-style: italic;
-			color: #FFC0CB;
-			text-shadow: 1px 1px 5px #000000;
+		@font-face{
+			font-family: "Baron Neue Black";
+			src:url(Baron Neue Black.otf);
+			color: white;
+			text-shadow: 1px 1px 5px #FF007F;
+		}
+		#button1{
+			background-color: #000000;
+			border: 1px solid;
+			color: white;
+			cursor: pointer;
+			text-align: center;
+		}
+		#button2{
+			background-color: #f44336;
+			border: 1px solid;
+			color: white;
+			cursor: pointer;
+			text-align: center;
+		}
+		#button-hover{
+
 		}
 	</style>
  </head>
  <body>
 
   <center>
-	<h2> Tampil Database Kwitansi </h2>
+	<h2> Table Kwitansi Kebutuhan </h2>
 	<table border="1px">
 		<tr>
 			<center>
@@ -62,13 +79,16 @@
 			<th>Diterima Dari</th>
 			<th>Nominal Uang</th>
 			<th>Untuk Pembayaran</th>
+			<th>Status</th>
+			<th>Operasi</th>
 			</center>
 		</tr>
 	</center>
 
 	<?php  
 
-		$sql = "SELECT * FROM `data`";
+		$sql = "SELECT `data`.*,`status` as status FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data` ";
+		//$sql = "SELECT * FROM `data`";
 		$hasil = mysql_query($sql);
 
 		while ($data = mysql_fetch_array ($hasil)){
@@ -78,15 +98,15 @@
 		        <td>".$data['nama']."</td>
 		        <td>".$data['nominal']."</td>
 		        <td>".$data['kebutuhan']."</td>
+		        <td>".$data['status']."</td>
+		        <td><a href=\"hapus.php?id=\" id=\"button2\">Hapus</a> <a href=\"ubah.php?id=\" id=\"button1\">Ubah</a></td>
 		        </tr> 
 		        ";
 		        
 		}
 
 	?>
-
 	</table>
- 
  </body>
  </html>
 
