@@ -11,13 +11,13 @@
 	$con = mysql_connect($host, $user, $pass) or die("Server ERROR.");
 	mysql_select_db($base);
 
-	$sql = "SELECT * FROM `data`";
+	$sql = "SELECT * FROM `data` ORDER BY `ID` DESC";
 
 	$data = mysql_query($sql);
 
 	if (mysql_num_rows($data) > 0) {
 		while($row = mysql_fetch_array($data)) {
-			echo $row['ID']." | ".$row['nama']." | ".$row['nominal']." | ".$row['kebutuhan']."<br/>";
+			echo $row['ID']." | ".$row['nama']." | ".$row['nominal']." | ".$row['kebutuhan']." | <a href=\"ubah.php?id=".$row['ID']."\">Ubah</a> <a href=\"hapus.php?id=".$row['ID']."\">Hapus</a> <br/>";
 		}
 		mysql_close();
 	} else {
