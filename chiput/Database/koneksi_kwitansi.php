@@ -36,24 +36,25 @@
 		    font-style: italic;
 		}
 
-		tr:nth-child(even){background-color: #f2f2f2}
+		tr:nth-child(even){background-color: #FFC0CB}
 
 		th {
-		    background-color: green;
+		    background-color: #FF007F;
 		    color: white;
 		}
 
-		h3{
+		h2{
 			font-family: "Times New Roman";
 			font-style: italic;
+			color: #FFC0CB;
+			text-shadow: 1px 1px 5px #000000;
 		}
 	</style>
  </head>
  <body>
 
   <center>
-	<h3> Tampil Database Kwitansi </h3>
-
+	<h2> Tampil Database Kwitansi </h2>
 	<table border="1px">
 		<tr>
 			<center>
