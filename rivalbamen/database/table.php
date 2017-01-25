@@ -6,24 +6,23 @@
 	<title>Form Kwitansi</title>
 </head>
 <body>
-<h1>Bukti Kwitansi</h1><hr><br/>
+<h1>Bukti Kwitansi</h1><hr>
+<a class="button2" href="tambah.php">Tambah</a>
+<br/>
 <table>
 	<tr><th>No.</th>
 		<th>Nama</th>
 		<th>Nominal</th>
 		<th>Kebutuhan</th>
+		<th>Status</th>
+		<th>Action</th>
 	</tr>
 
 <?php
 
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
-	$db = "kwitansi";
-
-	$con = mysql_connect($host, $user, $pass) or die("Server Error!");
-		mysql_select_db($db);
-	$sql = "SELECT * FROM `data`";
+	include "config.php";
+	$sql = "SELECT data.*, status.nama as status FROM data JOIN status 
+			WHERE  data.id=status.id_data";
 	$data = mysql_query($sql);
 
 	if(mysql_num_rows($data) > 0) {
@@ -35,6 +34,9 @@
 		<td><?php echo $row['nama'] ?></td>		
 		<td><?php echo $row['nominal'] ?></td>		
 		<td><?php echo $row['kebutuhan'] ?></td>
+		<td><?php echo $row['status'] ?></td>
+		<td><a class="button1" href="ubah.php?id=<?php echo $row['id'] ?>">Ubah</a> | 
+			<a class="button" href="hapus.php?id=<?php echo $row['id']?>">Hapus</a></td>
 	</tr>	
 	
 <?php
