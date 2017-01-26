@@ -38,17 +38,17 @@
 		if(isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan') {
 			include "config.php";
 
-			$sql = "INSERT INTO `data` (`nama`, `nominal`, `kebutuhan`) 
+			$sql = "INSERT INTO `user` (`nama`, `username`, `password`) 
 					VALUES ('".$_POST['nama']."', 
-							'".$_POST['nominal']."', 
-							'".$_POST['kebutuhan']."')";
+							'".$_POST['username']."', 
+							'".$_POST['password']."')";
 
 			$result = mysql_query($sql);
 
 			$id = mysql_insert_id();
 
-			$sql = "INSERT INTO `status` (`id_data`, `nama`) 
-					VALUES ('".$id."', '".$_POST['status']."')";
+			$sql = "INSERT INTO `user_role` (`ID`, `role`) 
+					VALUES ('".$id."', '".$_POST['role']."')";
 
 			$result = mysql_query($sql);
 
@@ -62,14 +62,14 @@
 	<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 		<label>Nama :</label>
 		<input type="text" name="nama" />
-		<label>Nominal :</label>
-		<input type="text" name="nominal" />
-		<label>Kebutuhan :</label>
-		<input type="text" name="kebutuhan" />
-		<select name="status">
+		<label>Username :</label>
+		<input type="text" name="username" />
+		<label>Password :</label>
+		<input type="text" name="password" />
+		<select name="role">
 			<option value="">Pilih</option>
-			<option value="Lunas">Lunas</option>
-			<option value="Kredit">Kredit</option>
+			<option value="Admin">Admin</option>
+			<option value="User">User</option>
 		</select>
 		<input class ="button button1" type="submit" name="simpan" value="Simpan" />
 		<a class ="button button1" href="table.php">Batal</a>			

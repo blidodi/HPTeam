@@ -48,7 +48,7 @@
 <body>
 	<table>
 		<tr>
-			<td colspan="7"><b><h2>DATA KWITANSI</h2></b></td>
+			<td colspan="7"><b><h2>FORM DATA</h2></b></td>
 	    </tr>
 	    <tr>
     		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah.php">Tambah</a></th>
@@ -56,28 +56,31 @@
 		<tr>
 			<th>No</th>	
 			<th>Nama</th>	
-			<th>Nominal</th>	
-			<th>Kebutuhan</th>
-			<th>Status</th>	
+			<th>Username</th>	
+			<th>Password</th>
+			<th>User Role</th>
 			<th align="center" colspan="3">Action</th>
 
 		</tr>
 				<?php
 					include "config.php";
 
-					$sql = "SELECT `data`.*, `status`.`nama` as status FROM `data` JOIN `status` WHERE `data`.`ID`=`status`.`id_data` ORDER BY `ID` DESC";
 
-					$data = mysql_query($sql);
+					$sql = "SELECT `user`.*, `user_role`.`role` as user_role FROM `user` JOIN `user_role` WHERE `user`.`ID`=`user_role`.`ID` ORDER BY `ID` DESC";
 
-					if (mysql_num_rows($data) > 0) {
-						while($row = mysql_fetch_array($data)) {
+					/* $sql = "SELECT `ID`, `nama`, `username`, `password` FROM `user`"; */
+
+					$user = mysql_query($sql);
+
+					if (mysql_num_rows($user) > 0) {
+						while($row = mysql_fetch_array($user)) {
 					?>	
 							<tr>
 								<td align="center"><?php echo $row['ID'] ?></td>
 								<td><?php echo $row['nama'] ?></td>
-								<td><?php echo $row['nominal'] ?></td>
-								<td><?php echo $row['kebutuhan'] ?></td>
-								<td><?php echo $row['status'] ?></td>
+								<td><?php echo $row['username'] ?></td>
+								<td><?php echo $row['password'] ?></td>
+								<td><?php echo $row['user_role'] ?></td>
 								<td><center><a class="button button2" href="ubah.php?id=<?php echo $row['ID'] ?>"> Ubah </center></a></td>
 								<td><center><a class="button button3" href="hapus.php?id=<?php echo $row['ID'] ?>"> Hapus </center></a></td>
 							</tr>
