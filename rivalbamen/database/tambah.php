@@ -23,14 +23,15 @@
 			$result = mysql_query($sql);
 
 			if($result) {
-				header('location:table.php');
+				header('location:index.php');
 			} else {
 				echo "Data Gagal Disimpan";
 			}
 		}
 
 	?>
-	<h1>Form Kwitansi</h1><hr><br/>
+	<h1>Form Kwitansi</h1><hr>
+	<p><a class="p-color" href="index.php">Tabel Kwitansi</a> / Tambah Kwitansi</p>
 	<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 		<label>No.</label>
 		<input type="text" name="no" />
