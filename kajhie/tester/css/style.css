@@ -15,8 +15,8 @@ th {
     color: white;
 }
 
-.button {
-    background-color:  #ffcc00; /* Green */
+.button_merah {
+    background-color:  #f44336;
     border: none;
     color: white;
     padding: 3px 10px;
@@ -27,10 +27,44 @@ th {
     margin: 5px 3px;
     cursor: pointer;
 }
-.button1 {
-	background-color: #f44336;
+
+.button_biru {
+    background-color:  #008CBA;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
 }
 
+.button_kuning {
+    background-color:  #ffcc00;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+.button_hijau {
+    background-color:  #ffcc00;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
 h3{
 	font-family: "Arial";
 	font-style : normal;
