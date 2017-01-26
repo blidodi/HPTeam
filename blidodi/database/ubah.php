@@ -12,6 +12,7 @@
 				color: blue;
 			}
 			input, select {
+				width: 60px;
 				display: block;
 				padding: 10px;
 				margin: 10px;
