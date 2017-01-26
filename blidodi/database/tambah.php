@@ -32,7 +32,7 @@
 
 				$id_data = mysql_insert_id();
 
-				$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
+				$sql_status = "INSERT INTO `status` (`id_data`, `status`)
 									VALUES	('".$id_data."',
 											'".$_POST['status']."')";
 

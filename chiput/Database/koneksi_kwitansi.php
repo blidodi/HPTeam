@@ -99,37 +99,32 @@
 
 		include "koneksi.php";
 
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-
-		$database = "kwitansi_db";
-
-		$connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
-		mysql_select_db($database);
-
-		$sql = "SELECT `data`.*,`status` as `status` FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data`";
-
+		$sql = "SELECT `data`.*,`status` as `status` FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data` ORDER BY `id` DESC";
+		//$sql  = "SELECT * FROM `data` ORDER BY `id` DESC";
 		$data = mysql_query($sql);
 		//$sql = "SELECT * FROM `data`";
 
-		if (mysql_num_rows($data) > 0) {
-			while ($row = mysql_fetch_array ($data)){
-	?> 
-		        <tr>
-			        <td><center><?php echo $row['id'] ?></center></td>
-			        <td><?php echo $row['nama'] ?></td>
-			        <td><?php echo $row['nominal'] ?></td>
-			        <td><?php echo $row['kebutuhan'] ?></td>
-			        <td><?php echo $row['status'] ?></td>
-			        <td>
-			        <a href="hapus.php?id=<?php echo $row['id'] ?>" class="button1 button2">Hapus</a> 
-			        <a href="ubah.php?id=<?php echo $row['id'] ?>" class="button1">Ubah</a>
-			        </td>
-		        </tr>
-	<?php
+		$i = 1;
+
+		if (mysql_num_rows($data) > 0) { //mengetahui jumlah record yg ada pda tabel
+			while ($row = mysql_fetch_array ($data)){ //tolongdong simpan data di $data berupa array
+		?> 
+			        <tr>
+				        <td><center><?php echo $i ?></center></td>
+				        <td><?php echo $row['nama'] ?></td>
+				        <td><?php echo $row['nominal'] ?></td>
+				        <td><?php echo $row['kebutuhan'] ?></td>
+				        <td><?php echo $row['status'] ?></td>
+				        <td>
+				        <a href="hapus.php?id=<?php echo $row['id'] ?>" class="button1 button2">Hapus</a> 
+				        <a href="ubah.php?id=<?php echo $row['id'] ?>" class="button1">Ubah</a>
+				        </td>
+			        </tr>
+			        
+		<?php
+		$i++;
 		}
-			mysql_close();
+			mysql_close(); //operasi sudah selesai makan ditutup
 		} else {
 			echo "Tidak ada data";
 		}

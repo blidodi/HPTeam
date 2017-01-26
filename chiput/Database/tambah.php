@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Operasi Tambah</title>
-</head>
+	<head>
+	<title>Operasi Tambah</title>
+	</head>
 <body>
 <?php
-					if(isset($_POST['tambah']) && $_POST['tambah'] == 'Tambah'){
-						include "koneksi.php";
+					if(isset($_POST['tambah']) && $_POST['tambah'] == 'Tambah'){ //isset fungsinya untuk kita jika menekan tombol maka data akan dioperasi.
+						include "koneksi.php"; //mengkonfigurasi dari koneksi.php untuk difungsikan di database
 
-						$sql = "INSERT INTO `data` (`nama`,`nominal`,`kebutuhan`)
+						$sql_data = "INSERT INTO `data` (`nama`,`nominal`,`kebutuhan`)
 											VALUES ('".$_POST['nama']."',
 													'".$_POST['nominal']."',
 													'".$_POST['kebutuhan']."')";
-						$hasil = mysql_query($sql);
+						$hasil = mysql_query($sql_data); //mengeksekusi hasil dari script sql yang diidentifikasi
 
-						$id = mysql_insert_id();
+						$id_data = mysql_insert_id();//fungsi khusus yg sudah dibwa php untuk mengambil nilai terakhir saat direcord di database
 
-						$sql = "INSERT INTO `status` (`id_data`,`status`)
-											VALUES ('".$id."',
+						$sql_status = "INSERT INTO `status` (`id_data`,`status`)
+											VALUES ('".$id_data."',
 													'".$_POST['status']."')";
-						$hasil = mysql_query($sql);
+						$hasil = mysql_query($sql_status); //variabel $hasil sama kyak yg diatas tetapi yg dieksekusi adalah yg bag.terakhir variabel dr $sql table status. dan $hasil yang diatas itu sudah overwrite (ditumpuk)
 
-						if($hasil){
+						if(isset($hasil)){
 							echo "Data Berhasil Disimpan <a href=\"koneksi_kwitansi.php\">Lihat Table</a>";
 						} else {
 							echo "Data Gagal Disimpan";
@@ -29,9 +29,8 @@
 					}
 				?>
 
-	<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="field">
-		<table>
-
+	<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="field"> 
+		<table align="center" class="back">
 		<tr>
 			<td>Nama</td>
 			<td><input type="text" name="nama"/></td>
@@ -55,8 +54,8 @@
 			</td>
 		</tr>
 		</table>
+		<center><input type="submit" name="tambah" value="Tambah"></center>
 		
-		<input type="submit" name="tambah" value="Tambah">
 	</form>
 </body>
 </html>
