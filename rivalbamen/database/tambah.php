@@ -10,19 +10,19 @@
 		if(isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan') {
 			include "config.php";
 
-			$sql = "INSERT INTO `data` (`id`, `nama`, `nominal`, `kebutuhan`)
+			$sql_data = "INSERT INTO `data` (`id`, `nama`, `nominal`, `kebutuhan`)
 								VALUES ('".$_POST['no']."',
 										'".$_POST['nama']."',
 										'".$_POST['nominal']."',
 										'".$_POST['kebutuhan']."')";
-			$result = mysql_query($sql);
+			$result = mysql_query($sql_data);
 			$id = mysql_insert_id();
-			$sql = "INSERT INTO `status` (`id_data`, `nama`)
+			$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
 								VALUES ('".$id."',
 										'".$_POST['status']."')";
-			$result = mysql_query($sql);
+			$result = mysql_query($sql_status);
 
-			if($result) {
+			if(isset($result)) {
 				header('location:index.php');
 			} else {
 				echo "Data Gagal Disimpan";
@@ -44,8 +44,8 @@
 		<label>Status</label>
 		<select name="status">
 			<option value="">--Pilih--</option>
-			<option value="tunai">tunai</option>
-			<option value="kredit">kredit</option>
+			<option value="Tunai">Tunai</option>
+			<option value="Kredit">Kredit</option>
 		</select>
 		<br/>
 		<input type="submit" name="simpan" value="Simpan">
