@@ -54,7 +54,7 @@ mysql_select_db($base);
 		<td><?php echo $data['kebutuhan']?></td>
 		<td><?php echo $data['status']?></td>
 		<td>
-			<a class="button" href="">Update</a> <a class="button button1" href="proses_hapus.php?id=<?php echo $data['no']?>">Delete</a>
+			<a href="" class="button"s>Update</a> <a href="proses_hapus.php?id=<?php echo $data['no']?>" class="button button1">Delete</a>
 		</td>
 	</tr>
 	<?php
