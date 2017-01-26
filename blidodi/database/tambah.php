@@ -23,23 +23,23 @@
 			if(isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan') {
 				include "config.php";
 
-				$sql = "INSERT INTO `data` (`nama`, `nominal`, `kebutuhan`)
+				$sql_data = "INSERT INTO `data` (`nama`, `nominal`, `kebutuhan`)
 									VALUES ('".$_POST['nama']."', 
 											'".$_POST['nominal']."',
 											'".$_POST['kebutuhan']."')";
 
-				$result = mysql_query($sql);
+				$result = mysql_query($sql_data);
 
-				$id = mysql_insert_id();
+				$id_data = mysql_insert_id();
 
-				$sql = "INSERT INTO `status` (`id_data`, `nama`)
-									VALUES	('".$id."',
+				$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
+									VALUES	('".$id_data."',
 											'".$_POST['status']."')";
 
-				$result = mysql_query($sql);
+				$result = mysql_query($sql_status);
 
 
-				if($result) {
+				if(isset($result)) {
 					echo "Data Berhasil Disimpan. <a href=\"table.php\">Lihat Hasilnya</a>";
 				} else {
 					echo "Data Gagal Disimpan.";
