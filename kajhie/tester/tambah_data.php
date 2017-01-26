@@ -20,8 +20,10 @@
 
 			$sql = "INSERT INTO `status`(`id_status`,`nama_status`) VALUES ('".$id."','".$_POST['status']."')";
 
+			$result = mysql_query($sql);
+
 			if($result){
-				echo "Data berhasil disimpan.<a class="button" href=\"tabel.php\">Lihat Tabel</a>";
+				echo "Data berhasil disimpan. <a href=\"tabel.php\">Lihat Tabel</a>";
 			} else {
 				echo "Data Tidak berhasil disimpan !!!";
 			}
@@ -35,13 +37,13 @@
 			<label>Nominal : </label>
 			<input type="text" name="nominal"><br/>
 			<label>Kebutuhan : </label>
-			<input type="text" name="kebutuhan"><br/>
-			<input type="submit" name="simpan" value="Simpan">
-			<select>
-				<option value=" ">Pilih</option>
+			<input type="text" name="kebutuhan"><br/>	
+			<select name="status">
+				<option value=" ">Pilih Status</option>
 				<option value="Lunas">Lunas</option>
 				<option value="Belum Lunas">Belum Lunas</option>
-			</select>
+			</select><br/>
+			<input class="button_hijau" type="submit" name="simpan" value="Simpan">
 		</form>
 	</body>
 </html>
