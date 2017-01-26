@@ -1,13 +1,13 @@
 <?php
 
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
+	// $host = "localhost";
+	// $user = "root";
+	// $pass = "";
 
-	$database = "kwitansi_db";
+	// $database = "kwitansi_db";
 
-	$connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
-	mysql_select_db($database);
+	// $connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
+	// mysql_select_db($database);
 
 	
 	// if (mysql_num_rows($data) > 0) {
@@ -43,29 +43,39 @@
 		    color: white;
 		}
 
-		@font-face{
+		h2{
 			font-family: "Baron Neue Black";
 			src:url(Baron Neue Black.otf);
-			color: white;
-			text-shadow: 1px 1px 5px #FF007F;
+			color: #DC143C;
+			text-shadow: 1px 1px 5px #FFFAFA;
 		}
-		#button1{
-			background-color: #000000;
-			border: 1px solid;
-			color: white;
-			cursor: pointer;
-			text-align: center;
+		.button1{
+			background-color:  #ffcc00; /* Green */
+		    border: none;
+		    border-radius: 5px;
+		    color: white;
+		    padding: 3px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 5px 3px;
+		    cursor: pointer;
 		}
-		#button2{
+		.button2{
 			background-color: #f44336;
-			border: 1px solid;
-			color: white;
-			cursor: pointer;
-			text-align: center;
+			border: none;
+			border-radius: 5px;
+		    color: white;
+		    padding: 3px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 5px 3px;
+		    cursor: pointer;
 		}
-		#button-hover{
-
-		}
+		
 	</style>
  </head>
  <body>
@@ -87,24 +97,42 @@
 
 	<?php  
 
-		$sql = "SELECT `data`.*,`status` as status FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data` ";
+		include "koneksi.php";
+
+		$host = "localhost";
+		$user = "root";
+		$pass = "";
+
+		$database = "kwitansi_db";
+
+		$connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
+		mysql_select_db($database);
+
+		$sql = "SELECT `data`.*,`status` as `status` FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data`";
+
+		$data = mysql_query($sql);
 		//$sql = "SELECT * FROM `data`";
-		$hasil = mysql_query($sql);
 
-		while ($data = mysql_fetch_array ($hasil)){
-		echo "    
+		if (mysql_num_rows($data) > 0) {
+			while ($row = mysql_fetch_array ($data)){
+	?> 
 		        <tr>
-		        <td><center>".$data['id']."</center></td>
-		        <td>".$data['nama']."</td>
-		        <td>".$data['nominal']."</td>
-		        <td>".$data['kebutuhan']."</td>
-		        <td>".$data['status']."</td>
-		        <td><a href=\"hapus.php?id=\" id=\"button2\">Hapus</a> <a href=\"ubah.php?id=\" id=\"button1\">Ubah</a></td>
-		        </tr> 
-		        ";
-		        
+			        <td><center><?php echo $row['id'] ?></center></td>
+			        <td><?php echo $row['nama'] ?></td>
+			        <td><?php echo $row['nominal'] ?></td>
+			        <td><?php echo $row['kebutuhan'] ?></td>
+			        <td><?php echo $row['status'] ?></td>
+			        <td>
+			        <a href="hapus.php?id=<?php echo $row['id'] ?>" class="button1 button2">Hapus</a> 
+			        <a href="ubah.php?id=<?php echo $row['id'] ?>" class="button1">Ubah</a>
+			        </td>
+		        </tr>
+	<?php
 		}
-
+			mysql_close();
+		} else {
+			echo "Tidak ada data";
+		}
 	?>
 	</table>
  </body>
