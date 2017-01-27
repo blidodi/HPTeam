@@ -35,7 +35,9 @@
 		<td><?php echo $data['kebutuhan']?></td>
 		<td><?php echo $data['status']?></td>
 		<td>
+
 			<a class="button_kuning" href="ubah.php?id=<?php echo $data['no']?>">Update</a> <a class="button_merah" href="proses_hapus.php?id=<?php echo $data['no']?>">Delete</a>
+
 		</td>
 	</tr>
 	<?php

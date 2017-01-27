@@ -1,13 +1,13 @@
 <?php
 
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
+	// $host = "localhost";
+	// $user = "root";
+	// $pass = "";
 
-	$database = "kwitansi_db";
+	// $database = "kwitansi_db";
 
-	$connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
-	mysql_select_db($database);
+	// $connection = mysql_connect($host,$user,$pass) or die("Server ERROR.");
+	// mysql_select_db($database);
 
 	
 	// if (mysql_num_rows($data) > 0) {
@@ -36,25 +36,52 @@
 		    font-style: italic;
 		}
 
-		tr:nth-child(even){background-color: #FFC0CB}
+		tr:nth-child(even){background-color: #FFDAB9}
 
 		th {
-		    background-color: #FF007F;
+		    background-color: #DC143C;
 		    color: white;
 		}
 
 		h2{
-			font-family: "Times New Roman";
-			font-style: italic;
-			color: #FFC0CB;
-			text-shadow: 1px 1px 5px #000000;
+			font-family: "Baron Neue Black";
+			src:url(Baron Neue Black.otf);
+			color: #DC143C;
+			text-shadow: 1px 1px 5px #FFFAFA;
 		}
+		.button1{
+			background-color:  #ffcc00; /* Green */
+		    border: none;
+		    border-radius: 5px;
+		    color: white;
+		    padding: 3px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 5px 3px;
+		    cursor: pointer;
+		}
+		.button2{
+			background-color: #f44336;
+			border: none;
+			border-radius: 5px;
+		    color: white;
+		    padding: 3px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 5px 3px;
+		    cursor: pointer;
+		}
+		
 	</style>
  </head>
  <body>
 
   <center>
-	<h2> Tampil Database Kwitansi </h2>
+	<h2> Table Kwitansi Kebutuhan </h2>
 	<table border="1px">
 		<tr>
 			<center>
@@ -62,31 +89,47 @@
 			<th>Diterima Dari</th>
 			<th>Nominal Uang</th>
 			<th>Untuk Pembayaran</th>
+			<th>Status</th>
+			<th>Operasi</th>
 			</center>
 		</tr>
 	</center>
 
 	<?php  
 
-		$sql = "SELECT * FROM `data`";
-		$hasil = mysql_query($sql);
+		include "koneksi.php";
 
-		while ($data = mysql_fetch_array ($hasil)){
-		echo "    
-		        <tr>
-		        <td><center>".$data['id']."</center></td>
-		        <td>".$data['nama']."</td>
-		        <td>".$data['nominal']."</td>
-		        <td>".$data['kebutuhan']."</td>
-		        </tr> 
-		        ";
-		        
+		$sql = "SELECT `data`.*,`status` as `status` FROM `data` JOIN `status` WHERE `data`.`id`=`status`.`id_data` ORDER BY `id` DESC";
+		//$sql  = "SELECT * FROM `data` ORDER BY `id` DESC";
+		$data = mysql_query($sql);
+		//$sql = "SELECT * FROM `data`";
+
+		$i = 1;
+
+		if (mysql_num_rows($data) > 0) { //mengetahui jumlah record yg ada pda tabel
+			while ($row = mysql_fetch_array ($data)){ //tolongdong simpan data di $data berupa array
+		?> 
+			        <tr>
+				        <td><center><?php echo $i ?></center></td>
+				        <td><?php echo $row['nama'] ?></td>
+				        <td><?php echo $row['nominal'] ?></td>
+				        <td><?php echo $row['kebutuhan'] ?></td>
+				        <td><?php echo $row['status'] ?></td>
+				        <td>
+				        <a href="hapus.php?id=<?php echo $row['id'] ?>" class="button1 button2">Hapus</a> 
+				        <a href="ubah.php?id=<?php echo $row['id'] ?>" class="button1">Ubah</a>
+				        </td>
+			        </tr>
+			        
+		<?php
+		$i++;
 		}
-
+			mysql_close(); //operasi sudah selesai makan ditutup
+		} else {
+			echo "Tidak ada data";
+		}
 	?>
-
 	</table>
- 
  </body>
  </html>
 
