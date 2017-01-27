@@ -9,7 +9,6 @@ table {
 table, th, td {
     border: 0px solid black;
     height: 25px;
-    padding: 5px;
     padding: 3px 3px 3px 8px;
 }
 
@@ -121,9 +120,25 @@ p {
     line-height: 50px;
     background: #EBEAE9;
     color: #000000;
- 
     position: absolute;
     bottom: 0px;
  
     width: 100%; /*biar memenuhi layar*/
+}
+
+#container{
+    position:relative;
+    min-height:100%;
+    position:relative;
+}
+ 
+#header{
+    background: #EBEAE9;
+    padding: 3px 3px 3px 8px;
+    margin:0px auto;
+}
+
+#content{
+    padding:10px;
+    padding-bottom: 60px; /*sama atau lebih besar dari tinggi footer*/
 }

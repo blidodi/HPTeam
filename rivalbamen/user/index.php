@@ -8,8 +8,10 @@
 	<title>Form User</title>
 </head>
 <body>
-<div id="header">
-	<h1>Tabel User</h1>
+<div id="container">
+    <div id="header">
+		<h1>Tabel User</h1>
+	</div>
 </div>
 <hr>
 <a class="button2" href="add.php"><i class="fa fa-plus"> </i> Tambah</a>
@@ -51,7 +53,8 @@
 ?>
 </table>
 <div id="footer">
-	<center>Copyright 2017 Rivalbamen</center>
+	<center>Copyright 2017 Designed by Rivalbamen</center>
 </div>
+
 </body>
 </html>

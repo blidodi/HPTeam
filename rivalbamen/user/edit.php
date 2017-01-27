@@ -21,7 +21,12 @@
 		}
 
 	?>
-	<h1>Form User</h1><hr>
+<div id="container">
+    <div id="header">
+		<h1>Form User</h1>
+	</div>
+</div>
+	<hr>
 	<p><a class="p-color" href="index.php">Tabel User</a> / Ubah User</p>
 	<form action="edit.php?id=<?php echo $_GET['id'] ;?>" method="post">
 		<input type="hidden" name="id" value="<?php echo check_post($row['id']);?>" />
@@ -81,5 +86,8 @@
 		echo "Anda di Halaman yang Salah!!!";
 	}
 	?>
+<div id="footer">
+	<center>Copyright 2017 Designed by Rivalbamen</center>
+</div>
 </body>
 </html>
