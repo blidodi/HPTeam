@@ -8,32 +8,31 @@
 	<title>Form User</title>
 </head>
 <body>
-<h1>Tabel User</h1><hr>
-<a class="button2" href="add.php"><i class="fa fa-plus"> </i> Tambah</a>
-<table>
-	<tr><th>No.</th>
-		<th>Nama</th>
-		<th>Username</th>
-		<th>Hak Akses</th>
-		<th>Action</th>
-	</tr>
+<div id="container">
+    <div id="header">
+		<h1>Tabel User</h1>
+	</div>
+</div>
+	<hr>
+	<a class="button2" href="add.php"><i class="fa fa-plus"> </i> Tambah</a>
+	<table>
+		<tr><th>No.</th>
+			<th>Nama</th>
+			<th>Username</th>
+			<th>Hak Akses</th>
+			<th>Action</th>
+		</tr>
+	<?php
+		include "koneksi.php";
+		$sql = "SELECT user.id, user.nama, user.username, user_role.role 
+				FROM user, user_role 
+				WHERE user.role=user_role.id_user";
 
-<?php
+		$data = mysql_query($sql);
 
-	/*select kuliah.nim,jurusan.nm_jurusan,kuliah.thn_masuk,kuliah.thn_lulus
-	from kuliah, jurusan
-	where kuliah.kd_jurusan = jurusan.kd_jurusan;*/
-
-	include "koneksi.php";
-	$sql = "SELECT user.id, user.nama, user.username ,user_role.role 
-			FROM user, user_role 
-			WHERE user.role=user_role.id_user";
-	$data = mysql_query($sql);
-
-	if(mysql_num_rows($data) > 0) {
-		while ($row = mysql_fetch_array($data)) {
-?>
-
+		if(mysql_num_rows($data) > 0) {
+			while ($row = mysql_fetch_array($data)) {
+	?>
 	<tr>
 		<td><?php echo $row['id'] ?></td>		
 		<td><?php echo $row['nama'] ?></td>		
@@ -41,15 +40,17 @@
 		<td><?php echo $row['role'] ?></td>
 		<td class="w3-ul"><a class="button1" href="edit.php?id=<?php echo $row['id'] ?>"><i class="fa fa-pencil"> </i> Ubah</a> | 
 			<a class="button" href="delete.php?id=<?php echo $row['id']?>"><i class="fa fa-close"> </i> Hapus</a></td>
-	</tr>	
-	
-<?php
-		} mysql_close();
-	} else {
-		echo "Tidak ada data";
-	}
+	</tr>		
+	<?php
+			} mysql_close();
+		} else {
+			echo "Tidak ada data";
+		}
 
-?>
-</table>
+	?>
+	</table>
+	<div id="footer">
+		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>
+	</div>
 </body>
 </html>

@@ -8,9 +8,9 @@ function check_post($name) {
 	}
 	return $messege;
 }
-$status = array("--Pilih--", "Admin", "User");
-$role = array("", "1", "2");
-//$sql_role = "SELECT * FROM user_role";
-//$result = mysql_query($sql_role);
+
+$role = array(
+			1 => "Admin",
+			2 => "User" );
 
 ?>

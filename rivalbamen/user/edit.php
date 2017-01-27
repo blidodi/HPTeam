@@ -10,19 +10,19 @@
 	<?php
 	if(isset($_GET['id'])){
 		include "koneksi.php";
-
-		/*$sql = "SELECT `data`.*, `status`.`nama` as `status` FROM `data` JOIN `status` ON 
-								`data`.`id`=`status`.`id_data` WHERE `data`.`id`='".$_GET['id']."'";*/
-		$sql = "SELECT user.id, user.nama, user.username, user.password, user_role.role 
-				FROM user, user_role 
-				WHERE user.role=user_role.id_user AND user.id='".$_GET['id']."'"; 
+		$sql = "SELECT * FROM user WHERE user.id='".$_GET['id']."'"; 
 		$result = mysql_query($sql);
 
 		if(mysql_num_rows($result) > 0) {
 			$row = mysql_fetch_array($result);
 		}
 	?>
-	<h1>Form User</h1><hr>
+	<div id="container">
+	    <div id="header">
+			<h1>Form User</h1>
+		</div>
+	</div>
+	<hr>
 	<p><a class="p-color" href="index.php">Tabel User</a> / Ubah User</p>
 	<form action="edit.php?id=<?php echo $_GET['id'] ;?>" method="post">
 		<input type="hidden" name="id" value="<?php echo check_post($row['id']);?>" />
@@ -34,16 +34,17 @@
 		<input type="password" name="password" value="<?php echo check_post($row['password']);?>" />
 		<label>Hak Akses</label>
 		<select name="role">
+			<option value="">--Pilih--</option>
 			<?php 
-				foreach ($status as $status) {
-					if($status == check_post($row['role'])) {
+				foreach($role as $key => $value) {
+					if($key == check_post($row['role'])) {
 					?>
-						<option value="<?php echo $status; ?>" selected><?php echo $status ?>
+						<option value="<?php echo $key; ?>" selected><?php echo $value?>
 						</option>
 					<?php
 					} else {
 					?>
-						<option value="<?php echo $status; ?>"><?php echo $status ?>
+						<option value="<?php echo $key; ?>"><?php echo $value ?>
 						</option>
 					<?php
 					}
@@ -59,17 +60,11 @@
 						SET `nama`='".$_POST['nama']."',
 							`username`='".$_POST['username']."',
 							`password`='".$_POST['password']."',
-							`role`='".$_POST['role']."'
+							`role` = '".$_POST['role']."'
 							WHERE `id`='".$_POST['id']."'";
 
 			$result = mysql_query($sql_user);
-
-			/*$sql_status = "UPDATE `status`
-							SET `nama`='".$_POST['status']."'
-							WHERE `id_user`='".$_POST['no']."'";
-
-			$result = mysql_query($sql_status); */
-
+			
 			if(isset($result)) {
 				header('location:index.php');
 			} else {
@@ -81,5 +76,8 @@
 		echo "Anda di Halaman yang Salah!!!";
 	}
 	?>
+	<div id="footer">
+		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>
+	</div>
 </body>
 </html>

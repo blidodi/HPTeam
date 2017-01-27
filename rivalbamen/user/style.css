@@ -9,13 +9,12 @@ table {
 table, th, td {
     border: 0px solid black;
     height: 25px;
-    padding: 5px;
     padding: 3px 3px 3px 8px;
 }
 
 th {
-    background-color: rgb(53, 133, 189);
-    color: white;
+    background-color: #EBEAE9;
+    color: #000000;
 }
 
 td {
@@ -24,7 +23,7 @@ td {
 }
 
 tr:nth-child(even){
-	background-color: rgb(226, 247, 255);
+	background-color: #F7FCED;
 }
 
 a {
@@ -114,4 +113,26 @@ p {
 
 .p-color {
 	color: #4682B4;
+}
+
+#footer {
+    height: 50px;
+    line-height: 50px;
+    background: #EBEAE9;
+    color: #000000;
+    position: absolute;
+    bottom: 0px;
+ 
+    width: 100%; /*biar memenuhi layar*/
+}
+
+#container{
+    position:relative;
+    min-height:100%;
+}
+ 
+#header{
+    background: #EBEAE9;
+    padding: 3px 3px 3px 8px;
+    margin:0px auto;
 }

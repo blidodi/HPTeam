@@ -6,7 +6,12 @@
 	<title>Tambah User</title>
 </head>
 <body>
-	<h1>Form User</h1><hr>
+<div id="container">
+    <div id="header">
+		<h1>Form User</h1>
+	</div>
+</div>
+	<hr>
 	<p><a class="p-color" href="index.php">Tabel User</a> / Tambah User</p>
 	<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 		<label>Nama</label>
@@ -35,13 +40,6 @@
 										'".$_POST['password']."',
 										'".$_POST['role']."')";
 			$result = mysql_query($sql_user);
-			
-			/*$id = mysql_insert_id();
-			$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
-								VALUES ('".$id."',
-										'".$_POST['status']."')";
-			$result = mysql_query($sql_status);
-			*/
 
 			if(isset($result)) {
 				header('location:index.php');
@@ -51,6 +49,8 @@
 		}
 
 	?>
-
+	<div id="footer">
+		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>
+	</div>
 </body>
 </html>
