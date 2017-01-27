@@ -1,3 +1,7 @@
+<?php
+include "fungsi.php";
+?>
+
 <!DOCTYPE html>
  <html>
  <head>
@@ -102,9 +106,15 @@
     </table>
     <center>
         <select name="status">
-          <option value="">Pilih</option>
-          <option value="admin">Admin</option>
-          <option value="user">User</option>
+          <?php
+                foreach ($status as $key => $value) {
+                ?>
+                <option value="<?php echo $key ?>"><?php echo $value ?></option>  
+                
+                <?php
+                }
+
+              ?>
         </select>
       </center>
     <center>
