@@ -1,3 +1,13 @@
+ <?php
+ session_start();
+ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+ header("location:index.php"); // jika belum login, maka dikembalikan ke file form_login.php
+ }
+ else {
+ ?>
+ <a href="logout.php">Klik di sini</a> untuk Keluar
+ <?php } ?>
+
  <!DOCTYPE html>
  <html>
  <head>
@@ -103,7 +113,8 @@
 				        <a href="ubah.php?id=<?php echo $row['id_user'] ?>" class="button1">Ubah</a>
 						</td>
 				        <td><a href="tambahakun.php?id=<?php echo $row['id_user'] ?>" class="button3 button1">Tambah</a></td>
-			        </tr>   
+			        </tr>
+			          
 		<?php
 		$i++;
 		}
@@ -113,6 +124,7 @@
 		}
 	?>
 	</table>
+	<a href="logout.php">Klik di sini</a> untuk Keluar
  </body>
  </html>
 
