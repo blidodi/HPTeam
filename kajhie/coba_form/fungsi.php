@@ -8,4 +8,5 @@ function check_post($nama){
 	return $message;
 }
 
-$status = array("Pilih Level","User","Admin");
+$data = array(1=>"User",
+			  2=>"Admin");

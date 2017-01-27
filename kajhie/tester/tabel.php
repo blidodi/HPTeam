@@ -1,25 +1,5 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-
-$base = "kwitansi";
-
-$con = mysql_connect($host, $user, $pass) or die("Server ERROR.");
-mysql_select_db($base);
-
-// $sql = "SELECT * FROM `data`";
-
-// $data = mysql_query($sql);
-
-// if (mysql_num_rows($data)>0) {
-// 	while ($row = mysql_fetch_array($data)) {
-// 		echo $row['no']."|".$row['dari']."|".$row['nominal']."|".$row['kebutuhan']."<br/>";
-// 	}
-// 	mysql_close();
-// } else {
-// 	echo "tidak ada data";
-// }
+ include"koneksi.php";
 ?>
 <!DOCTYPE html>
 <html>

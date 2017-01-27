@@ -12,8 +12,7 @@
 
 			$sql = "INSERT INTO `data` (`dari`,`nominal`,`kebutuhan`)
 					VALUES ('".$_POST['nama']."','".$_POST['nominal']."','".$_POST['kebutuhan']."')";
-			// echo $sql;
-			// die();
+					
 			$result = mysql_query($sql);
 
 			$id = mysql_insert_id();
