@@ -1,11 +1,11 @@
-<?php
-	/*error_reporting(E_ALL ^ E_DEPRECATED); */
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$base = "kwitansi";
+<?php 
 
-		$connect = mysql_connect($host, $user, $pass);
-		mysql_select_db($base, $connect);
-		
+	$host = "localhost";
+	$user = "root";
+	$pass = "";
+	$db   = "kwitansi";
+
+	$con  = mysql_connect($host, $user, $pass) or die("Server Error!");
+			mysql_select_db($db);
+
 ?>
