@@ -10,22 +10,18 @@
 	<?php
 	if(isset($_GET['id'])){
 		include "koneksi.php";
-
-		/*$sql = "SELECT `data`.*, `status`.`nama` as `status` FROM `data` JOIN `status` ON 
-								`data`.`id`=`status`.`id_data` WHERE `data`.`id`='".$_GET['id']."'";*/
 		$sql = "SELECT * FROM user WHERE user.id='".$_GET['id']."'"; 
 		$result = mysql_query($sql);
 
 		if(mysql_num_rows($result) > 0) {
 			$row = mysql_fetch_array($result);
 		}
-
 	?>
-<div id="container">
-    <div id="header">
-		<h1>Form User</h1>
+	<div id="container">
+	    <div id="header">
+			<h1>Form User</h1>
+		</div>
 	</div>
-</div>
 	<hr>
 	<p><a class="p-color" href="index.php">Tabel User</a> / Ubah User</p>
 	<form action="edit.php?id=<?php echo $_GET['id'] ;?>" method="post">
@@ -68,13 +64,7 @@
 							WHERE `id`='".$_POST['id']."'";
 
 			$result = mysql_query($sql_user);
-
-			/*$sql_role = "UPDATE `status`
-							SET `nama`='".$_POST['status']."'
-							WHERE `id_user`='".$_POST['no']."'";
-
-			$result = mysql_query($sql_role); */
-
+			
 			if(isset($result)) {
 				header('location:index.php');
 			} else {
@@ -86,8 +76,8 @@
 		echo "Anda di Halaman yang Salah!!!";
 	}
 	?>
-<div id="footer">
-	<center>Copyright 2017 Designed by Rivalbamen</center>
-</div>
+	<div id="footer">
+		<center>Copyright 2017 Designed by Rivalbamen</center>
+	</div>
 </body>
 </html>

@@ -8,6 +8,7 @@ function check_post($name) {
 	}
 	return $messege;
 }
+
 $role = array(
 			1 => "Admin",
 			2 => "User" );

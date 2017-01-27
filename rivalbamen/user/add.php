@@ -40,13 +40,6 @@
 										'".$_POST['password']."',
 										'".$_POST['role']."')";
 			$result = mysql_query($sql_user);
-			
-			/*$id = mysql_insert_id();
-			$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
-								VALUES ('".$id."',
-										'".$_POST['status']."')";
-			$result = mysql_query($sql_status);
-			*/
 
 			if(isset($result)) {
 				header('location:index.php');
@@ -56,8 +49,8 @@
 		}
 
 	?>
-<div id="footer">
-	<center>Copyright 2017 Designed by Rivalbamen</center>
-</div>
+	<div id="footer">
+		<center>Copyright 2017 Designed by Rivalbamen</center>
+	</div>
 </body>
 </html>

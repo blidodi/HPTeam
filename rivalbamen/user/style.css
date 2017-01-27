@@ -129,16 +129,10 @@ p {
 #container{
     position:relative;
     min-height:100%;
-    position:relative;
 }
  
 #header{
     background: #EBEAE9;
     padding: 3px 3px 3px 8px;
     margin:0px auto;
-}
-
-#content{
-    padding:10px;
-    padding-bottom: 60px; /*sama atau lebih besar dari tinggi footer*/
 }
