@@ -1,3 +1,17 @@
+<?php
+//session login
+session_start();
+	if(!isset($_SESSION['password']) && !isset($_SESSION['username'])) {
+		header('location:login.php');
+	}
+	include "koneksi.php";
+	$sql = "SELECT nama FROM user 
+					WHERE username='".$_SESSION['username']."'";		
+			$result = mysql_query($sql);
+			$row = mysql_fetch_array($result);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +25,8 @@
 <div id="container">
     <div id="header">
 		<h1>Tabel User</h1>
+		<h5><?php echo "Nama : ".$row['nama']; ?></h5>
+	<a class="button2" href="logout.php">Logout</a>
 	</div>
 </div>
 	<hr>
