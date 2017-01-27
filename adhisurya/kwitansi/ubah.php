@@ -4,6 +4,40 @@
 <head>
 	<title>Ubah Data</title>
 		<style>
+			input[type=text] {
+			    width: 500px;
+			    padding: 12px 20px;
+			    margin: 8px 0;
+			    display: block;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			}
+
+			select {
+			    width: 500px;
+			    padding: 12px 0px;
+			    margin: 6px 0;
+			    display: block;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			}
+
+			input[type=submit]:hover {
+			    background-color: #45a049;
+			}
+
+			a:hover {
+			    background-color: #45a049;
+			}
+
+			div {
+			    border-radius: 5px;
+			    background-color: #f2f2f2;
+			    padding: 20px;
+			}
+
 			* {
 				font: normal 13px/1.3 Calibri;
 			}
@@ -11,11 +45,7 @@
 				font-size: 24px;
 				color: orange;
 			}
-			input, select {
-				display: block;
-				padding: 10px;
-				margin: 10px;
-			}
+			
 			.button {
 			    
 			    border: none;
@@ -31,7 +61,7 @@
 			.button1 {background-color: blue;} /*Blue */
 			.button2 {background-color: orange;} /* Orange */
 			.button3 {background-color: red;} /* Red */ 
-
+			.button4 {background-color: red;} /* Red */ 
 		</style>
 </head>
 <body>
@@ -45,16 +75,17 @@
 				$sql_data = "UPDATE `user` SET 
 							`nama`='".$_POST['nama']."',
 							`username`='".$_POST['username']."',
-							`password`='".$_POST['password']."'
+							`password`='".$_POST['password']."',
+							`role`='".$_POST['role']."'
 							WHERE `ID`='".$_POST['id']."'";
 
 				$result = mysql_query($sql_data);
 
-				$sql_status = "UPDATE `user_role` SET
+				/*$sql_status = "UPDATE `user_role` SET
 							`user_role`='".$_POST['role']."'
 							WHERE `ID`='".$_POST['id']."'";
 
-				$result = mysql_query($sql_status);
+				$result = mysql_query($sql_status);*/
 
 			if(isset($result)) {
 				echo "Data Berhasil Diubah. <a href=\"table.php\">Lihat Hasilnya</a>";
@@ -63,9 +94,8 @@
 			}		
 		}
 
-		$sql_status = "SELECT `user`.*, `user_role`.`role` as `user_role` FROM `user` JOIN `user_role` ON `user`.`ID`=`user_role`.`ID` WHERE `user`.`ID`='".$_GET['id']."'";
-
-		$result = mysql_query($sql_status);
+		$sql = "SELECT * FROM user WHERE user.id='".$_GET['id']."'"; 
+		$result = mysql_query($sql);
 
 		if (mysql_num_rows($result) > 0) {
 			$row = mysql_fetch_array($result);
@@ -78,23 +108,24 @@
 		<input type="text" name="username" value="<?php echo check_post($row['username']) ?>"/>
 		<label>Password :</label>
 		<input type="text" name="password" value="<?php echo check_post($row['password']) ?>"/>
+		<br/>
 		<select name="role">
 			<?php
-				foreach($role as $role) {
-					if($role == check_post($row['role'])) {
-						?>
-						<option value="<?php echo $user_role ?>" selected><?php echo $role ?></option>
-						<?php
+				foreach($role as $key => $value) {
+					if($key == $row['role']) {
+					?>
+						<option value="<?php echo $key; ?>" selected><?php echo $value ?></option>
+					<?php		
 					} else {
-						?>
-						<option value="<?php echo $user_role ?>"><?php echo $role ?></option>
-						<?php	
+					?>
+						<option value="<?php echo $key; ?>"><?php echo $value ?></option>
+					<?php
 					}
 				}
 			?>
 		</select>
 		<input class ="button button2" type="submit" name="ubah" value="Ubah" />
-		<a class ="button button2" href="table.php">Batal</a>		
+		<a class ="button button4" href="table.php">Batal</a>		
 	</form>
 	<?php }
 	} else {

@@ -8,4 +8,7 @@
 			  return $message;
 		}
 
-$role = array("Pilih", "Admin", "User");	
+$role = array (
+			1 => "Admin",
+			2 => "User");
+?>
