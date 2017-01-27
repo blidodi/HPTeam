@@ -8,4 +8,4 @@ function check_post($nama){
 	return $message;
 }
 
-$status = array("Pilih Status","Lunas","Belum Lunas");
+$status = array("Pilih Level","User","Admin");

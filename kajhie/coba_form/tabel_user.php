@@ -1,25 +1,9 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-
-$base = "kwitansi";
-
-$con = mysql_connect($host, $user, $pass) or die("Server ERROR.");
-mysql_select_db($base);
-
-// $sql = "SELECT * FROM `data`";
-
-// $data = mysql_query($sql);
-
-// if (mysql_num_rows($data)>0) {
-// 	while ($row = mysql_fetch_array($data)) {
-// 		echo $row['no']."|".$row['dari']."|".$row['nominal']."|".$row['kebutuhan']."<br/>";
-// 	}
-// 	mysql_close();
-// } else {
-// 	echo "tidak ada data";
-// }
+ include "koneksi.php";
+ session_start();
+	if (!isset($_SESSION['nama']) && !isset($_SESSION['password'])) {
+		header('location:index.php');
+	}else{
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,14 +20,13 @@ mysql_select_db($base);
 		<th>No</th>
 		<th>Nama</th>
 		<th>Username</th>
-		<th>password</th>
-		<th>aksi</th>
+		<th>Password</th>
+		<th>Level</th>
+		<th>Aksi</th>
 	</tr>
 <?php
-//select `data`.*, `nama_status` as `status` from `data` join `status` where `data`.`no`=`status`.`id_status`
-// and  `status`.`nama_status`='Belum Lunas'
-	// $sql = "SELECT `data`.*, `nama_status` as `status` from `data` join `status` where `data`.`no`=`status`.`id_status`";
-	$sql = "SELECT * FROM `user`";
+	$sql = "SELECT `user`.*, `level_user` as `level` from `user` join `level` where `user`.`id_user`=`level`.`id_level_user`";
+
 	$hasil = mysql_query($sql);
 	while ($data = mysql_fetch_array($hasil)) {
 ?>
@@ -52,16 +35,23 @@ mysql_select_db($base);
 		<td><?php echo $data['nama_user']?></td>
 		<td><?php echo $data['username']?></td>
 		<td><?php echo $data['pass']?></td>
+		<td><?php echo $data['level']?></td>
 		<td>
-			<a class="<!-- button_kuning -->" href="<!-- ubah.php -->">Update</a> <a class="<!-- button_merah -->" href="hapus_user.php?id=<?php echo $data['id_user']?>">Delete</a>
+			<a class="<!-- button_kuning -->" href="edit_user.php?id=<?php echo $data['id_user']?>">Update</a> <a class="<!-- button_merah -->" href="hapus_user.php?id=<?php echo $data['id_user']?>">Delete</a>
 		</td>
 	</tr>
 	<?php
 }
+
 	?>
 </table>
+
 <br/>
-<a class="<!-- button_biru -->" href="<!-- tambah_data.php -->">Tambah Data</a>
+<a class="<!-- button_biru -->" href="tambah_user.php">Tambah Data</a><br/>
+<a class="<!-- button_biru -->" href="logout.php">Log out</a>
 </center>
 </body>
 </html>
+<?php
+}
+?>
