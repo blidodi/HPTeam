@@ -13,8 +13,8 @@ table, th, td {
 }
 
 th {
-    background-color: #EE9F2E;
-    color: white;
+    background-color: #EBEAE9;
+    color: #000000;
 }
 
 td {
@@ -23,7 +23,7 @@ td {
 }
 
 tr:nth-child(even){
-	background-color: #FEF8DE;
+	background-color: #F7FCED;
 }
 
 a {

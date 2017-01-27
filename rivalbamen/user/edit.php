@@ -77,7 +77,7 @@
 	}
 	?>
 	<div id="footer">
-		<center>Copyright 2017 Designed by Rivalbamen</center>
+		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>
 	</div>
 </body>
 </html>
