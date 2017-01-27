@@ -28,7 +28,7 @@
 			text-shadow: 1px 1px 5px #FFFAFA;
 		}
 		.button1{
-			background-color:  #ffcc00; /* Green */
+			background-color:  #2f4f4f; /* Green */
 		    border: none;
 		    border-radius: 5px;
 		    color: white;
@@ -53,6 +53,9 @@
 		    margin: 5px 3px;
 		    cursor: pointer;
 		}
+		.button3{
+			background-color: #008080
+		}
 		
 	</style>
  </head>
@@ -68,6 +71,7 @@
 			<th>Password</th>
 			<th>Status</th>
 			<th>Operasi</th>
+			<th>Tambah Data</th>
 			</center>
 		</tr>
 	</center>
@@ -97,8 +101,8 @@
 				        <td>
 				        <a href="hapus.php?id=<?php echo $row['id_user'] ?>" class="button1 button2">Hapus</a> 
 				        <a href="ubah.php?id=<?php echo $row['id_user'] ?>" class="button1">Ubah</a>
-				        <a href="tambahakun.php?id=<?php echo $row['id_user'] ?>" class="button1">Tambah</a>
-				        </td>
+						</td>
+				        <td><a href="tambahakun.php?id=<?php echo $row['id_user'] ?>" class="button3 button1">Tambah</a></td>
 			        </tr>   
 		<?php
 		$i++;
