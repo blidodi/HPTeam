@@ -9,6 +9,6 @@ function check_post($name) {
 	return $messege;
 }
 
-$status = array("--Pilih--", "Tunai", "Kredit");
+$status = array("--Pilih--", "Admin", "User");
 
 ?>

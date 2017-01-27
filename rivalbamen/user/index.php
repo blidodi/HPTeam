@@ -8,7 +8,10 @@
 	<title>Form User</title>
 </head>
 <body>
-<h1>Tabel User</h1><hr>
+<div id="header">
+	<h1>Tabel User</h1>
+</div>
+<hr>
 <a class="button2" href="add.php"><i class="fa fa-plus"> </i> Tambah</a>
 <table>
 	<tr><th>No.</th>
@@ -19,15 +22,11 @@
 	</tr>
 
 <?php
-
-	/*select kuliah.nim,jurusan.nm_jurusan,kuliah.thn_masuk,kuliah.thn_lulus
-	from kuliah, jurusan
-	where kuliah.kd_jurusan = jurusan.kd_jurusan;*/
-
 	include "koneksi.php";
-	$sql = "SELECT user.id, user.nama, user.username ,user_role.role 
+	$sql = "SELECT user.id, user.nama, user.username, user_role.role 
 			FROM user, user_role 
 			WHERE user.role=user_role.id_user";
+
 	$data = mysql_query($sql);
 
 	if(mysql_num_rows($data) > 0) {
@@ -51,5 +50,8 @@
 
 ?>
 </table>
+<div id="footer">
+	<center>Copyright 2017 Rivalbamen</center>
+</div>
 </body>
 </html>
