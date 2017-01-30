@@ -3,10 +3,7 @@
  if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
  header("location:index.php"); // jika belum login, maka dikembalikan ke file form_login.php
  }
- else {
  ?>
- <a href="logout.php">Klik di sini</a> untuk Keluar
- <?php } ?>
 
  <!DOCTYPE html>
  <html>
@@ -124,7 +121,7 @@
 		}
 	?>
 	</table>
-	<a href="logout.php">Klik di sini</a> untuk Keluar
+	<a href="keluar.php">Klik di sini</a> untuk Keluar
  </body>
  </html>
 

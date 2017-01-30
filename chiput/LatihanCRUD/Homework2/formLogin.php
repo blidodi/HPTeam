@@ -7,14 +7,14 @@
 <body>
 <div class="body"></div>
 		<div class="grad"></div>
-		<div class="header">
+		<div class="headerlogin">
 			<div>Silahkan<span>Login</span></div>
 		</div>
-	<form action="proses.php" method="post">
+	<form action="process.php" method="post">
 	<div class="login">
-		 <input type="text" placeholder="username" name="username" class="fieldinput2" /></br>
+		<input type="text" placeholder="username" name="username" class="fieldinput2" /></br>
 		<input type="password" placeholder="password" name="password" class="fieldinput3" /></br>
-		<input type="submit" name="login" value="Login" class="button" /></br>
+		<input type="submit" name="login" value="Login" class="buttonLogin" /></br>
 		</div>
 		<?php
 			if (isset($_GET['pesan']) && !empty($_GET['pesan'])) {
