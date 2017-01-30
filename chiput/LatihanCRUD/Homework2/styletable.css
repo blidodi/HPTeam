@@ -7,6 +7,8 @@ table{
   width:80%;
   table-layout: fixed;
   border-collapse: collapse;
+  background-color: #dc143c;
+  -webkit-filter: opacity(50%);
 }
 .font_th{
   color: #ff007f;
@@ -18,7 +20,7 @@ th{
   font-weight: 10;
   font-size: 16px;
   background-color: #fee4e1;
-  -webkit-filter: opacity(50%);
+  /*-webkit-filter: opacity(50%);*/
 }
 td{
   padding: 12px;

@@ -20,6 +20,9 @@
 		    padding: 8px;
 		    font-style: italic;
 		}
+		tr{
+			border-color: inherit;
+		}
 
 		tr:nth-child(even){background-color: #FFDAB9}
 
