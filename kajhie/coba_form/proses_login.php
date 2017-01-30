@@ -10,7 +10,7 @@
 			
 			include "koneksi.php";
 			
-			$sql = "SELECT `username`,`pass` FROM `user` WHERE `username`='".$_POST['username']."' AND `pass`='".md5($_POST['password'])."'";
+			$sql = "SELECT * FROM `user` WHERE `username`='".$_POST['username']."' AND `pass`='".md5($_POST['password'])."'";
 			$result = mysql_query($sql);
 
 			if(mysql_num_rows($result)>0){
@@ -18,9 +18,10 @@
 				$row = mysql_fetch_array($result);
 
 				session_start();
+
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['password'] = $_POST['password'];
-				header('location:halaman_utama.php');
+				header('location:halaman_utama.php?id=<?php echo $row['id_user']?>');
 			}
 
 		}else{

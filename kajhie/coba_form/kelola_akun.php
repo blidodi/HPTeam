@@ -14,7 +14,7 @@
 	<body>
 	<h1>Edit</h1>
 		<?php 
-		if (isset($_POST['username'] && md5($_POST['password']))) {
+		if (isset($_GET['id'])) {
 			include "koneksi.php";
 				if (isset($_POST['edit']) && $_POST['edit'] == 'Edit'){
 					
@@ -33,7 +33,7 @@
 					}
 				}
 
-				$sql_status = "SELECT `user`.*, `level_user` as `status` FROM `user` JOIN `level` ON `user`.`level`=`level`.`id_level_user` WHERE `user`.`username`='".$_POST['username']."' AND `user`.`pass`='".md5($_POST['password'])."'";
+				$sql_status = "SELECT `user`.*, `level_user` as `status` FROM `user` JOIN `level` ON `user`.`level`=`level`.`id_level_user` WHERE `user`.`username`='".$_POST['username'];
 
 
 				$result = mysql_query($sql_status);
