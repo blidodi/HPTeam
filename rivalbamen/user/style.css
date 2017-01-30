@@ -1,9 +1,10 @@
 * {
-	font-family: Verdana;
+	font-family: Verdana, Geneva, sans-serif;
+    
 }
 table {
     border-collapse: collapse;
-    width: 75%;
+    width: 100%;
 }
 
 table, th, td {
@@ -33,7 +34,6 @@ a {
 
 a:hover {
 	color: black;
-    text-decoration: underline;
 }
 
 .button {
@@ -50,7 +50,7 @@ a:hover {
     border-radius: 4px;
 }
 .button:hover {
-	background-color: rgb(255, 213, 237);
+	background-color: #FC9485;
 }
 
 .button1 {
@@ -67,7 +67,7 @@ a:hover {
     border-radius: 4px;
 }
 .button1:hover {
-	background-color: rgb(165, 255, 159);
+	background-color: #B0E7B3;
 }
 
 .button2 {
@@ -102,28 +102,27 @@ input, select {
 input[type=submit] {
 	margin-top: 10px;
 	border: none;
-	background: rgb(0, 196, 146);
+	background: #1abc9d;
 	border-radius: 5px;
 	color: white;
 }
 
 p {
-	color: #4682B4;
+	color: #000000;
 }
 
 .p-color {
-	color: #4682B4;
+	color: #1abc9d;;
 }
 
 #footer {
     height: 50px;
     line-height: 50px;
-    background: #EBEAE9;
+    background: #fff;
     color: #000000;
     position: absolute;
     bottom: 0px;
- 
-    width: 99%; /*biar memenuhi layar*/
+    width: 100%; /*biar memenuhi layar*/
 }
 
 #container{
@@ -132,7 +131,62 @@ p {
 }
  
 #header{
-    background: #EBEAE9;
+    background: #1abc9d;
     padding: 3px 3px 3px 8px;
-    margin:0px auto;
 }
+
+html, body{
+    height:100%;
+    margin: 0px;
+    padding: 0px;
+    background: #EBEAE9;
+    }
+
+#content{
+    padding:10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #EBEAE9;
+    color: #000000;
+}
+
+.active {
+    background-color: #EBEAE9;
+    color: #000000;
+}
+
+h1{
+  color: #fff;
+}
+
+.form{
+  width: 96%;
+  background: #EBEAE9;
+  margin: 20px auto;
+  padding-top: 0px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
