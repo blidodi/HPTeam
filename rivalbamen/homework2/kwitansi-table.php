@@ -4,6 +4,13 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script>
+		function confirmDelete(delUrl) {
+		  if (confirm("Apakah Yakin dihapus?")) {
+		    document.location = delUrl;
+		  }
+		}
+	</script>
 	<title>Tabel Kwitansi</title>
 </head>
 <body>
@@ -47,7 +54,7 @@
 		<td><?php echo $row['kebutuhan'] ?></td>
 		<td><?php echo $row['nm_bayar'] ?></td>
 		<td><a class="button1" href="kwitansi-edit.php?id=<?php echo $row['id'] ?>"><i class="fa fa-pencil"> </i> Ubah</a> | 
-			<a class="button" href="kwitansi-delete.php?id=<?php echo $row['id']?>"><i class="fa fa-close"> </i> Hapus</a></td>
+			<a class="button" href="javascript:confirmDelete('kwitansi-delete.php?id=<?php echo $row['id']?>')"><i class="fa fa-close"> </i> Hapus</a></td>
 	</tr>	
 	
 <?php

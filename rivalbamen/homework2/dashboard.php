@@ -27,6 +27,7 @@ session_start();
 		<ul>
 			<li><a class="active" href="#dashboard"><i class="fa fa-home"></i> Home</a></li>
 			<li><a href="user-table.php"><i class="fa fa-users"></i> User</a></li>
+			<li><a href="kwitansi-table.php"><i class="fa fa-credit-card-alt"></i> Kwitansi</a></li>
 			<li style="float:right"><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
 		</ul>
 		<div class="form">
