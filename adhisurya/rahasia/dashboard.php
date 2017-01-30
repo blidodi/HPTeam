@@ -1,7 +1,7 @@
 <?php
 	session_start();
-		if(!isset($_SESSION['data']) && !$_SESSION['data'] == '123' && isset($_SESSION['huruf']) && !$_SESSION['huruf'] == 'surya') {
-			header('location:index.php');
+		if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+			header('location:login.php');
 		}
 ?>
 <!DOCTYPE html>

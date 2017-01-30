@@ -28,10 +28,6 @@
 			    background-color: #45a049;
 			}
 
-			a:hover {
-			    background-color: #45a049;
-			}
-
 			div {
 			    border-radius: 5px;
 			    background-color: #f2f2f2;
@@ -100,7 +96,7 @@
 		if (mysql_num_rows($result) > 0) {
 			$row = mysql_fetch_array($result);
 	?>
-	<form action="ubah.php?id=<?php echo $_GET['id'] ?>" method="post">
+	<form action="ubah_user.php?id=<?php echo $_GET['id'] ?>" method="post">
 		<label>Nama :</label>
 		<input type="text" name="nama" value="<?php echo check_post($row['nama']) ?>"/>
 		<input type="hidden" name="id" value="<?php echo check_post($row['ID']) ?>"/>
@@ -110,19 +106,9 @@
 		<input type="text" name="password" value="<?php echo check_post($row['password']) ?>"/>
 		<br/>
 		<select name="role">
-			<?php
-				foreach($role as $key => $value) {
-					if($key == $row['role']) {
-					?>
-						<option value="<?php echo $key; ?>" selected><?php echo $value ?></option>
-					<?php		
-					} else {
-					?>
-						<option value="<?php echo $key; ?>"><?php echo $value ?></option>
-					<?php
-					}
-				}
-			?>
+			<option value="">Pilih :</option>
+			<option value="1">Admin</option>
+			<option value="2">User</option>
 		</select>
 		<input class ="button button2" type="submit" name="ubah" value="Ubah" />
 		<a class ="button button4" href="table.php">Batal</a>		

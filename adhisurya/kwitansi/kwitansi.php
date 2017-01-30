@@ -1,15 +1,9 @@
-<?php
-	session_start();
-		if(!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-			header('location:login.php');
-		}
-?>
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Kwitansi</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Kwitansi</title>
 		<style>
 			table {
 			    border-collapse: collapse;
@@ -65,7 +59,7 @@
 			}
 
 #header{
-	    /*background: none;
+		/*background: none;
 	    padding: 3px 3px 3px 8px;
 	    margin:0px auto;
 	    font-family: Verdana, Geneva, sans-serif;*/
@@ -111,59 +105,42 @@
  Kwitansi</a></li>
 </ul>
 		<tr>
-			<td colspan="7"><b><h3><i class="fa fa-users" aria-hidden="true"></i>
- DATA USER</h3></b></td>
+			<td colspan="7"><b><h3><i class="fa fa-list-alt" aria-hidden="true"></i>
+ DATA KWITANSI</h3></b></td>
 	    </tr>
-    		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah_user.php"><i class="fa fa-plus"></i> Tambah</a></th>
-    		<th colspan="5" align="right" bgcolor="#FFFFFF"><a class="button button4" href="Logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
+    		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah_kwitansi.php"><i class="fa fa-plus"></i> Tambah</a></th>
+    		<th colspan="6" align="right" bgcolor="#FFFFFF"><a class="button button4" href="Logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
  Logout</a></th>
     	</tr>
 		<tr>
-			<th><i class="fa fa-sort" aria-hidden="true"></i>
- No</th>	
-			<th><i class="fa fa-sort" aria-hidden="true"></i>
- Nama</th>	
-			<th><i class="fa fa-sort" aria-hidden="true"></i>
- Username</th>	
-			<th><i class="fa fa-sort" aria-hidden="true"></i>
- User Role</th>
-			<th align="center" colspan="3"><i class="fa fa-sort" aria-hidden="true"></i>
- Action</th>
+			<th><i class="fa fa-sort" aria-hidden="true"></i> No</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Nama</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Nominal</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Kebutuhan</th>
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Status</th>	
+			<th align="center" colspan="3"><i class="fa fa-sort" aria-hidden="true"></i> Action</th>
 
 		</tr>
-		
 				<?php
 					include "config.php";
-					/*$sql = "SELECT user.id, user.nama, user.username ,user_role.role 
-							FROM user, user_role 
-							WHERE user.role=user_role.id_user";
-					$data = mysql_query($sql);*/
 
+					$sql = "SELECT `data`.*, `status`.`nama` as status FROM `data` JOIN `status` WHERE `data`.`ID`=`status`.`id_data` ORDER BY `ID` DESC";
 
-					$sql = "SELECT user.ID, user.nama, user.username, user_role.role
-							FROM user, user_role 
-							WHERE user.role=user_role.ID";
-		
-
-					/* $sql = "SELECT `ID`, `nama`, `username`, `password` FROM `user`"; */
-
-					$user = mysql_query($sql);
+					$data = mysql_query($sql);
 					$i = 0;
-					if (mysql_num_rows($user) > 0) {
-						while($row = mysql_fetch_array($user)) {
-					$i++;
+					if (mysql_num_rows($data) > 0) {
+						while($row = mysql_fetch_array($data)) {
+							$i++;
 					?>	
 							<tr>
 								<td align="center"><?php echo $i ?></td>
 								<td><?php echo $row['nama'] ?></td>
-								<td><?php echo $row['username'] ?></td>
-								<td><?php echo $row['role'] ?></td>
-								<td><center><a class="button button2" href="ubah_user.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i>
- Ubah </center></a></td>
-								<td><center><a class="button button3" href="hapus_user.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-eraser" aria-hidden="true"></i>
- Hapus </center></a></td>
+								<td><?php echo $row['nominal'] ?></td>
+								<td><?php echo $row['kebutuhan'] ?></td>
+								<td><?php echo $row['status'] ?></td>
+								<td><center><a class="button button2" href="ubah_kwitansi.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Ubah </center></a></td>
+								<td><center><a class="button button3" href="hapus_kwitansi.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-eraser" aria-hidden="true"></i> Hapus </center></a></td>
 							</tr>
-
 					<?php
 						}
 							mysql_close();
@@ -171,7 +148,8 @@
 						echo "Tidak ada data";
 					}
 				?>
-							<table>
+
+										<table>
 			<tr bgcolor="#005555" style="font-family: font-family: Verdana, Geneva, sans-serif; color: #FFFFFF" align="center">
 				<br/>
 				<br/>	

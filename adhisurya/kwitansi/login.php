@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
-			header('location:table.php');
+			header('location:dashboard.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -90,13 +90,13 @@
 			<th>FORM LOGIN<br/><br/></th>
 		</tr>
 		<tr>
-			<td>Masukan Name :
-				<input type="text" name="username">
+			<td>Masukan Username :
+				<input type="text" name="username" placeholder="Username">
 			</td>
 		</tr>
 		<tr>	
 			<td>Masukan Password :
-				<input type="password" name="password" />
+				<input type="password" name="password" placeholder="Password" />
 			</td>
 		</tr>
 		<br/>

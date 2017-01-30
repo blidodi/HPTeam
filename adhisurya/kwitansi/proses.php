@@ -18,7 +18,7 @@
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['password'] = $row['password'];
 
-				header("location:table.php");
+				header("location:dashboard.php");
 			}
 		} else {
 			header('location:index.php?pesan=2&nama=2');
