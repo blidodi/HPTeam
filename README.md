@@ -37,3 +37,11 @@ Here the member :
     3. Selamat bekerja
  ```
 
+#Homework Week #2
+ ```bash
+    1. Buat Folder Baru
+    2. Buat CRUD dengan table
+    	- user
+    	- kwitansi
+    3. Selamat bekerja
+ ```
