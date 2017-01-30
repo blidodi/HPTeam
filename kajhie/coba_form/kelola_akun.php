@@ -1,5 +1,9 @@
 <?php
 	require "fungsi.php";
+	session_start();
+	if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+		header('location:index.php');
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +14,7 @@
 	<body>
 	<h1>Edit</h1>
 		<?php 
-		if (isset($_GET['id'])) {
+		if (isset($_POST['username'] && md5($_POST['password']))) {
 			include "koneksi.php";
 				if (isset($_POST['edit']) && $_POST['edit'] == 'Edit'){
 					
@@ -29,7 +33,7 @@
 					}
 				}
 
-				$sql_status = "SELECT `user`.*, `level_user` as `status` FROM `user` JOIN `level` ON `user`.`level`=`level`.`id_level_user` WHERE `user`.`id_user`='".$_GET['id']."'";
+				$sql_status = "SELECT `user`.*, `level_user` as `status` FROM `user` JOIN `level` ON `user`.`level`=`level`.`id_level_user` WHERE `user`.`username`='".$_POST['username']."' AND `user`.`pass`='".md5($_POST['password'])."'";
 
 
 				$result = mysql_query($sql_status);
