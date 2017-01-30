@@ -29,10 +29,6 @@
 			    background-color: #45a049;
 			}
 
-			a:hover {
-			    background-color: #45a049;
-			}
-
 			div {
 			    border-radius: 5px;
 			    background-color: #f2f2f2;

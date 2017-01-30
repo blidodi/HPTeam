@@ -11,4 +11,6 @@
 $role = array (
 			1 => "Admin",
 			2 => "User");
+
+$status = array("Pilih", "Lunas", "Kredit");	
 ?>
