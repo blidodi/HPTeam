@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user']) && isset($_SESSION['password'])) {
-	# code...
-	unset($_SESSION['user']);
-	unset($_SESSION['password']);
-	session_destroy();
-	header('location:index.php');
-}
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+		unset($_SESSION['username']);
+		unset($_SESSION['password']);
+		session_destroy();
+		header('location:index.php');
+	}
 
 ?>

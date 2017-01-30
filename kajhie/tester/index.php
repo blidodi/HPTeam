@@ -34,7 +34,7 @@
 			// 	default:
 			// 		$a = "anda tidak dapat mengakses halaman ini";
 			// }
-			echo $a;
+			//echo $a;
 		}
 	?>
 	<br/>

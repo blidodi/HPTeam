@@ -15,8 +15,8 @@
 	<!-- <?php //include"main/header.php"; ?>
 
 	 <center><h1>Coba Inputkan Angka</h1>
-	 <form action="<?php $_SERVER['PHP_SELF']?>" method="get">
-	 	<input type="text" name="bilangan" value="<?php echo @$_GET['bilangan']?>" />
+	 <form action="<?php //$_SERVER['PHP_SELF']?>" method="get">
+	 	<input type="text" name="bilangan" value="<?php //echo @$_GET['bilangan']?>" />
 	 	<input type="submit" name="terbilang" value="Terbilang"/>
 	 </form>
 	 </center>
@@ -61,4 +61,4 @@
 	 	<input type="submit" name="terbilang" value="Terbilang"/>
 	 </form>
 
-	 <?php include"main/footer.php";?>
+	 <?php include"footer.php";?>

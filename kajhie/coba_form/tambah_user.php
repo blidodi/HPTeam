@@ -12,10 +12,9 @@
 		<?php 
 		if (isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan'){
 			include "koneksi.php";
-			$acak= "Muhammadmirza25atauKajhieMouslieh134";
-			$pass= md5($acak.md5($_POST['password'])).md5($acak);
-			$sql = "INSERT INTO `user` (`nama_user`,`username`,`pass`,`level`)
-					VALUES ('".$_POST['nama']."','".$_POST['username']."','".$pass."','".$_POST['username']."')";
+			// $acak= "Muhammadmirza25atauKajhieMouslieh134";
+			// $pass= md5($acak.md5($_POST['password'])).md5($acak);
+			$sql = "INSERT INTO `user` (`nama_user`,`username`,`pass`,`level`) VALUES ('".$_POST['nama']."','".$_POST['username']."','".md5($_POST['password'])."','".$_POST['status']."')";
 
 			$result = mysql_query($sql);
 
