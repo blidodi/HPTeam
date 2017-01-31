@@ -11,12 +11,18 @@ Here the member :
 
 #Basic Code
 
+1. Fork https://github.com/blidodi/HPTeam.git
+2. Do this bash
+
  ```bash
     > git clone https://github.com/<username>/HPTeam.git
 	> cd HPTeam/
 	> git init
 	> git config --global user.name "<username>"
 	> git config --global user.email "<your@email.com>"
+    > git remote set-url origin https://github.com/<username>/HPTeam.git
+    > git remote set-url upstream https://github.com/blidodi/HPTeam.git
+    > git remote -v 
 	> mkdir <username>
 	> touch <username>/README.md
 	> git status
