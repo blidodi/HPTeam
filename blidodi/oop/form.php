@@ -17,7 +17,7 @@ $form = new Form("form.php", "get");
 
 echo $form->form_header();
 echo $form->form_label("Nama");
-echo $form->form_input("text","nama","");
+echo $form->form_input("text","nama","")."</br>";
 echo $form->form_label("Password");
 echo $form->form_input("password","password","");
 echo $form->form_input("submit","login","Login");
