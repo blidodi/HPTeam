@@ -48,11 +48,6 @@
 									'".$_POST['bayar']."')";
 			$result = mysql_query($sql);
 			$id = mysql_insert_id();
-			/*$sql_status = "INSERT INTO `status` (`id_data`, `nama`)
-								VALUES ('".$id."',
-										'".$_POST['status']."')";
-			$result = mysql_query($sql_status);*/
-
 			if(isset($result)) {
 				header('location:kwitansi-table.php');
 			} else {
