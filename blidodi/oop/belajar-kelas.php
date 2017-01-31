@@ -1,8 +1,14 @@
 <?php 
 	class Person 
 	{
-
 		var $name;
+		public $umur;
+		private $agama;
+		protected $no_hp;
+
+		function __construct($new_name) {
+			$this->name = $new_name;
+		}
 
 		function set_name($new_name) 
 		{
@@ -31,11 +37,12 @@
 		}
 	}
 
+	$nama = "Lubis";
 
-	$person = new Car();
+	$person = new Car($nama);
 
 
-	$person->set_name("Andrian");
+	// $person->set_name("Andrian");
 	$person->set_car("Bentley");
 
 	echo $person->get_message(); 
