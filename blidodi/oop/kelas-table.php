@@ -8,15 +8,15 @@ class Table {
 		return "<table border=\"1\"><tr>";
 	}
 
-	function body($jml_kolom, $data) 
+	function body($data) 
 	{
 		//$this->var1 = $nilai1;
-		$this->jml_kolom = $jml_kolom;
+		//$this->jml_kolom = $jml_kolom;
 		$this->kolom = "";
 		$this->data = $data;
 
 			
-		for($i=0; $i < $this->jml_kolom; $i++) {
+		for($i=0; $i < count($this->data); $i++) {
 
 			$this->kolom .= "<td>".$this->data[$i]."</td>";
 
@@ -32,10 +32,3 @@ class Table {
 	}
 }
 
-$table = new Table();
-
-$data = array ("Kucing", "Babi", "Pinguin", "Cicak", "Ayam");
-
-echo $table->header();
-echo $table->body(5, $data);
-echo $table->footer();

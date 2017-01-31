@@ -43,6 +43,3 @@
 	}
 
 
-	$tambah = new Aritmatik(12, 6);
-	$tambah->tambah();
-	echo $tambah->bil1." ".$tambah->operasi." ".$tambah->bil2." = ".$tambah->hasil();
