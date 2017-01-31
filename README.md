@@ -31,23 +31,33 @@ Here the member :
 	> git commit -am "Add new directory <username>"
 	> git push origin master
  ```
-#Homework Week #1
- ```bash
-    1. Buat Folder Baru yang isinya :
-    	- file konfigurasi terbilang
-    	- file form kwitansi
-    	- file hasil kwitansi
-    	- file form login
-    	- file css
-    2. Rapikan file yang dikerjakan sebelumnya
-    3. Selamat bekerja
+
+ 3. Update Workflow
+    a. do git push to your repository
+    b. create pull request
+    c. after succeed do this bash
+
+```bash
+    > git fetch upstream
+    > git merge upstream/master
  ```
 
+#Homework Week #1
+
+1. Buat Folder Baru yang isinya :
+	- file konfigurasi terbilang
+	- file form kwitansi
+	- file hasil kwitansi
+	- file form login
+	- file css
+2. Rapikan file yang dikerjakan sebelumnya
+3. Selamat bekerja
+
+
 #Homework Week #2
- ```bash
-    1. Buat Folder Baru
-    2. Buat CRUD dengan table
-    	- user
-    	- kwitansi
-    3. Selamat bekerja
- ```
+
+1. Buat Folder Baru
+2. Buat CRUD dengan table
+	- user
+	- kwitansi
+3. Selamat bekerja
