@@ -1,0 +1,3 @@
+RewriteEngine On
+#RewriteRule ^([^/]*)$ index_1.php?page=$1 [L]
+RewriteRule ^page/([^/]*)$ index_1.php?page=$1 [L]
