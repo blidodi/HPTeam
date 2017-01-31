@@ -32,10 +32,10 @@ Here the member :
 	> git push origin master
  ```
 
- 3. Update Workflow
-    a. do git push to your repository
-    b. create pull request
-    c. after succeed do this bash
+3. Update Workflow
+    - do git push to your repository
+    - create pull request
+    - after succeed do this bash
 
 ```bash
     > git fetch upstream
