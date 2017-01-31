@@ -57,7 +57,4 @@
 			return $message;
 		}
 	}
-	$aritmatik = new Aritmatika();
-	$aritmatik->bagi(10,2);
-	echo $aritmatik->aritmatika_hasil();
 ?>
