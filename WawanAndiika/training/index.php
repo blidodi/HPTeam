@@ -7,8 +7,8 @@
 			case 'dashboard':
 				include "tabel/dashboard.php";
 				break;
-			case 'user':
-				# code...
+			case 'buku':
+				include "tabel/buku.php";
 				break;
 			case 'profile':
 				# code...

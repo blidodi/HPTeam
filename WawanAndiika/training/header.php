@@ -36,9 +36,9 @@ if($isLoggedIn != 'userLogin'){
 		</header>
 		<div class="main-sidebar">
 			<div class="sidebar">
-				<div class="user-panel" style="background-image: url('../../../../img/icon/header-sidebar.png');background-repeat: no-repeat;background-size: 230px 210px;">
+				<div class="user-panel" style="background-image: url('../../img/icon/header-sidebar.png');background-repeat: no-repeat;background-size: 230px 210px;">
 					<div class="user-foto">
-						<a href="../dashboard/"><img src="../../../../img/logo2.png" class="img-circle" alt="User Image"></a>
+						<a href="../dashboard/"><img src="../../img/logo2.png" class="img-circle" alt="User Image"></a>
 					</div>
 					<div class="user-status">
 						<p><?php echo $_SESSION['Nama']; ?></p>
@@ -52,6 +52,8 @@ if($isLoggedIn != 'userLogin'){
 		      		if ($_SESSION['userLevel'] == "1") { ?>
 			      	<ul>
 			        	<li class="navi"><a class="navi-a" href="../dashboard/"><img src="../../img/icon/home.png"/ style="width: 15px;height: 15px;margin-bottom: -2px; margin-right:5px;"/>Home</a></li>
+			        	<li class="navi"><a class="navi-a" href="../buku/"><img src="../../img/icon/home.png"/ style="width: 15px;height: 15px;margin-bottom: -2px; margin-right:5px;"/>Tambah Buku</a></li>
+
 
 
 			        </li>
