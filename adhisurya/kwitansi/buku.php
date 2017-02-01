@@ -93,9 +93,7 @@
 </head>
 <body>
 	<table>
-	<div id="header">
-		<img src="image/header.jpg">
-	</div>
+
 <ul>
   <li><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>
  Home</a></li>
@@ -103,45 +101,50 @@
  User</a></li>
   <li><a href="kwitansi.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
  Kwitansi</a></li>
-    <li><a href="buku.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
+   <li><a href="buku.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
  Buku</a></li>
 </ul>
 		<tr>
 			<td colspan="7"><b><h3><i class="fa fa-list-alt" aria-hidden="true"></i>
- DATA KWITANSI</h3></b></td>
+ DATA BUKU</h3></b></td>
 	    </tr>
-    		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah_kwitansi.php"><i class="fa fa-plus"></i> Tambah</a></th>
+    		<th bgcolor="#FFFFFF"><a class="button button1" href="tambah_buku.php"><i class="fa fa-plus"></i> Tambah</a></th>
     		<th colspan="6" align="right" bgcolor="#FFFFFF"><a class="button button4" href="Logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
  Logout</a></th>
     	</tr>
 		<tr>
-			<th><i class="fa fa-sort" aria-hidden="true"></i> No</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> ID</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> ISBN</th>	
 			<th><i class="fa fa-sort" aria-hidden="true"></i> Nama</th>	
-			<th><i class="fa fa-sort" aria-hidden="true"></i> Nominal</th>	
-			<th><i class="fa fa-sort" aria-hidden="true"></i> Kebutuhan</th>
-			<th><i class="fa fa-sort" aria-hidden="true"></i> Status</th>	
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Penulis</th>
+			<th><i class="fa fa-sort" aria-hidden="true"></i> Penerbit</th>	
 			<th align="center" colspan="3"><i class="fa fa-sort" aria-hidden="true"></i> Action</th>
 
 		</tr>
 				<?php
 					include "config.php";
 
-					$sql = "SELECT `data`.*, `status`.`nama` as status FROM `data` JOIN `status` WHERE `data`.`ID`=`status`.`id_data` ORDER BY `ID` DESC";
+					/*$sql = "SELECT user.id, user.nama, user.username ,user_role.role 
+							FROM user, user_role 
+							WHERE user.role=user_role.id_user";
+					$data = mysql_query($sql);*/
+
+					$sql = "SELECT * FROM buku ORDER BY ID DESC";
+
+					//$sql = "SELECT `buku`.*, `status`.`nama` as status FROM `data` JOIN `status` WHERE `data`.`ID`=`status`.`id_data` ORDER BY `ID` DESC";
 
 					$data = mysql_query($sql);
-					$i = 0;
 					if (mysql_num_rows($data) > 0) {
 						while($row = mysql_fetch_array($data)) {
-							$i++;
 					?>	
 							<tr>
-								<td align="center"><?php echo $i ?></td>
+								<td align="center"><?php echo $row['ID'] ?></td>
+								<td><?php echo $row['isbn'] ?></td>
 								<td><?php echo $row['nama'] ?></td>
-								<td><?php echo $row['nominal'] ?></td>
-								<td><?php echo $row['kebutuhan'] ?></td>
-								<td><?php echo $row['status'] ?></td>
-								<td><center><a class="button button2" href="ubah_kwitansi.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Ubah </center></a></td>
-								<td><center><a class="button button3" href="hapus_kwitansi.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-eraser" aria-hidden="true"></i> Hapus </center></a></td>
+								<td><?php echo $row['penulis'] ?></td>
+								<td><?php echo $row['penerbit'] ?></td>
+								<td><center><a class="button button2" href="ubah_buku.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Ubah </center></a></td>
+								<td><center><a class="button button3" href="hapus_buku.php?id=<?php echo $row['ID'] ?>"><i class="fa fa-eraser" aria-hidden="true"></i> Hapus </center></a></td>
 							</tr>
 					<?php
 						}
@@ -155,7 +158,7 @@
 			<tr bgcolor="#005555" style="font-family: font-family: Verdana, Geneva, sans-serif; color: #FFFFFF" align="center">
 				<br/>
 				<br/>	
-				<td colspan="7">Sistem Kwitansi</td>
+				<td colspan="7">Copyright @ 2017</td>
 			</tr>
 			</table>
 	</table>
