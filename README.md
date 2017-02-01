@@ -24,20 +24,20 @@ Here the member :
 2. Do this bash
 
  ```bash
-    > git clone https://github.com/<username>/HPTeam.git
+    > git clone https://github.com/[username]/HPTeam.git
 	> cd HPTeam/
 	> git init
-	> git config --global user.name "<username>"
-	> git config --global user.email "<your@email.com>"
-    > git remote set-url origin https://github.com/<username>/HPTeam.git
+	> git config --global user.name "[username]"
+	> git config --global user.email "[your@email.com]"
+    > git remote set-url origin https://github.com/[username]/HPTeam.git
     > git remote add upstream https://github.com/blidodi/HPTeam.git
     > git remote -v 
-	> mkdir <username>
-	> touch <username>/README.md
+	> mkdir [username]
+	> touch [username]/README.md
 	> git status
-	> git add <username>
-	> git add <username>/README.md
-	> git commit -am "Add new directory <username>"
+	> git add [username]
+	> git add [username]/README.md
+	> git commit -am "Add new directory [username]"
 	> git push origin master
  ```
 
