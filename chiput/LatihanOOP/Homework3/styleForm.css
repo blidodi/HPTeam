@@ -20,7 +20,7 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url(https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/9/c/8/highres_239255272.jpeg);
+	background-image: url(http://www.cnva.eu/images/articole/articol1.jpg);
 	background-size: cover;
 	-webkit-filter: blur(5px);
 	z-index: 0;
@@ -209,20 +209,6 @@ th {
 }
 
 .fieldinput3{
-	width: 260px;
-	height: 30px;
-	margin-bottom: 10px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	padding: 4px;
-}
-
-.fieldinput4{
 	width: 260px;
 	height: 30px;
 	margin-bottom: 10px;
