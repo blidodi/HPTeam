@@ -24,11 +24,11 @@ class Tabel
 	}
 }
 
-// $table = new Tabel();
+$table = new Tabel();
 
-// $data = array("kucing","anjing","beruang","rusa");
+$data = array("kucing","anjing","beruang","rusa");
 
-// echo $table->header();
-// echo $table->body($data);
-// echo $table->footer();
+echo $table->header();
+echo $table->body($data);
+echo $table->footer();
 ?>
