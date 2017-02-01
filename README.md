@@ -8,6 +8,15 @@ Here the member :
 4. Putri
 5. Mirza
 
+#Resource Learning
+
+1. [PHP For Beginner] (http://www.w3schools.com/php/default.asp)
+2. Code's Rule 
+	- [Coding Standard] (http://www.php-fig.org/psr/psr-1/)
+	- [Coding Style Guide] (http://www.php-fig.org/psr/psr-2/)
+	- [Auto Loader] (http://www.php-fig.org/psr/psr-4/)
+3. [Belajar JavaScript] (http://www.duniailkom.com/tutorial-belajar-javascript-dasar-untuk-pemula/)
+
 
 #Basic Code
 
