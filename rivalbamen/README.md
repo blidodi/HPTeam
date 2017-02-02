@@ -1,5 +1,4 @@
-Hallo...
-Nama Saya Rival Fahlefy
+#Rival Fahlefy
 
 
 #CATATAN KECIL TRAINING
