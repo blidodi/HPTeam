@@ -1,5 +1,4 @@
-Hallo...
-Nama Saya Rival Fahlefy
+#Rival Fahlefy
 
 
 #CATATAN KECIL TRAINING
@@ -91,3 +90,5 @@ Nama Saya Rival Fahlefy
 	- Install Composer
 	- composer create-project slim/slim-skeleton myslim
 	- php -S localhost:8080 -t public public/index.php (run sebelum menggunakan slim)
+	- composer start
+	- composer dump-autoload -o
