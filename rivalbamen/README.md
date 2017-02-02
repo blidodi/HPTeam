@@ -88,6 +88,6 @@ Nama Saya Rival Fahlefy
 
 #Hari 12
 - Belajar Install Slim-Skeleton
-	-> Install Composer
-	-> composer create-project slim/slim-skeleton myslim
-	-> php -S localhost:8080 -t public public/index.php (run sebelum menggunakan slim)
+	- Install Composer
+	- composer create-project slim/slim-skeleton myslim
+	- php -S localhost:8080 -t public public/index.php (run sebelum menggunakan slim)
