@@ -1,0 +1,71 @@
+table {
+	padding: 0px;
+	border-collapse: collapse;
+	width: 100%;
+}
+table thead tr {
+	padding: 8px;
+	border: 1px solid #ddd;
+	text-align: center;
+	font-size: 14px;
+}
+table tbody tr {
+	padding: 8px;
+	border: 1px solid #ddd;
+	font-size: 12.5px;
+	text-align: center;
+}
+table tbody tr:nth-of-type(odd) {
+	background: #f7f7f7;
+}
+table tbody tr:hover {
+	background: #f3f3f3;
+}
+
+/* Wrapper
+============================================== */
+.wrapper {
+	margin: 0 auto;
+    width: 750px;
+    margin-top: 50px;
+    font-family: arial;
+}
+a.edit {
+	padding: 5px 10px;
+    background: #02cc00;
+    color: #fff;
+    text-decoration: none;
+}
+a.hapus {
+	padding: 5px 10px;
+    background: #cc0000;
+    color: #fff;
+    text-decoration: none;
+}
+.tambah {
+	float: right;
+    padding: 10px 15px;
+    background: #1450ff;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+} 
+.tambah:hover {
+	background: #0734b5;
+}
+label {
+	width: 40%;
+    float: left;
+    text-align: right;
+    font-size: 14px;
+    padding: 6px;
+    margin: 6px 10px 5px 0;
+}
+.pesan {
+	text-align: center;
+    font-size: 14px;
+    padding: 12px;
+    color: red;
+}

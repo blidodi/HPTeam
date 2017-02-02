@@ -776,6 +776,9 @@ tr:nth-of-type(odd) {
 tr:hover {
 	background-color: #eee;
 }
+tr {
+  	background: #fff;
+}
 th { 
 	vertical-align: bottom;
 	border: 1px solid #ddd;
