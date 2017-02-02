@@ -102,9 +102,14 @@ input, select {
 input[type=submit] {
 	margin-top: 10px;
 	border: none;
-	background: #1abc9d;
+	background: #088891;
 	border-radius: 5px;
 	color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+  background: #28B6AF;
 }
 
 p {
@@ -112,7 +117,7 @@ p {
 }
 
 .p-color {
-	color: #1abc9d;;
+	color: #088891;
 }
 
 #footer {
