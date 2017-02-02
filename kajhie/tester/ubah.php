@@ -48,7 +48,7 @@
 					<label>Nominal : </label>
 					<input type="text" name="nominal" value="<?php echo check_post($row['nominal']) ?>"><br/>
 					<label>Kebutuhan : </label>
-					<input type="text" name="kebutuhan" value="<?php echo check_post($row['kebutuhan']);     ?>"><br/>	
+					<input type="text" name="kebutuhan" value="<?php echo check_post($row['kebutuhan'])?>"><br/>	
 					<select name="status">
 						<?php
 						foreach ($status as $status) {

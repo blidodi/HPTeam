@@ -1,0 +1,71 @@
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button_merah {
+    background-color:  #f44336;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+
+.button_biru {
+    background-color:  #008CBA;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+
+.button_kuning {
+    background-color:  #ffcc00;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+.button_hijau {
+    background-color:  #ffcc00;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+h3{
+	font-family: "Arial";
+	font-style : normal;
+}
