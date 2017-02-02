@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Bevan');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+* {
+	padding:0;
+	margin:0;
+}
+
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+	background-color:#FFF
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(https://a248.e.akamai.net/secure.meetupstatic.com/photos/member/8/9/c/8/highres_239255272.jpeg);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); 
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.layoutmenu{
+	position: absolute;
+	top: calc(10% - 75px);
+	left: calc(-1% - 0px);
+	height: auto;
+	width: 1100px;
+	padding: 7px;
+	z-index: 2;
+}
+
+.header{
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	background-color: #ffffff;
+	top: calc(5% - 35px);
+	left: calc(19% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: center;
+	color: #ff1493;
+	/*font-family: 'Bevan', cursive;*/
+	/*font-family: 'Cabin Sketch', cursive;*/
+	font-family: 'Raleway', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+.header div span{
+	color: #ff007f !important;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.menu-bar {
+	color:#FFF;
+	font-size:25px;
+	cursor:pointer;
+	padding:10px 12px;
+	margin-left:10px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.menu-bar:hover {
+	background-color:rgba(0, 0, 0, 0.1);
+	border-radius:50px;
+}
+
+#tag-menu {
+	display:none;
+}
+
+
+#tag-menu:checked ~ div.jw-drawer {
+ animation: slide-in 0.5s ease;
+ animation-fill-mode: forwards;
+}
+
+.jw-drawer {
+	position:fixed;
+	left:-280px;
+	background-color:#f08080;
+	height:100%;
+	z-index:100;
+	width:230px;
+	animation: slide-out 0.5s ease;
+	animation-fill-mode: forwards;
+}
+
+.jw-drawer ul li {
+	list-style:none;
+}
+
+.jw-drawer ul li a {
+	padding:10px 20px;
+	text-decoration:none;
+	display:block;
+	color:#FFF;
+	border-top:1px solid #059;
+}
+
+.jw-drawer ul li a:hover{
+	background-color:rgba(0, 0, 0, 0.1);
+}
+
+.jw-drawer ul li a i {
+	width:50px;
+	height:35px;
+	text-align:center;
+	padding-top:15px;
+}
+
+@keyframes slide-in {
+ from {left: -280px;}
+ to {left: 0;}
+}
+
+@keyframes slide-out {
+ from {left: 0;}
+ to {left: -280px;}
+}
+
+
+.content{
+  width: 90%;
+  margin-right: 100%;
+}
