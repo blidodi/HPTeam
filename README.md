@@ -2,11 +2,12 @@
 
 Here the member :
 
-1. Bli Dodi
-2. Rival
-3. Surya
-4. Putri
-5. Mirza
+1. [Bli Dodi] (https://github.com/blidodi)
+2. [Rival] (https://github.com/rivalbamen)
+3. [Surya] (https://github.com/adhisurya)
+4. [Putri] (https://github.com/chiput) 
+5. [Mirza] (https://github.com/kajhie)
+6. [Wawan] (https://github.com/WawanAndiika)
 
 #Resource Learning
 
