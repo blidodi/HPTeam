@@ -18,7 +18,8 @@
 		<td>
 			<a href="index.php" title="halaman beranda">Beranda</a>
    			<a href="user.php" title="halaman biodata">Biodata</a>
- 			<a href="table.php"title="halaman siswa">Siswa</a>
+ 			<a href="table.php" title="halaman siswa">Siswa</a>
+ 			<a href="buku.php" title="halaman siswa">Siswa</a>
 		</td>
 	</tr>
 	<tr>

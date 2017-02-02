@@ -109,6 +109,8 @@
  User</a></li>
   <li><a href="kwitansi.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
  Kwitansi</a></li>
+    <li><a href="buku.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
+ Buku</a></li>
 </ul>
 		<tr>
 			<td colspan="7"><b><h3><i class="fa fa-users" aria-hidden="true"></i>

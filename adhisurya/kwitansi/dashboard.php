@@ -66,6 +66,8 @@
  User</a></li>
   <li><a href="kwitansi.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
  Kwitansi</a></li>
+   <li><a href="buku.php"><i class="fa fa-list-alt" aria-hidden="true"></i>
+ Buku</a></li>
   <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
  Logout</a></li>
 </ul>
