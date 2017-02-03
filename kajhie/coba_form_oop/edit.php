@@ -1,6 +1,7 @@
 <?php
 require "function.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
