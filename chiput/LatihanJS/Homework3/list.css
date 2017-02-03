@@ -1,0 +1,138 @@
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+
+body {
+  padding: 80px 0 0 0;
+}
+
+body, input, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  background: #f08080;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+header input {
+  width: 100%;
+  height: 50px;
+  float: left;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  padding: 0 60px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px 25px 25px 5px;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header button {
+  width: 50px;
+  height: 50px;
+
+  position:absolute;
+  top:15px;
+  right:15px;
+  z-index:2;
+
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header button svg {
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -8px 0 0 -8px;
+}
+
+header button svg .fill {
+  fill: #25b99a;
+}
+
+.container {
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+
+.field1{
+  font-family: 'Exo', sans-serif;
+  font-size: 20px;
+  color: #dc143c;
+}
+
+.button{
+  width: 27px;
+  height: 27px;
+  background: #dc143c;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 20px;
+}
+.button:hover{
+  color: #fff;
+  background-color: #dc143c;
+  opacity: 0.8;
+}
+
+.button:active{
+  opacity: 0.6;
+}
+.checkbox{
+  width: 20px;
+  height: 20px;
+  background: #dc143c;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: white;
+  border-radius: 20px;
+}
