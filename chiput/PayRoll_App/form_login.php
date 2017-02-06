@@ -1,0 +1,105 @@
+<?php 
+session_start();
+include_once "controller.php";
+$user = new User();
+
+if ($user -> get_session()) 
+{
+	header("location:home.php");
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$login = $user->cek_login($_POST['username'], $_POST['password'], $_POST['level']);
+	if ($login) {
+		//login sukses
+		header("location:form_login.php");
+	} 
+	else 
+	{
+		$msg = "Username & Password Anda Salah";
+	}
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form_Login</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+			<div class="login-panel panel panel-default">
+				<div class="panel-heading">Log in</div>
+				<div class="panel-body">
+					<form role="form" method="post" name="login">
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="Username" name="username" type="text">
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password" name="password" type="password">
+							</div>
+							<select name="level">
+									<?php 
+										foreach ($leveluser as $leveluser){
+											if($leveluser == cek_tampil($row['level'])){
+												?>
+												<option value="<?php echo $leveluser ?>" selected><?php echo $leveluser ?></option>
+												<?php
+											} else {
+												?>
+												<option value="<?php echo $leveluser ?>"><?php echo $leveluser ?></option>
+												<?php
+											}
+										}
+									?>
+							</select>
+							<div class="checkbox">
+								<label>
+									<input name="remember" type="checkbox" value="Remember Me">Remember Me
+								</label>
+							</div>
+							<a href="home.php" class="btn btn-primary">Login</a>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div><!-- /.col-->
+	</div><!-- /.row -->	
+	
+		
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+		!function ($) {
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+				$(this).find('em:first').toggleClass("glyphicon-minus");	  
+			}); 
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>	
+</body>
+
+</html>
