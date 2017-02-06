@@ -1,0 +1,24 @@
+<?php
+	include "header.php";
+	$form = new Form('','POST'); 
+	echo $form->header('form-horizontal form-customize'); 
+	echo $form->formbootstrap_header('col-sm-2 control-label','Nama karyawan','col-sm-10');
+	echo $form->inputsubmit('text','namapegawai','form-control','masukan nama karyawan...');
+	echo $form->formbootstrap_footer();
+	echo $form->formbootstrap_header('col-sm-2 control-label','Nomer karyawan','col-sm-10');
+	echo $form->inputsubmit('text','nopegawai','form-control','masukan nomer karyawan...');
+	echo $form->formbootstrap_footer();
+	echo $form->formbootstrap_header('col-sm-2 control-label','Foto karyawan','col-sm-10');
+	echo $form->inputsubmit('file','fotopegawai','file-customize','');
+	echo $form->formbootstrap_footer();
+	echo $form->formbootstrap_header('col-sm-2 control-label','Nomer rekening','col-sm-10');
+	echo $form->inputsubmit('number','norekening','form-control','masukan nomer rekening karyawan...');
+	echo $form->formbootstrap_footer();
+	echo $form->formbootstrap_header('col-sm-2 control-label','Alamat karyawan','col-sm-10');
+	echo $form->textarea('alamat','form-control');
+	echo $form->formbootstrap_footer();
+	echo $form->submitbootstrap_header('col-sm-offset-2 col-sm-10');
+	echo $form->button('submit','simpan','btn btn-primary','Simpan');
+	echo $form->formbootstrap_footer();
+	echo $form->footer(); 
+	include "footer.php";
