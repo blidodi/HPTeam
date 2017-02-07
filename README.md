@@ -73,3 +73,8 @@ Here the member :
 	- user
 	- kwitansi
 3. Selamat bekerja
+
+#Homework Week #3
+
+1. Buat List To-Do App dengan Javascript
+2. Buat App Bebas dengan Javascript
