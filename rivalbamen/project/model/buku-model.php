@@ -14,18 +14,18 @@ class Buku extends Database {
 	}
 
 	//Menambah Buku
-	function tambah_buku($judul, $pengarang, $penerbit, $tahun, $isbn, $harga) 
+	function add_buku($judul, $pengarang, $penerbit, $tahun, $isbn, $harga) 
 	{
 		mysql_query("INSERT INTO buku VALUES('','$judul','$pengarang','$penerbit', '$tahun', '$isbn', '$harga')");
 	}
 
 	//Menghapus Buku
-	function hapus_buku($id){
+	function delete_buku($id){
 		mysql_query("DELETE FROM buku WHERE id='$id'");
 	}
 
 	//Mengubah Buku
-	function ubah_buku($id, $judul, $pengarang, $penerbit, $tahun, $isbn, $harga){
+	function edit_buku($id, $judul, $pengarang, $penerbit, $tahun, $isbn, $harga){
 		mysql_query("UPDATE buku SET judul='$judul', pengarang='$pengarang', 
 					penerbit='$penerbit', tahun='$tahun', isbn='$isbn', harga='$harga'
 					WHERE id='$id'");

@@ -25,10 +25,13 @@
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
 		<li><a href="../user/user-view.php"><i class="fa fa-users"></i> Users</a></li>
-		<li><a href="../member/member-view"><i class="fa fa-id-card"></i> Member</a></li>
+		<li><a href="../member/member-view.php"><i class="fa fa-id-card"></i> Member</a></li>
 		<li><a class="active" href="#buku-view"><i class="fa fa-book"></i> Buku</a></li>
+		<li><a href="../penyewaan/sewa-view.php"><i class="fa fa-shopping-cart"></i> Penyewaan</a></li>
+		<li><a href="../pengembalian/kembali-view.php"><i class="fa fa-retweet"></i> Pengembalian</a></li>
 		<li style="float:right"><a href="../../logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
 	</ul>
+	<div id="body">
 	<div class="form">
 	<a class="button2" href="buku-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
@@ -42,9 +45,11 @@
 			<th>Opsi</th>
 		</tr>
 		<?php
+			$no = 1;
 			foreach($db->tampil_buku() as $tampil){
 		?>
 		<tr>
+			<td><?php echo $no++; ?></td>
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['pengarang']; ?></td>
 			<td><?php echo $tampil['penerbit']; ?></td>
@@ -58,6 +63,7 @@
 		</tr>
 		<?php }	?>
 	</table>
+	</div>
 	</div>
 	<div id="footer">
 		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>

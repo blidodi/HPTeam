@@ -12,5 +12,6 @@ class Database
 		mysql_connect($this->host, $this->user, $this->pass);
 		mysql_select_db($this->db);
 	}
+}
 
 ?>

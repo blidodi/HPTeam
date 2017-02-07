@@ -146,6 +146,11 @@ html, body{
     padding: 0px;
     background: #EBEAE9;
     }
+    
+#body {
+   padding:10px;
+   padding-bottom:60px;
+}
 
 #content{
     padding:10px;
@@ -174,11 +179,13 @@ li a {
 li a:hover:not(.active) {
     background-color: #EBEAE9;
     color: #000000;
+    border-bottom: 5px solid #1abc9d;
 }
 
 .active {
     background-color: #EBEAE9;
     color: #000000;
+    border-bottom: 5px solid #1abc9d;
 }
 
 h1{
@@ -191,6 +198,10 @@ h1{
   margin: 20px auto;
   padding-top: 0px;
   border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+  padding-bottom: 8px;
+  height: 360px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }

@@ -29,12 +29,16 @@ session_start();
 			<li><a href="view/user/user-view.php"><i class="fa fa-users"></i> Users</a></li>
 			<li><a href="view/member/member-view.php"><i class="fa fa-id-card"></i> Member</a></li>
 			<li><a href="view/buku/buku-view.php"><i class="fa fa-book"></i> Buku</a></li>
+			<li><a href="view/penyewaan/sewa-view.php"><i class="fa fa-shopping-cart"></i> Penyewaan</a></li>
+			<li><a href="view/pengembalian/kembali-view.php"><i class="fa fa-retweet"></i> Pengembalian</a></li>
 			<li style="float:right"><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
 		</ul>
+		<div id="body">
 		<div class="form">
 			<p>Selamat Datang di <b>Dashboard</b> <i class="fa fa-user"> </i><?php echo " "."<u>".$row['nama']; ?></u></p>
 			<br/>
 			<!--<img src="rb-icon.png" class="image">-->
+		</div>
 		</div>
 		<div id="footer">
 			<center>Copyright &copy; 2017 Designed by Rivalbamen</center>

@@ -17,12 +17,14 @@
 <body>
 	<form action="login-proses.php" method="post">
 		<h1><i class="fa fa-lock"></i> Silahkan Login</h1>
+		<div id="body">
 		<div class="form">
 			<input type="text" name="username" placeholder="Username" />
 			<input type="password" name="password" placeholder="Password" />
 			<input type="submit" name="login" value="Login" />
 		<br/>
 		</div>	
+		</div>
 	</form>
 </body>
 </html>

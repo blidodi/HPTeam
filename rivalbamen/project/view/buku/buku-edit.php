@@ -1,6 +1,6 @@
 <?php 
-	include '../../model/member-model.php';
-	$db = new Member();
+	include '../../model/buku-model.php';
+	$db = new Buku();
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,38 +8,42 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Ubah Member</title>
+	<title>Ubah Buku</title>
 </head>
 <body>
 	<div id="container">
 	    <div id="header">
-			<h1>Tabel Member</h1>
+			<h1>Tabel Buku</h1>
 		</div>
 		<ul>
 			<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
 			<li><a href="../user/user-view.php"><i class="fa fa-users"></i> Users</a></li>
-			<li><a class="active" href="#member-view"><i class="fa fa-id-card"></i> Member</a></li>
-			<li><a href="../buku/buku-view.php"><i class="fa fa-book"></i> Buku</a></li>
+			<li><a href="../member/member-view.php"><i class="fa fa-id-card"></i> Member</a></li>
+			<li><a class="active" href="#buku-view"><i class="fa fa-book"></i> Buku</a></li>
 			<li><a href="../penyewaan/sewa-view.php"><i class="fa fa-shopping-cart"></i> Penyewaan</a></li>
 			<li><a href="../pengembalian/kembali-view.php"><i class="fa fa-retweet"></i> Pengembalian</a></li>
 			<li style="float:right"><a href="../../logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
 		</ul>
 		<div id="body">
 		<div class="form">
-		<p><a class="p-color" href="member-view.php">Tabel Member</a> / Ubah Member</p>
-		<form action="../../controller/member-controller.php?action=edit" method="post"action>
+		<p><a class="p-color" href="buku-view.php">Tabel Member</a> / Ubah Member</p>
+		<form action="../../controller/buku-controller.php?action=edit" method="post"action>
 		<?php
-			foreach($db->tampil_edit_member($_GET['id']) as $edit){
+			foreach($db->tampil_edit_buku($_GET['id']) as $edit){
 		?>
 		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
-		<label>No. Member :</label>
-		<input type="text" name="no_member" value="<?php echo $edit['no_member'] ?>" />
-		<label>Nama :</label>
-		<input type="text" name="nama" value="<?php echo $edit['nama'] ?>" />
-		<label>Alamat :</label>
-		<input type="text" name="alamat" value="<?php echo $edit['alamat'] ?>" />
-		<label>Telpon :</label>
-		<input type="text" name="telpon" value="<?php echo $edit['telpon'] ?>" />
+		<label>Judul :</label>
+		<input type="text" name="judul" value="<?php echo $edit['judul'] ?>" />
+		<label>Pengarang :</label>
+		<input type="text" name="pengarang" value="<?php echo $edit['pengarang'] ?>" />
+		<label>Penerbit :</label>
+		<input type="text" name="penerbit" value="<?php echo $edit['penerbit'] ?>" />
+		<label>Tahun :</label>
+		<input type="text" name="tahun" value="<?php echo $edit['tahun'] ?>" />
+		<label>ISBN :</label>
+		<input type="text" name="isbn" value="<?php echo $edit['isbn'] ?>" />
+		<label>Harga :</label>
+		<input type="text" name="harga" value="<?php echo $edit['harga'] ?>" />
 		<br/>
 		<input type="submit" name="ubah" value="Ubah">
 		<?php } ?>
