@@ -10,9 +10,13 @@ class Form
 			$this->method = $new_method;
 		}
 
-		function header($new_class)
+		function header($new_class,$new_entype)
 		{
-			$message = '<form action="'.$this->action.'" method="'.$this->method.'" class="'.$new_class.'">';
+			if(!$new_entype==""){
+				$message = '<form action="'.$this->action.'" method="'.$this->method.'" class="'.$new_class.'" enctype="multipart/form-data">';
+			} else {
+				$message = '<form action="'.$this->action.'" method="'.$this->method.'" class="'.$new_class.'">';
+			}
 			return $message;
 		}
 
@@ -50,11 +54,15 @@ class Form
 			return $message;
 		}
 
-		function textarea($new_name,$new_class)
+		function textarea($new_name,$new_class,$new_value)
 		{
 			$this->name = $new_name;
 			$this->class = $new_class;
-			$message = '<textarea name="'.$this->name.'" class="'.$this->class.'"/></textarea>';
+			if($new_value==""){
+				$message = '<textarea name="'.$this->name.'" class="'.$this->class.'"/></textarea>';
+			} else {
+				$message = '<textarea name="'.$this->name.'" class="'.$this->class.'"/>'.$new_value.'</textarea>';
+			}
 			return $message;
 		}
 
@@ -84,5 +92,21 @@ class Form
 			$message = '<div class="form-group">
 	    					<div class="'.$new_class.'">';
 	    	return $message;
+		}
+
+		function selectbootstrap($new_condition, $new_class, $new_name)
+		{
+			if($new_condition=="header"){
+				$message = '<select class="'.$new_class.'" name="'.$new_name.'">';
+			} elseif ($new_condition=="footer") {
+				$message = '</select>';
+			} 
+			return $message;
+		}
+
+		function optionbootstrap($new_value, $new_selected, $new_name)
+		{
+			$message = '<option value="'.$new_value.'" '.$new_selected.'>'.$new_name.'</option>';
+			return $message;
 		}
 	}

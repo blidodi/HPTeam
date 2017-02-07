@@ -10,6 +10,12 @@
 					case 'jabatan':
 						include "templates/jabatan.php";
 						break;
+					case 'user':
+						include "templates/user.php";
+						break;
+					case 'gaji':
+						include "templates/gaji.php";
+						break;
 					default:
 						include "404.php";
 				}

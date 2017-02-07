@@ -4,5 +4,7 @@
 	include "ClassUser.php";
 	include "ClassForm.php";
 	include "ClassJabatan.php";
+	include "ClassPegawai.php";
+	include "ClassGaji.php";
 	include "function.php";
 ?>

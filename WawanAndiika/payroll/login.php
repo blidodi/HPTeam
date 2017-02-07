@@ -33,13 +33,14 @@ if(isset($_SESSION['userStatus'])){
 					                $_SESSION['userStatus'] = 'userLogin';
 					                $_SESSION['username'] = $result['username'];
 					                $_SESSION['id_user'] = $result['id_user'];
+					                $_SESSION['role'] = $result['role'];
 					                header("location: /");
 					            } else {
 					            	echo '<div class="form-signin alert alert-danger" style="margin: 0 30px;"><strong>Gagal!</strong> Username, password salah</div>';
 					            }
 							}
 		                	$form = new Form('','POST');
-		                	echo $form->header('form-signin');
+		                	echo $form->header('form-signin','');
 		                	echo $form->inputsubmit('text','username','form-control','Username...');
 							echo $form->inputsubmit('password','password','form-control','Password...');
 			                echo $form->button('submit','login','btn btn-lg btn-primary btn-block','Login');
