@@ -48,3 +48,8 @@ h1 {
 .button1 {background-color: blue;}
 .button2 {background-color: orange;}
 .button3 {background-color: red;}
+
+
+.input-tanggal{
+	padding: 12px 20px;	
+}

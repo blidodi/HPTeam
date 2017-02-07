@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="crud.css">
+	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Tambah Buku</title>
 </head>
@@ -10,7 +10,7 @@
     <div id="header">
 		<h1>Tambah Buku</h1>
 	</div>
-	<form action="proses.php?aksi=tambah" method="post">
+	<form action="../proses.php?aksi=tambah_buku" method="post">
 		<table>
 			<tr>
 				<td>Kode Buku</td>

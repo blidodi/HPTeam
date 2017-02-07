@@ -1,5 +1,5 @@
 <?php 
-include 'database.php';
+include '../database.php';
 $db = new database();
 ?>
 
@@ -7,7 +7,7 @@ $db = new database();
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="crud.css">
+	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Edit Buku</title>
 </head>
@@ -15,7 +15,7 @@ $db = new database();
     <div id="header">
 		<h1>Edit Buku</h1>
 	</div>
-		<form action="proses.php?aksi=update" method="post">
+		<form action="../proses.php?aksi=update_buku" method="post">
 			<?php
 				foreach($db->edit_buku($_GET['id']) as $d){
 			?>

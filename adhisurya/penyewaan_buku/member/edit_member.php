@@ -1,5 +1,5 @@
 <?php 
-include 'database.php';
+include '../database.php';
 $db = new database();
 ?>
 
@@ -7,24 +7,24 @@ $db = new database();
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="crud.css">
+	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Edit User</title>
+	<title>Edit Member</title>
 </head>
 <body>
     <div id="header">
-		<h1>Edit User</h1>
+		<h1>Edit Member</h1>
 	</div>
-		<form action="proses.php?aksi=update" method="post">
+		<form action="../proses.php?aksi=update_member" method="post">
 			<?php
-				foreach($db->edit_user($_GET['id']) as $d){
+				foreach($db->edit_member($_GET['id']) as $d){
 			?>
 				<table>
 					<tr>
-						<td>Kode User</td>
+						<td>Kode Member</td>
 						<td>
 							<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-							<input type="text" name="kode_user" value="<?php echo $d['kode_user'] ?>">
+							<input type="text" name="kode_member" value="<?php echo $d['kode_member'] ?>">
 						</td>
 					</tr>
 					<tr>
@@ -32,12 +32,12 @@ $db = new database();
 						<td><input type="text" name="nama" value="<?php echo $d['nama'] ?>"></td>
 					</tr>
 					<tr>
-						<td>Username</td>
-						<td><input type="text" name="username" value="<?php echo $d['username'] ?>"></td>
+						<td>Alamat</td>
+						<td><input type="text" name="alamat" value="<?php echo $d['alamat'] ?>"></td>
 					</tr>
 					<tr>
-						<td>Password</td>
-						<td><input type="text" name="password" value="<?php echo $d['password'] ?>"></td>
+						<td>Foto</td>
+						<td><input type="file" name="foto" value="<?php echo $d['foto'] ?>"></td>
 					</tr>
 					<tr>
 						<td></td>
