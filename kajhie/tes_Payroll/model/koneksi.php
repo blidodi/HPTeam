@@ -10,12 +10,24 @@ class data_base{
 		mysql_select_db($this->db);
 	}
 
-	function login(){
-		$data = mysql_query("SELECT * FROM user");
-		while($d = mysql_fetch_array($data)){
-			$hasil[] = $d;
+	function key($query){
+		$data = mysql_query($query);
+		if (!$data) {
+			printf("Error : ",mysql_error());
+			exit();
 		}
-		return $hasil;
+		return $data;
 	}
+
+	function login($email, $pass){
+		$data = mysql_query("SELECT * FROM user where email='$email' AND password='$pass'");
+		if (!$data) {
+			printf("Error : ",mysql_error());
+			exit();
+		}
+		return $data;
+	}
+
+
 }
 ?>
