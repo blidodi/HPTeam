@@ -1,0 +1,56 @@
+#result {
+	height:10px;
+	font-size:9px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	padding:0px;
+	margin-bottom:0px;
+	background-color:#FFFF99;
+}
+#country{
+	padding:3px;
+	border:1px #CCC solid;
+	font-size:12px;
+}
+.suggestionsBox {
+	position: relative;
+	left: 0px;
+	top:0px;
+	margin: 0px 0px 0px 0px;
+	width: 900px;
+	background-color:#69cbf5;
+	border-top: 1px solid #999999;
+	color: #fff;
+}
+.suggestionList {
+	margin: 0px;
+	padding: 0px;
+}
+.suggestionList ul li {
+	list-style:none;
+	margin: 0px;
+	padding: 6px;
+	border-bottom:1px dotted #666;
+	cursor: pointer;
+}
+.suggestionList ul li:hover {
+	background-color: #FC3;
+	color:#000;
+}
+ul {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#FFF;
+	padding:0;
+	margin:0;
+}
+
+.load{
+background-image:url(loader.gif);
+background-position:right;
+background-repeat:no-repeat;
+}
+
+#suggest {
+	position:relative;
+}
