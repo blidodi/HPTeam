@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Feb 2017 pada 08.02
+-- Generation Time: 08 Feb 2017 pada 08.04
 -- Versi Server: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -31,9 +31,21 @@ CREATE TABLE IF NOT EXISTS `tbl_gaji` (
   `id_pegawai` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `absen` int(5) NOT NULL,
+  `bonus` varchar(125) NOT NULL,
   `total_gaji` varchar(125) NOT NULL,
   `tanggal_dibayar` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_gaji`
+--
+
+INSERT INTO `tbl_gaji` (`id_gaji`, `id_pegawai`, `id_jabatan`, `absen`, `bonus`, `total_gaji`, `tanggal_dibayar`) VALUES
+(8, 18, 15, 29, '1000', '2000', '0000-00-00 00:00:00'),
+(9, 13, 1, 9, '1000000', '29000000', '0000-00-00 00:00:00'),
+(10, 16, 15, 29, '1000', '2000', '2017-02-08 07:35:30'),
+(11, 13, 1, 12, '10000000', '34000000', '2017-02-08 07:57:03'),
+(12, 13, 1, 12, '10000000', '34000000', '2017-02-08 07:59:46');
 
 -- --------------------------------------------------------
 
@@ -55,7 +67,7 @@ INSERT INTO `tbl_jabatan` (`id_jabatan`, `nama_jabatan`, `gaji`) VALUES
 (1, 'Direktur Utama', '40000000'),
 (2, 'Sekertaris', '5000000'),
 (14, 'Bendahara', '20000000'),
-(15, 'Istriku', '90000000000000');
+(15, 'Istriku', '30000');
 
 -- --------------------------------------------------------
 
@@ -72,16 +84,16 @@ CREATE TABLE IF NOT EXISTS `tbl_pegawai` (
   `no_pegawai` varchar(100) NOT NULL,
   `no_rekening` varchar(15) NOT NULL,
   `alamat` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_pegawai`
 --
 
 INSERT INTO `tbl_pegawai` (`id_pegawai`, `id_jabatan`, `status`, `nama_pegawai`, `foto`, `no_pegawai`, `no_rekening`, `alamat`) VALUES
-(13, 1, 0, 'Wawan Andika', '3164_Wawan_Andika.jpg', 'KT-9987-8783-9997', '9900990099007', 'Jln. Arjuna Mencari Cinta'),
+(13, 1, 1, 'Wawan Andika', '3164_Wawan_Andika.jpg', 'KT-9987-8783-9997', '9900990099007', 'Jln. Arjuna Mencari Cinta'),
 (16, 15, 0, 'Mamaku Cantik', '8042_Mamaku_Cantik.jpg', 'KT-8754-4323-9856', '8877665544332', 'Jln. Badak Agung'),
-(18, 15, 0, 'Sayangku', '173_Sayangku.jpg', 'KT-8877-5434-9878', '9876586585478', 'Jln. Pencari Cinta Cihui');
+(18, 2, 0, 'Sayangku', '173_Sayangku.jpg', 'KT-8877-5434-9878', '9876586585478', 'Jln. Pencari Cinta Cihui');
 
 -- --------------------------------------------------------
 
@@ -114,7 +126,7 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`) VALUES
 -- Indexes for table `tbl_gaji`
 --
 ALTER TABLE `tbl_gaji`
-  ADD PRIMARY KEY (`id_gaji`), ADD UNIQUE KEY `id_pegawai` (`id_pegawai`), ADD UNIQUE KEY `id_user` (`id_jabatan`);
+  ADD PRIMARY KEY (`id_gaji`);
 
 --
 -- Indexes for table `tbl_jabatan`
@@ -142,7 +154,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_gaji`
 --
 ALTER TABLE `tbl_gaji`
-  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_jabatan`
 --
@@ -152,7 +164,7 @@ ALTER TABLE `tbl_jabatan`
 -- AUTO_INCREMENT for table `tbl_pegawai`
 --
 ALTER TABLE `tbl_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --

@@ -35,6 +35,15 @@ class Form
 			return $message;
 		}
 
+		function inputvaluedisabled($new_type, $new_name,$new_class,$new_value)
+		{
+			$this->type = $new_type;
+			$this->name = $new_name;
+			$this->value = $new_value;
+			$message = '<input class="'.$new_class.'" type="'.$this->type.'" name="'.$this->name.'" value="'.$this->value.'" disabled/>';
+			return $message;
+		}
+
 		function inputvalue($new_type, $new_name,$new_class,$new_value)
 		{
 			$this->type = $new_type;

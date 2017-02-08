@@ -130,9 +130,26 @@
     width: 100% !important;
     height: 150px !important;
 }
+.caption ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.caption ul li {
+    padding: 5px 5px;
+}
+.sub-header {
+    background: #337ab7;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+}
 
 /* Form Customiza
 ============================================= */
+.absen {
+    width: 100px !important;
+}
 .file-customize {
 	padding: 8px 0;
 }

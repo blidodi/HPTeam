@@ -41,7 +41,12 @@
 			<div class="col-sm-3 col-md-2 sidebar" style="background: #333;margin-top: -1px;">
 				  <ul class="nav nav-sidebar">
             <li><a href="/"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-            <li><a href="/page/gaji/"><i class="fa fa-handshake-o" aria-hidden="true"></i>Gaji Karyawan</a></li>
+             <li><a href="#" onclick="$('#gaji').toggle();"><i class="fa fa-handshake-o" aria-hidden="true"></i>Gaji Karyawan</a>
+                <ul id="gaji" class="nav nav-sidebar-child">
+                    <li><a href="/page/gaji/">Proccess Gaji</a></li>
+                    <li><a href="/page/gaji/list/">Print & Final Gaji</a></li>
+                </ul>
+            </li>
             <li><a href="#" onclick="$('#pegawaii').toggle();"><i class="fa fa-users" aria-hidden="true"></i>Karyawan</a>
                 <ul id="pegawaii" class="nav nav-sidebar-child">
                     <li><a href="/page/pegawai/add/">Tambah</a></li>
