@@ -37,6 +37,7 @@
 	<table>
 		<tr><th>No.</th>
 			<th>Tanggal</th>
+			<th>Kembali</th>
 			<th>Member</th>
 			<th>Buku</th>
 			<th>Harga</th>
@@ -49,8 +50,9 @@
 		<tr>
 			<td><?php echo $no++; ?></td>
 			<td><?php echo $tampil['tanggal']; ?></td>
-			<td><?php echo $tampil['member']; ?></td>
-			<td><?php echo $tampil['buku']; ?></td>
+			<td><?php echo $tampil['kembali']; ?></td>
+			<td><?php echo $tampil['nama']; ?></td>
+			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['harga']; ?></td>
 			<td>
 				<a class="button1" href="sewa-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>

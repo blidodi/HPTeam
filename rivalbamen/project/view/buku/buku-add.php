@@ -1,3 +1,7 @@
+<?php 
+	include '../../model/buku-model.php';
+	$db = new Buku();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,18 +28,31 @@
 	<div class="form">
 	<p><a class="p-color" href="buku-view.php">Tabel Buku</a> / Tambah Buku</p>
 	<form action="../../controller/buku-controller.php?action=add" method="post">
+		<label>ISBN :</label>
+		<input type="text" name="isbn" />
 		<label>Judul :</label>
 		<input type="text" name="judul" />
 		<label>Pengarang :</label>
 		<input type="text" name="pengarang" />
 		<label>Penerbit :</label>
 		<input type="text" name="penerbit" />
+		<label>Kategori :</label>
+		<select name="kategori">
+		<option value="">-- Pilih --</option>
+				<?php 
+
+					foreach($db->tampil_kategori() as $kategori) {
+						?>
+							<option value="<?php echo $kategori['kode']; ?>"><?php echo $kategori['kategori'] ?>
+							</option>
+						<?php
+						
+					}
+				?>
+		</select>
+
 		<label>Tahun :</label>
 		<input type="text" name="tahun" />
-		<label>ISBN :</label>
-		<input type="text" name="isbn" />
-		<label>Harga :</label>
-		<input type="text" name="harga" />
 		<br/>
 		<input type="submit" name="simpan" value="Simpan">
 	</form>

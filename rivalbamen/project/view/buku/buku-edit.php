@@ -32,18 +32,37 @@
 			foreach($db->tampil_edit_buku($_GET['id']) as $edit){
 		?>
 		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
+		<label>ISBN :</label>
+		<input type="text" name="isbn" value="<?php echo $edit['isbn'] ?>" />
 		<label>Judul :</label>
 		<input type="text" name="judul" value="<?php echo $edit['judul'] ?>" />
 		<label>Pengarang :</label>
 		<input type="text" name="pengarang" value="<?php echo $edit['pengarang'] ?>" />
 		<label>Penerbit :</label>
 		<input type="text" name="penerbit" value="<?php echo $edit['penerbit'] ?>" />
+		<label>Kategori :</label>
+		<!--<input type="text" name="kategori" value="<?php //echo $edit['kategori'] ?>" />-->
+		<select name="kategori">
+		<option value="">-- Pilih --</option>
+				<?php 
+
+					foreach($db->tampil_kategori() as $kategori) {
+						if($kategori['kode'] == $edit['kategori']) {
+						?>
+							<option value="<?php echo $kategori['kode']; ?>" selected><?php echo $kategori['kategori']?>
+							</option>
+						<?php
+						} else {
+						?>
+							<option value="<?php echo $kategori['kode']; ?>"><?php echo $kategori['kategori'] ?>
+							</option>
+						<?php
+						}
+					}
+				?>
+		</select>
 		<label>Tahun :</label>
 		<input type="text" name="tahun" value="<?php echo $edit['tahun'] ?>" />
-		<label>ISBN :</label>
-		<input type="text" name="isbn" value="<?php echo $edit['isbn'] ?>" />
-		<label>Harga :</label>
-		<input type="text" name="harga" value="<?php echo $edit['harga'] ?>" />
 		<br/>
 		<input type="submit" name="ubah" value="Ubah">
 		<?php } ?>

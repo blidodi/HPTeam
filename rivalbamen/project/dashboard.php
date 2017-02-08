@@ -37,7 +37,8 @@ session_start();
 		<div class="form">
 			<p>Selamat Datang di <b>Dashboard</b> <i class="fa fa-user"> </i><?php echo " "."<u>".$row['nama']; ?></u></p>
 			<br/>
-			<!--<img src="rb-icon.png" class="image">-->
+			<h2 align="center">Sistem Penyewaan Buku</h2>
+			<img align="center" src="image/rb-icon.png" class="image">
 		</div>
 		</div>
 		<div id="footer">

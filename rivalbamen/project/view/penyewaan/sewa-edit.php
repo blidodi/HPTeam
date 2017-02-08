@@ -15,6 +15,7 @@
 		<script>
 			$(function() {
 				$( "#datepickersewa" ).datepicker({ dateFormat: 'yy-mm-dd' });
+				$( "#datepickerkembali" ).datepicker({ dateFormat: 'yy-mm-dd' });
 			});
 		</script>
 
@@ -44,10 +45,48 @@
 		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
 		<label>Tanggal :</label>
 		<input type="text" name="tanggal" value="<?php echo $edit['tanggal']  ?>" id="datepickersewa"/>
+		<label>Kembali :</label>
+		<input type="text" name="kembali" value="<?php echo $edit['kembali']  ?>" id="datepickerkembali"/>
 		<label>Member :</label>
-		<input type="text" name="member" value="<?php echo $edit['member'] ?>" />
+		<select name="member">
+		<option value="">-- Pilih --</option>
+				<?php 
+
+					foreach($db->tampil_member() as $member) {
+						if($member['no_member'] == $edit['member']) {
+						?>
+							<option value="<?php echo $member['no_member']; ?>" selected><?php echo $member['nama']?>
+							</option>
+						<?php
+						} else {
+						?>
+							<option value="<?php echo $member['no_member']; ?>"><?php echo $member['nama'] ?>
+							</option>
+						<?php
+						}
+					}
+				?>
+		</select>
 		<label>Buku :</label>
-		<input type="text" name="buku" value="<?php echo $edit['buku'] ?>" />
+		<select name="buku">
+		<option value="">-- Pilih --</option>
+				<?php 
+
+					foreach($db->tampil_buku() as $buku) {
+						if($buku['isbn'] == $edit['buku']) {
+						?>
+							<option value="<?php echo $buku['isbn']; ?>" selected><?php echo $buku['judul']?>
+							</option>
+						<?php
+						} else {
+						?>
+							<option value="<?php echo $buku['isbn']; ?>"><?php echo $buku['judul'] ?>
+							</option>
+						<?php
+						}
+					}
+				?>
+		</select>
 		<label>Harga :</label>
 		<input type="text" name="harga" value="<?php echo $edit['harga'] ?>" />
 		<br/>

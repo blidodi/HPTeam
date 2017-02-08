@@ -195,17 +195,16 @@ h1{
 .form{
   width: 96%;
   background: #EBEAE9;
-  margin: 20px auto;
+  margin: 5px auto;
   padding-top: 0px;
   border-radius: 10px;
-  border: 1px solid white;
   padding: 10px;
-  padding-bottom: 8px;
-  height: 360px;
+  padding-bottom: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
 
+}
 img {
     display: block;
     margin: auto;

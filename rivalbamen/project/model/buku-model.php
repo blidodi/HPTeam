@@ -4,9 +4,13 @@ class Buku extends Database {
 
 	/**Buku**/
 	//Menampilkan Data Buku
+	var $hasil;
 	function tampil_buku()
 	{
-		$buku = mysql_query("SELECT * FROM buku");
+		$buku = mysql_query("SELECT buku.id AS id, buku.judul, buku.pengarang, buku.
+							penerbit, kategori_buku.kategori, kategori_buku.harga 
+							FROM buku, kategori_buku
+							WHERE buku.kategori=kategori_buku.kode");
 		while($tampil = mysql_fetch_array($buku)){
 			$hasil[] = $tampil;
 		}
@@ -14,9 +18,9 @@ class Buku extends Database {
 	}
 
 	//Menambah Buku
-	function add_buku($judul, $pengarang, $penerbit, $tahun, $isbn, $harga) 
+	function add_buku($judul, $pengarang, $penerbit, $tahun, $isbn, $kategori) 
 	{
-		mysql_query("INSERT INTO buku VALUES('','$judul','$pengarang','$penerbit', '$tahun', '$isbn', '$harga')");
+		mysql_query("INSERT INTO buku VALUES('','$judul','$pengarang','$penerbit', '$tahun', '$isbn', '$kategori')");
 	}
 
 	//Menghapus Buku
@@ -25,9 +29,9 @@ class Buku extends Database {
 	}
 
 	//Mengubah Buku
-	function edit_buku($id, $judul, $pengarang, $penerbit, $tahun, $isbn, $harga){
+	function edit_buku($id, $judul, $pengarang, $penerbit, $tahun, $isbn, $kategori){
 		mysql_query("UPDATE buku SET judul='$judul', pengarang='$pengarang', 
-					penerbit='$penerbit', tahun='$tahun', isbn='$isbn', harga='$harga'
+					penerbit='$penerbit', tahun='$tahun', isbn='$isbn', kategori='$kategori'
 					WHERE id='$id'");
 	}
 
@@ -35,11 +39,18 @@ class Buku extends Database {
 	function tampil_edit_buku($id){
 		$buku = mysql_query("SELECT * FROM buku WHERE id='$id'");
 		while($edit = mysql_fetch_array($buku)){
-			$hasil[] = $edit;
+			$this->hasil[] = $edit;
+		}
+		return $this->hasil;
+	}
+	//menampilkan kategri
+	function tampil_kategori(){
+		$kategori = mysql_query("SELECT * FROM kategori_buku");
+		while($buku = mysql_fetch_array($kategori)){
+			$hasil[] = $buku;
 		}
 		return $hasil;
 	}
-
 	
 } 
 

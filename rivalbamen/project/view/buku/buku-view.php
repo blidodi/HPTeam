@@ -39,8 +39,7 @@
 			<th>Judul</th>
 			<th>Pengarang</th>
 			<th>Penerbit</th>
-			<th>Tahun</th>
-			<th>ISBN</th>
+			<th>Kategori</th>
 			<th>Harga</th>
 			<th>Opsi</th>
 		</tr>
@@ -53,8 +52,7 @@
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['pengarang']; ?></td>
 			<td><?php echo $tampil['penerbit']; ?></td>
-			<td><?php echo $tampil['tahun']; ?></td>
-			<td><?php echo $tampil['isbn']; ?></td>
+			<td><?php echo $tampil['kategori']; ?></td>
 			<td><?php echo $tampil['harga']; ?></td>
 			<td>
 				<a class="button1" href="buku-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>
