@@ -4,7 +4,7 @@ $input_user = new Form();
 
 if(isset($_POST['tambah']) && $_POST['tambah'] == 'input'){ 
 		$input_user->input_user($_POST['username'],$_POST['password'], $_POST['nama'], $_POST['handphone']);
-		header("location:form_login.php");
+		header("location:addKaryawan_user.php");
 	}
 ?>
 

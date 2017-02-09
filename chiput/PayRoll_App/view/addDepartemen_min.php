@@ -1,13 +1,17 @@
 <?php
 include '../controller/controller.php';
-$tbl_depart = new Table();
+$input = new Form();
+
+if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
+			
+				 $input->input_depart($_POST['kode_depart'],$_POST['jabatan'], $_POST['gaji'], $_POST['tunjangan']);		
+		}
 ?>
 
 <!doctype html>
 <html lang="en">
-
 <head>
-	<title>Tables | Departemen</title>
+	<title>Form Input Data Karyawan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -15,6 +19,7 @@ $tbl_depart = new Table();
 	<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../asset/css/vendor/icon-sets.css">
 	<link rel="stylesheet" href="../asset/css/main.min.css">
+	<link rel="stylesheet" href="../asset/css/bootstrap-datepicker.css" >
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="../asset/css/demo.css">
 	<!-- GOOGLE FONTS -->
@@ -30,17 +35,15 @@ $tbl_depart = new Table();
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
+				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
 				<a class=""><span>PayRoll</span> Applications</a>
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_departemen.php" class=""><i class="lnr lnr-layers"></i> <span>Departmen</span></a></li>
-						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
-						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
-						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
+						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
+						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -89,7 +92,7 @@ $tbl_depart = new Table();
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="?quit=logout" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -98,57 +101,54 @@ $tbl_depart = new Table();
 			</nav>
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- TABLE STRIPED -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Data Departemen</h3>
-								</div>
-								<div class="table-responsive">
-								<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-					                    <th>No</th>
-										<th>Kode Departemen</th>
-										<th>Jabatan</th>
-										<th>Gaji Pokok</th>
-										<th>Tunjangan</th>
-										<th>Tools</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-											$i = 1;
-											foreach ($tbl_depart->tampil_Depart() as $tampil) {
-												?>
-											<tr>
-												<td><?php echo $i++; ?></td>
-												<td><?php echo $tampil['kode_depart'] ?></td>
-												<td><?php echo $tampil['jabatan'] ?></td>
-												<td><?php echo $tampil['gajipokok'] ?></td>
-												<td><?php echo $tampil['tunjangan'] ?></td>
-												<td>
-													<a href="edit.php?nik='.$row['nik'].'" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
-													<a href="password.php?nik='.$row['nik'].'" title="Ganti Password" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="lnr lnr-user" aria-hidden="true"></span></a>
-													<a href="index.php?aksi=delete&nik='.$row['nik'].'" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$row['nama'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
-												</td>
-												</tr>
-											<?php
-											}
-										?>
-								</tbody>
-								</table>
-								</div>
-							</div>
-							<!-- END TABLE STRIPED -->
-						</div>
+			<div class="container">
+		<div class="content">
+			<h2>Data Departemen &raquo; Tambah Data</h2>
+			<hr />
+			
+			<form class="form-horizontal" action="" method="post">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Kode Departemen</label>
+					<div class="col-sm-2">
+						<input type="text" name="kode_depart" class="form-control" placeholder="Kode departemen" required>
 					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Jabatan</label>
+					<div class="col-sm-2">
+						<select name="jabatan" class="form-control" required>
+							<option value=""> ----- </option>
+							<option value="Operator">Staf Administrasi</option>
+							<option value="Leader">Leader</option>
+                            <option value="Supervisor">Supervisor</option>
+							<option value="Manager">Manager</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Gaji Pokok</label>
+					<div class="col-sm-4">
+						<input type="text" name="gaji" class="form-control" placeholder="Gaji" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Tunjangan</label>
+					<div class="col-sm-4">
+						<input type="text" name="tunjangan" class="form-control" placeholder="Tunjangan" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">&nbsp;</label>
+					<div class="col-sm-6">
+						<input type="submit" name="tambah" class="btn btn-sm btn-primary" value="Simpan">
+						<a href="index.php" class="btn btn-sm btn-danger">Batal</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 			<!-- END MAIN CONTENT -->
+			
 		</div>
 		<!-- END MAIN -->
 	</div>
@@ -157,6 +157,15 @@ $tbl_depart = new Table();
 	<script src="../asset/js/jquery/jquery-2.1.0.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap.min.js"></script>
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- 	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="../asset/js/plugins/chartist/chartist.min.js"></script> -->
 	<script src="../asset/js/klorofil.min.js"></script>
+	<script src="../asset/js/bootstrap/bootstrap-datepicker.js"></script>
+	<script>
+	$('.date').datepicker({
+		format: 'yyyy-mm-dd',
+	})
+	</script>
 </body>
+
 </html>

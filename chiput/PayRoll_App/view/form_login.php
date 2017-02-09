@@ -1,25 +1,40 @@
 <?php
-session_start();
 
-include '../controller/controller.php';
-$cek_login = new User();
+	if (isset($_POST['login']) && $_POST['login'] == 'Login') {
 
-	if(isset($_POST['login']) && $_POST['login'] == 'Login'){
+		if (empty($_POST['username']) && empty($_POST['password'])) {
 
-		if (empty($_POST['username']) && empty('password')) { 
-
-			echo '<script type="text/javascript">alert("Semua form harus terisi !");</script>';
 			
-			header("location:form_login.php");
+		} else if (isset($_POST['username']) && isset($_POST['password'])) {
+			
+			
+			include '../controller/controller.php';
+			$cek_login = new User();
 
-		} else {
-		   	//panggil function cek_login
-		   	$cek_login->cek_login($_POST['username'],$_POST['password']);
-		   	header("location:home.php");
-	   }
+			$result = $cek_login->cek_login($_POST['username'],$_POST['password']);
+
+			if(mysql_num_rows($result)>0){
+
+				$row = mysql_fetch_array($result);
+
+				session_start();
+
+				$_SESSION['username'] = $_POST['username'];
+				$_SESSION['password'] = $_POST['password'];
+				if ($row['level']==1) {
+					header('location:dashboard_admin.php');
+				}else if ($row['level']==2) {
+					header('location:dashboard_user.php');
+				}
+			}
+
+		}else{
+			// header('location:form_login.php');
+		}
+	}else{
+			// header('location:form_login.php');
 	}
 ?>
-
 
 <!doctype html>
 <html lang="en" class="fullscreen-bg">
@@ -70,9 +85,9 @@ $cek_login = new User();
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block" name="login" value="Login">Sign In</button>
 								<div class="bottom">
-									<span><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+									<span><i class="fa fa-lock"></i> <a href="form_registrasi.php">Don't Have Account, Please Sign Up</a></span>
 								</div>
-							</form>
+								</form>
 						</div>
 					</div>
 					<div class="right">

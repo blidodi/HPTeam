@@ -1,27 +1,17 @@
 <?php
+// include '../controller/controller.php';
+// $input = new Form();
 
-session_start();
-include '../controller/controller.php';
-$cek_login = new User();
-
-// if ($_GET['quit'] == 'logout') {
-// 	$cek_login->cek_logout();
-// 	header("location:form_login.php");
-// }
-// if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-// 	# code...
-// 	unset($_SESSION['username']);
-// 	unset($_SESSION['password']);
-// 	$cek_login->cek_logout();
-// 	header('location:formLogin.php');
-// }
+// if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
+			
+// 				 $input->input_kar($_POST['nik'],$_POST['nama'], $_POST['tmpt_lahir'], $_POST['tgl_lahir'], $_POST['almt'], $_POST['tlpn'], $_POST['jabatan'], $_POST['status'], $_POST['username'], $_POST['password']);		
+// 		}
 ?>
 
 <!doctype html>
 <html lang="en">
-
 <head>
-	<title>Home | PayRoll Application</title>
+	<title>Form Input Data Karyawan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -29,6 +19,7 @@ $cek_login = new User();
 	<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../asset/css/vendor/icon-sets.css">
 	<link rel="stylesheet" href="../asset/css/main.min.css">
+	<link rel="stylesheet" href="../asset/css/bootstrap-datepicker.css" >
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="../asset/css/demo.css">
 	<!-- GOOGLE FONTS -->
@@ -50,12 +41,9 @@ $cek_login = new User();
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_departemen.php" class=""><i class="lnr lnr-layers"></i> <span>Departmen</span></a></li>
-						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
-						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
-						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
+						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
+						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -104,7 +92,7 @@ $cek_login = new User();
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="?quit=logout" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="logout.php" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -113,32 +101,77 @@ $cek_login = new User();
 			</nav>
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-						<div class="row">
-						<div class="col-md-6">
-						</div>
-						<div class="col-md-6">
-							</div>
-					</div>
-					<div class="row">
-						<div class="col-md-7">
-							</div>
-						<div class="col-md-5">
-							</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							</div>
-						<div class="col-md-4">
-							
-						</div>
-						<div class="col-md-4">
-							
-						</div>
+			<div class="container">
+		<div class="content">
+			<h2>Data Karyawan &raquo; Tambah Data</h2>
+			<hr />
+			
+				<form class="form-horizontal" action="" method="post">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">NIK</label>
+					<div class="col-sm-2">
+						<input type="text" name="nik" class="form-control" placeholder="NIK" required>
 					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Nama</label>
+					<div class="col-sm-4">
+						<input type="text" name="nama" class="form-control" placeholder="Nama" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Tempat Lahir</label>
+					<div class="col-sm-4">
+						<input type="text" name="tmpt_lahir" class="form-control" placeholder="Tempat Lahir" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Tanggal Lahir</label>
+					<div class="col-sm-4">
+						<input type="text" name="tgl_lahir" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" placeholder="0000-00-00" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Alamat</label>
+					<div class="col-sm-3">
+						<textarea name="almt" class="form-control" placeholder="Alamat"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">No Telepon</label>
+					<div class="col-sm-3">
+						<input type="text" name="tlpn" class="form-control" placeholder="No Telepon" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Username</label>
+					<div class="col-sm-2">
+						<input type="text" name="username" class="form-control" placeholder="Username">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Password</label>
+					<div class="col-sm-2">
+						<input type="password" name="password" class="form-control" placeholder="Password">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Foto Profil</label>
+					<div class="col-sm-2">
+						<input type="file" name="file" >
+						<input type="submit" name="upload" value="Upload" class="btn btn-primary btn-sm">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">&nbsp;</label>
+					<div class="col-sm-6">
+						<input type="submit" name="tambah" class="btn btn-sm btn-primary" value="Simpan">
+						<a href="addKaryawan_min.php" class="btn btn-sm btn-danger">Batal</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 			<!-- END MAIN CONTENT -->
 			
 		</div>
@@ -149,9 +182,15 @@ $cek_login = new User();
 	<script src="../asset/js/jquery/jquery-2.1.0.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap.min.js"></script>
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
-	<script src="../asset/js/plugins/chartist/chartist.min.js"></script>
+<!-- 	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="../asset/js/plugins/chartist/chartist.min.js"></script> -->
 	<script src="../asset/js/klorofil.min.js"></script>
+	<script src="../asset/js/bootstrap/bootstrap-datepicker.js"></script>
+	<script>
+	$('.date').datepicker({
+		format: 'yyyy-mm-dd',
+	})
+	</script>
 </body>
 
 </html>

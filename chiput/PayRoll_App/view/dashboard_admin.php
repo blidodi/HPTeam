@@ -1,13 +1,8 @@
-<?php
-include '../controller/controller.php';
-$tbl_depart = new Table();
-?>
-
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Tables | Departemen</title>
+	<title>Home | PayRoll Application</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -30,12 +25,13 @@ $tbl_depart = new Table();
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
+				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
 				<a class=""><span>PayRoll</span> Applications</a>
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="dashboard_admin.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="tbl_karyawan.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
 						<li><a href="tbl_departemen.php" class=""><i class="lnr lnr-layers"></i> <span>Departmen</span></a></li>
 						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
@@ -89,66 +85,59 @@ $tbl_depart = new Table();
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="../controller/logout.php" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
+			     <?php
+					
+					$timeout = 10; // Set timeout minutes
+					$logout_redirect_url = "form_login.php"; // Set logout URL
+
+					$timeout = $timeout * 60; // Converts minutes to seconds
+					if (isset($_SESSION['start_time'])) {
+					    $elapsed_time = time() - $_SESSION['start_time'];
+					    if ($elapsed_time >= $timeout) {
+					        session_destroy();
+					        echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
+					    }
+					}
+					$_SESSION['start_time'] = time();
+					?>
+				
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- TABLE STRIPED -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Data Departemen</h3>
-								</div>
-								<div class="table-responsive">
-								<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-					                    <th>No</th>
-										<th>Kode Departemen</th>
-										<th>Jabatan</th>
-										<th>Gaji Pokok</th>
-										<th>Tunjangan</th>
-										<th>Tools</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-											$i = 1;
-											foreach ($tbl_depart->tampil_Depart() as $tampil) {
-												?>
-											<tr>
-												<td><?php echo $i++; ?></td>
-												<td><?php echo $tampil['kode_depart'] ?></td>
-												<td><?php echo $tampil['jabatan'] ?></td>
-												<td><?php echo $tampil['gajipokok'] ?></td>
-												<td><?php echo $tampil['tunjangan'] ?></td>
-												<td>
-													<a href="edit.php?nik='.$row['nik'].'" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
-													<a href="password.php?nik='.$row['nik'].'" title="Ganti Password" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="lnr lnr-user" aria-hidden="true"></span></a>
-													<a href="index.php?aksi=delete&nik='.$row['nik'].'" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$row['nama'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
-												</td>
-												</tr>
-											<?php
-											}
-										?>
-								</tbody>
-								</table>
-								</div>
+						<div class="row">
+						<div class="col-md-6">
+						</div>
+						<div class="col-md-6">
 							</div>
-							<!-- END TABLE STRIPED -->
+					</div>
+					<div class="row">
+						<div class="col-md-7">
+							</div>
+						<div class="col-md-5">
+							</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							</div>
+						<div class="col-md-4">
+							
+						</div>
+						<div class="col-md-4">
+							
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
+			
 		</div>
 		<!-- END MAIN -->
 	</div>
@@ -157,6 +146,9 @@ $tbl_depart = new Table();
 	<script src="../asset/js/jquery/jquery-2.1.0.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap.min.js"></script>
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="../asset/js/plugins/chartist/chartist.min.js"></script>
 	<script src="../asset/js/klorofil.min.js"></script>
 </body>
+
 </html>

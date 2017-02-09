@@ -1,13 +1,7 @@
-<?php
-include '../controller/controller.php';
-$tbl_depart = new Table();
-?>
-
 <!doctype html>
 <html lang="en">
-
 <head>
-	<title>Tables | Departemen</title>
+	<title>Form Input Data Karyawan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -15,6 +9,7 @@ $tbl_depart = new Table();
 	<link rel="stylesheet" href="../asset/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../asset/css/vendor/icon-sets.css">
 	<link rel="stylesheet" href="../asset/css/main.min.css">
+	<link rel="stylesheet" href="../asset/css/bootstrap-datepicker.css" >
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="../asset/css/demo.css">
 	<!-- GOOGLE FONTS -->
@@ -30,17 +25,15 @@ $tbl_depart = new Table();
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
+				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
 				<a class=""><span>PayRoll</span> Applications</a>
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_departemen.php" class=""><i class="lnr lnr-layers"></i> <span>Departmen</span></a></li>
-						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
-						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
-						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
+						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
+						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -89,7 +82,7 @@ $tbl_depart = new Table();
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="?quit=logout" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -98,57 +91,77 @@ $tbl_depart = new Table();
 			</nav>
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- TABLE STRIPED -->
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Data Departemen</h3>
-								</div>
-								<div class="table-responsive">
-								<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-					                    <th>No</th>
-										<th>Kode Departemen</th>
-										<th>Jabatan</th>
-										<th>Gaji Pokok</th>
-										<th>Tunjangan</th>
-										<th>Tools</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-											$i = 1;
-											foreach ($tbl_depart->tampil_Depart() as $tampil) {
-												?>
-											<tr>
-												<td><?php echo $i++; ?></td>
-												<td><?php echo $tampil['kode_depart'] ?></td>
-												<td><?php echo $tampil['jabatan'] ?></td>
-												<td><?php echo $tampil['gajipokok'] ?></td>
-												<td><?php echo $tampil['tunjangan'] ?></td>
-												<td>
-													<a href="edit.php?nik='.$row['nik'].'" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
-													<a href="password.php?nik='.$row['nik'].'" title="Ganti Password" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="lnr lnr-user" aria-hidden="true"></span></a>
-													<a href="index.php?aksi=delete&nik='.$row['nik'].'" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$row['nama'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
-												</td>
-												</tr>
-											<?php
-											}
-										?>
-								</tbody>
-								</table>
-								</div>
-							</div>
-							<!-- END TABLE STRIPED -->
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="container">
+		<div class="content">
+			<h2>Data Karyawan &raquo; Biodata</h2>
+			<hr />
+			
+			<!-- <?php
+			$nik = $_GET['nik'];
+			
+			$sql = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
+			if(mysqli_num_rows($sql) == 0){
+				header("Location: index.php");
+			}else{
+				$row = mysqli_fetch_assoc($sql);
+			}
+			
+			if(isset($_GET['aksi']) == 'delete'){
+				$delete = mysqli_query($koneksi, "DELETE FROM karyawan WHERE nik='$nik'");
+				if($delete){
+					echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil dihapus.</div>';
+				}else{
+					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data gagal dihapus.</div>';
+				}
+			}
+			?> -->
+			
+			<table class="table table-striped table-condensed">
+				<tr>
+					<th width="20%">NIK</th>
+					<td><?php echo $row['nik']; ?></td>
+				</tr>
+				<tr>
+					<th>Nama Karyawan</th>
+					<td><?php echo $row['nama']; ?></td>
+				</tr>
+				<tr>
+					<th>Tempat & Tanggal Lahir</th>
+					<td><?php echo $row['tempat_lahir'].', '.$row['tanggal_lahir']; ?></td>
+				</tr>
+				<tr>
+					<th>Alamat</th>
+					<td><?php echo $row['alamat']; ?></td>
+				</tr>
+				<tr>
+					<th>No Telepon</th>
+					<td><?php echo $row['no_telepon']; ?></td>
+				</tr>
+				<tr>
+					<th>Jabatan</th>
+					<td><?php echo $row['jabatan']; ?></td>
+				</tr>
+				<tr>
+					<th>Status</th>
+					<td><?php echo $row['status']; ?></td>
+				</tr>
+				<tr>
+					<th>Username</th>
+					<td><?php echo $row['username']; ?></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><?php echo $row['password']; ?></td>
+				</tr>
+			</table>
+			
+			<a href="index.php" class="btn btn-sm btn-info"><span class="fa fa-reply-all" aria-hidden="true"></span> Kembali</a>
+			<a href="edit.php?nik=<?php echo $row['nik']; ?>" class="btn btn-sm btn-success"><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit Data</a>
+			<a href="profile.php?aksi=delete&nik=<?php echo $row['nik']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan mengahapus data <?php echo $row['nama']; ?>')"><span class="fa fa-trash-o" aria-hidden="true"></span> Hapus Data</a>
+		</div>
+	</div>
 			<!-- END MAIN CONTENT -->
+			
 		</div>
 		<!-- END MAIN -->
 	</div>
@@ -157,6 +170,15 @@ $tbl_depart = new Table();
 	<script src="../asset/js/jquery/jquery-2.1.0.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap.min.js"></script>
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- 	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="../asset/js/plugins/chartist/chartist.min.js"></script> -->
 	<script src="../asset/js/klorofil.min.js"></script>
+	<script src="../asset/js/bootstrap/bootstrap-datepicker.js"></script>
+	<script>
+	$('.date').datepicker({
+		format: 'yyyy-mm-dd',
+	})
+	</script>
 </body>
+
 </html>
