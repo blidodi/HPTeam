@@ -33,7 +33,7 @@ $aksi = $_GET['aksi'];
 //aksi member
 $aksi = $_GET['aksi'];
  	if($aksi == "tambah_member"){
- 		$db->input_member($_POST['kode_member'],$_POST['nama'],$_POST['alamat'],$_POST['foto']);
+ 		$db->input_member($_POST['kode_member'],$_POST['nama'],$_POST['alamat'],$_FILES['foto']);
  		header("location:member/tampil_member.php");
 	}elseif($aksi == "hapus_member"){ 	
  		$db->hapus_member($_GET['id']);
@@ -47,15 +47,19 @@ $aksi = $_GET['aksi'];
 //aksi penyewa
 $aksi = $_GET['aksi'];
  	if($aksi == "tambah_penyewa"){
- 		$db->input_penyewa($_POST['kode_sewa'],$_POST['kode_user'],$_POST['kode_buku'],$_POST['kode_member'],$_POST['tanggal_pinjam'],$_POST['tanggal_kembali']);
+ 		$db->input_penyewa($_POST['kode_sewa'],$_POST['kode_user'],$_POST['kode_buku'],$_POST['kode_member'],$_POST['judul'],$_POST['tanggal_pinjam'],$_POST['tanggal_kembali']);
  		header("location:penyewa/tampil_penyewa.php");
 	}elseif($aksi == "hapus_penyewa"){ 	
  		$db->hapus_penyewa($_GET['id']);
 		header("location:penyewa/tampil_penyewa.php");
 	}elseif($aksi == "update_penyewa"){
- 		$db->update_penyewa($_POST['id'],$_POST['kode_sewa'],$_POST['kode_user'],$_POST['kode_buku'],$_POST['kode_member'],$_POST['tanggal_pinjam'],$_POST['tanggal_kembali']);
+ 		$db->update_penyewa($_POST['id'],$_POST['kode_sewa'],$_POST['kode_user'],$_POST['kode_buku'],$_POST['kode_member'],$_POST['judul'],$_POST['tanggal_pinjam'],$_POST['tanggal_kembali']);
  		header("location:penyewa/tampil_penyewa.php");
+ 	}elseif($aksi == "print_penyewa"){
+ 		$db->print_penyewa($_POST['id'],$_POST['kode_sewa'],$_POST['kode_user'],$_POST['kode_buku'],$_POST['kode_member'],$_POST['judul'],$_POST['tanggal_pinjam'],$_POST['tanggal_kembali']);
+ 		header("location:penyewa/print_penyewa.php");
  	}
+
 
 
 //aksi pengembalian

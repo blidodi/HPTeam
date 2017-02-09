@@ -7,10 +7,21 @@ $db = new database();
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit Penyewa</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			  <script>
+				  $( function() {
+				    $( "#datepickerpinjam" ).datepicker({ dateFormat: 'yy-mm-dd' });
+				    $( "#datepickerkembali" ).datepicker({ dateFormat: 'yy-mm-dd' });
+				  } );
+			  </script>
 	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" type="text/css" href="../css/form.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Edit Kwitansi</title>
 </head>
 <body>
 	<div id="headertop">
@@ -31,47 +42,125 @@ $db = new database();
 		  	<li><a href="../kwitansi/tampil_kwitansi.php"><i class="fa fa-address-card" aria-hidden="true"></i> Kwitansi</a></li>
 		</ul>
     <div id="header">
-		<h1><i class="fa fa-pencil" aria-hidden="true"></i> Edit Kwitansi</h1>
+		<h1><i class="fa fa-pencil" aria-hidden="true"></i> Edit Penyewaan</h1>
 	</div>
-		<form action="../proses.php?aksi=update_kwitansi" method="post">
+		<form action="../proses.php?aksi=update_penyewa" method="post">
 			<?php
-				foreach($db->edit_kwitansi($_GET['id']) as $d){
+				foreach($db->edit_penyewa($_GET['id']) as $d){
 			?>
 				<table>
 					<tr>
-						<td>No.</td>
+						<td>Kode Penyewa</td>
 						<td align="center">:</td>
 						<td>
 							<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-							<input type="text" name="no" value="<?php echo $d['no'] ?>">
+							<input type="text" name="kode_sewa" value="<?php echo $d['kode_sewa'] ?>">
 						</td>
 					</tr>
 					<tr>
-						<td>Nama</td>
+						<td>Kode User</td>
 						<td align="center">:</td>
-						<td><input type="text" name="nama" value="<?php echo $d['nama'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_user	= "SELECT * FROM user";
+								$p_select_user	= mysql_query($q_select_user) or die(mysql_error());
+								$n_select_user	= mysql_num_rows($p_select_user);
+								echo '<select name="kode_user">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_user!=0)
+											{	
+												while ($r_select_user = mysql_fetch_array($p_select_user)){
+												$userkode = $r_select_user['kode_user'];
+												$usernama = $r_select_user['nama'];
+												echo '<option value="'.$userkode.'">['.$userkode.']&nbsp;'.$usernama.'</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
-						<td>Uang Sejumlah</td>
+						<td>Kode Buku</td>
 						<td align="center">:</td>
-						<td><input type="text" name="uang_sejumlah" value="<?php echo $d['uang_sejumlah'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_buku	= "SELECT * FROM buku";
+								$p_select_buku	= mysql_query($q_select_buku) or die(mysql_error());
+								$n_select_buku	= mysql_num_rows($p_select_buku);
+								echo '<select name="kode_buku">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_buku!=0)
+											{	
+												while ($r_select_buku = mysql_fetch_array($p_select_buku)){
+												$bukukode = $r_select_buku['kode_buku'];
+												$bukunama = $r_select_buku['isbn'];
+												echo '<option value="'.$bukukode.'">['.$bukukode.']&nbsp;'.$bukunama.'</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
-						<td>Untuk Pembayaran</td>
+						<td>Kode Member</td>
 						<td align="center">:</td>
-						<td><input type="text" name="untuk_pembayaran" value="<?php echo $d['untuk_pembayaran'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_member	= "SELECT * FROM member";
+								$p_select_member	= mysql_query($q_select_member) or die(mysql_error());
+								$n_select_member	= mysql_num_rows($p_select_member);
+								echo '<select name="kode_member">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_member!=0)
+											{	
+												while ($r_select_member = mysql_fetch_array($p_select_member)){
+												$memberkode = $r_select_member['kode_member'];
+												$membernama = $r_select_member['nama'];
+												echo '<option value="'.$memberkode.'">['.$memberkode.']&nbsp;'.$membernama. '</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
-						<td>Status</td>
+						<td>Judul</td>
 						<td align="center">:</td>
-						<td><input type="text" name="status" value="<?php echo $d['status'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_member	= "SELECT * FROM buku";
+								$p_select_member	= mysql_query($q_select_member) or die(mysql_error());
+								$n_select_member	= mysql_num_rows($p_select_member);
+								echo '<select name="judul">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_member!=0)
+											{	
+												while ($r_select_member = mysql_fetch_array($p_select_member)){
+												$memberkode = $r_select_member['judul'];
+												$membernama = $r_select_member['penulis'];
+												echo '<option value="'.$memberkode.'">['.$memberkode.']&nbsp;'.$membernama. '</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
+					</tr>
+					<tr>
+						<td>Tanggal Pinjam</td>
+						<td align="center">:</td>
+						<td><input type="text" id="datepickerpinjam" name="tanggal_pinjam" value="<?php echo $d['tanggal_pinjam'] ?>"></td>
+					</tr>
+					<tr>
+						<td>Tanggal Kembali</td>
+						<td align="center">:</td>
+						<td><input type="text" id="datepickerkembali" name="tanggal_kembali" value="<?php echo $d['tanggal_kembali'] ?>"></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td align="center"></td>
 						<td>
 							<input class="button button2" type="submit" value="Simpan">
-							<a class="button button2" href="tampil_kwitansi.php">Batal</a>
+							<a class="button button2" href="tampil_penyewa.php">Batal</a>
 						</td>
 					</tr>
 				</table>

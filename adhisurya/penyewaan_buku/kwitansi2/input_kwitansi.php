@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" type="text/css" href="../css/form.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Tambah Member</title>
+	<title>Tambah Kwitansi</title>
 </head>
 <body>
 	<div id="headertop">
@@ -26,14 +26,14 @@
 		  	<li><a href="../kwitansi/tampil_kwitansi.php"><i class="fa fa-address-card" aria-hidden="true"></i> Kwitansi</a></li>
 		</ul>
     <div id="header">
-		<h1><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Member</h1>
+		<h1><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Kwitansi</h1>
 	</div>
-	<form action="../proses.php?aksi=tambah_member" method="post">
+	<form action="../proses.php?aksi=tambah_kwitansi" method="post">
 		<table>
 			<tr>
-				<td>Kode Member</td>
+				<td>No.</td>
 				<td align="center">:</td>
-				<td><input type="text" name="kode_member"></td>
+				<td><input type="text" name="no"></td>
 			</tr>
 			<tr>
 				<td>Nama</td>
@@ -41,28 +41,26 @@
 				<td><input type="text" name="nama"></td>
 			</tr>
 			<tr>
-				<td>Alamat</td>
+				<td>Uang Sejumlah</td>
 				<td align="center">:</td>
-				<td><input type="text" name="alamat"></td>
+				<td><input type="text" name="uang_sejumlah"></td>
 			</tr>
 			<tr>
-				<td>Foto</td>
+				<td>Untuk Pembayaran</td>
 				<td align="center">:</td>
-				<td>
-					<form name="uploader" action="process.php" method="POST" enctype="multipart/form-data">
-
-                <input type="file" name="file">
-
-            </form>
-
-				</td>
+				<td><input type="text" name="untuk_pembayaran"></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td align="center">:</td>
+				<td><input type="text" name="status"></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td align="center"></td>
 				<td>
 					<input class ="button button1" type="submit" value="Simpan">
-					<a class="button button1" href="tampil_member.php">Batal</a>
+					<a class="button button1" href="tampil_kwitansi.php">Batal</a>
 				</td>
 			</tr>
 		</table>

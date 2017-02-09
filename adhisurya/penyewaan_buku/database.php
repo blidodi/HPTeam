@@ -124,8 +124,8 @@ class database{
 	}
 
 	//tambah penyewa
-	function input_penyewa($kode_sewa,$kode_user,$kode_buku,$kode_member,$tanggal_pinjam,$tanggal_kembali){
-	mysql_query("insert into penyewa values('','$kode_sewa','$kode_user','$kode_buku','$kode_member','$tanggal_pinjam','$tanggal_kembali')");
+	function input_penyewa($kode_sewa,$kode_user,$kode_buku,$kode_member,$judul,$tanggal_pinjam,$tanggal_kembali){
+	mysql_query("insert into penyewa values('','$kode_sewa','$kode_user','$kode_buku','$kode_member','$judul','$tanggal_pinjam','$tanggal_kembali')");
 	}
 
 	//hapus penyewa
@@ -143,8 +143,17 @@ class database{
 	}
  
  	//update penyewa
-	function update_penyewa($id,$kode_sewa,$kode_user,$kode_buku,$kode_member,$tanggal_pinjam,$tanggal_kembali){
-		mysql_query("update penyewa set kode_sewa='$kode_sewa', kode_user='$kode_user', kode_buku='$kode_buku', kode_member='$kode_member',tanggal_pinjam='$tanggal_pinjam',tanggal_kembali='$tanggal_kembali' where id='$id'");
+	function update_penyewa($id,$kode_sewa,$kode_user,$kode_buku,$kode_member,$judul,$tanggal_pinjam,$tanggal_kembali){
+		mysql_query("update penyewa set kode_sewa='$kode_sewa', kode_user='$kode_user', kode_buku='$kode_buku', kode_member='$kode_member', judul='$judul',tanggal_pinjam='$tanggal_pinjam',tanggal_kembali='$tanggal_kembali' where id='$id'");
+	}
+
+	//Print Penyewaan
+	function print_penyewa($id){
+		$data = mysql_query("select * from penyewa where id='$id'");
+		while($d = mysql_fetch_array($data)){
+			$hasil[] = $d;
+		}
+		return $hasil;
 	}
 
 

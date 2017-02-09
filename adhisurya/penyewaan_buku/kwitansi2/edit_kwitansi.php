@@ -1,3 +1,8 @@
+<?php 
+include '../database.php';
+$db = new database();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/crud.css">
 	<link rel="stylesheet" type="text/css" href="../css/form.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Tambah Member</title>
+	<title>Edit Kwitansi</title>
 </head>
 <body>
 	<div id="headertop">
@@ -26,53 +31,58 @@
 		  	<li><a href="../kwitansi/tampil_kwitansi.php"><i class="fa fa-address-card" aria-hidden="true"></i> Kwitansi</a></li>
 		</ul>
     <div id="header">
-		<h1><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Member</h1>
+		<h1><i class="fa fa-pencil" aria-hidden="true"></i> Edit Kwitansi</h1>
 	</div>
-	<form action="../proses.php?aksi=tambah_member" method="post">
-		<table>
-			<tr>
-				<td>Kode Member</td>
-				<td align="center">:</td>
-				<td><input type="text" name="kode_member"></td>
-			</tr>
-			<tr>
-				<td>Nama</td>
-				<td align="center">:</td>
-				<td><input type="text" name="nama"></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td align="center">:</td>
-				<td><input type="text" name="alamat"></td>
-			</tr>
-			<tr>
-				<td>Foto</td>
-				<td align="center">:</td>
-				<td>
-					<form name="uploader" action="process.php" method="POST" enctype="multipart/form-data">
-
-                <input type="file" name="file">
-
-            </form>
-
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td align="center"></td>
-				<td>
-					<input class ="button button1" type="submit" value="Simpan">
-					<a class="button button1" href="tampil_member.php">Batal</a>
-				</td>
-			</tr>
-		</table>
-		<table>
+		<form action="../proses.php?aksi=update_kwitansi" method="post">
+			<?php
+				foreach($db->edit_kwitansi($_GET['id']) as $d){
+			?>
+				<table>
+					<tr>
+						<td>No.</td>
+						<td align="center">:</td>
+						<td>
+							<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+							<input type="text" name="no" value="<?php echo $d['no'] ?>">
+						</td>
+					</tr>
+					<tr>
+						<td>Nama</td>
+						<td align="center">:</td>
+						<td><input type="text" name="nama" value="<?php echo $d['nama'] ?>"></td>
+					</tr>
+					<tr>
+						<td>Uang Sejumlah</td>
+						<td align="center">:</td>
+						<td><input type="text" name="uang_sejumlah" value="<?php echo $d['uang_sejumlah'] ?>"></td>
+					</tr>
+					<tr>
+						<td>Untuk Pembayaran</td>
+						<td align="center">:</td>
+						<td><input type="text" name="untuk_pembayaran" value="<?php echo $d['untuk_pembayaran'] ?>"></td>
+					</tr>
+					<tr>
+						<td>Status</td>
+						<td align="center">:</td>
+						<td><input type="text" name="status" value="<?php echo $d['status'] ?>"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="center"></td>
+						<td>
+							<input class="button button2" type="submit" value="Simpan">
+							<a class="button button2" href="tampil_kwitansi.php">Batal</a>
+						</td>
+					</tr>
+				</table>
+			<?php } ?>
+			<table>
 			<tr bgcolor="#4b4c4c" style="font-family: font-family: Verdana, Geneva, sans-serif; color: #FFFFFF" align="right">
 				<br/>
 				<br/>	
 				<td colspan="7">Copyright @ 2017 Penyewaan Buku By <b>Adhi Surya</b></td>
 			</tr>
-		</table>
-	</form>
+			</table>
+		</form>
 </body>
-</html>
+</html>	

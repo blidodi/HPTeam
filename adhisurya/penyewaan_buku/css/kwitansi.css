@@ -130,33 +130,7 @@ th {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
-	padding: 7px 10px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 12px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-
-.buttondashboard {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 10px 15px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 12px;
-	margin: 6px 4px;
-	cursor: pointer;
-}
-
-.buttonadd {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 10px 15px;
+	padding: 10px 10px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -164,22 +138,6 @@ th {
 	margin: 6px 2px;
 	cursor: pointer;
 }
-
-.buttonsearch {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 6px 15px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 12px;
-	margin: 2px 2px;
-	cursor: pointer;
-}
-.buttonsrc {
-	background-color: #f39c12;
-	border-radius: 4px;}
 
 .buttonlogout {
 	background-color: #4CAF50; /* Green */
@@ -197,9 +155,6 @@ th {
 .buttonlogout {background-color: #4b4c4c;}
 .buttonlogout:hover {background-color: #30BA8F;}
 
-.buttondashboard {
-	background-color: #3c8dbc;
-}
 .button1 {
 	background-color: #3c8dbc;
 	border-radius: 6px;
@@ -210,7 +165,8 @@ th {
 }
 .button3 {
 	background-color: #f39c12;
-	border-radius: 6px;}
+	border-radius: 6px;
+}
 .button4 {background-color: #4b4c4c;}
 			
 .button1:hover {background-color: #1974D2;}
@@ -272,7 +228,7 @@ li a:hover {
 }
 
 table, td, th {    
-    border: 1px solid #ddd;
+    border: 0px solid pink;
 }
 
 table {
@@ -302,17 +258,3 @@ h1,h2,h3 {
 menu {		    
 	border-radius: 6px;
 }
-
-b {
-	color: orange;
-}
-
-input[type=text] {
-    width: 250px;
-    padding: 6px 20px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    border-radius: 4px;
-    box-sizing: border-box;
- }

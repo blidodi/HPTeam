@@ -22,7 +22,7 @@
 		<img src="image/hdr2.jpg">	
 	</div>
 		<ul>
-		  	<li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+		  	<li><a class="buttondashboard buttondashboard" href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		  	<li><a href="user/tampil_user.php"><i class="fa fa-users" aria-hidden="true"></i> User</a></li>
 		  	<li><a href="buku/tampil_buku.php"><i class="fa fa-book" aria-hidden="true"></i> Buku</a></li>
 		  	<li><a href="member/tampil_member.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Member</a></li>
@@ -37,7 +37,7 @@
 			<tr bgcolor="#4b4c4c" style="font-family: font-family: Verdana, Geneva, sans-serif; color: #FFFFFF" align="right">
 				<br/>
 				<br/>	
-				<td colspan="7">Copyright @ 2017 Penyewaan Buku By <b>Adhi Surya</b></td>
+				<td colspan="7"><marquee>Copyright @ 2017 Penyewaan Buku By <b>Adhi Surya</b></marquee></td>
 			</tr>
 		</table>
 </body>

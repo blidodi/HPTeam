@@ -42,7 +42,7 @@ $db = new database();
 		  	<li><a href="../kwitansi/tampil_kwitansi.php"><i class="fa fa-address-card" aria-hidden="true"></i> Kwitansi</a></li>
 		</ul>
     <div id="header">
-		<h1><i class="fa fa-pencil" aria-hidden="true"></i> Edit Penyewaan</h1>
+		<h1><i class="fa fa-pencil" aria-hidden="true"></i> Edit Penyewaanan Buku</h1>
 	</div>
 		<form action="../proses.php?aksi=update_penyewa" method="post">
 			<?php
@@ -60,17 +60,90 @@ $db = new database();
 					<tr>
 						<td>Kode User</td>
 						<td align="center">:</td>
-						<td><input type="text" name="kode_user" value="<?php echo $d['kode_user'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_user	= "SELECT * FROM user";
+								$p_select_user	= mysql_query($q_select_user) or die(mysql_error());
+								$n_select_user	= mysql_num_rows($p_select_user);
+								echo '<select name="kode_user">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_user!=0)
+											{	
+												while ($r_select_user = mysql_fetch_array($p_select_user)){
+												$userkode = $r_select_user['kode_user'];
+												$usernama = $r_select_user['nama'];
+												echo '<option value="'.$userkode.'">['.$userkode.']&nbsp;'.$usernama.'</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
 						<td>Kode Buku</td>
 						<td align="center">:</td>
-						<td><input type="text" name="kode_buku" value="<?php echo $d['kode_buku'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_buku	= "SELECT * FROM buku";
+								$p_select_buku	= mysql_query($q_select_buku) or die(mysql_error());
+								$n_select_buku	= mysql_num_rows($p_select_buku);
+								echo '<select name="kode_buku">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_buku!=0)
+											{	
+												while ($r_select_buku = mysql_fetch_array($p_select_buku)){
+												$bukukode = $r_select_buku['kode_buku'];
+												$bukunama = $r_select_buku['isbn'];
+												echo '<option value="'.$bukukode.'">['.$bukukode.']&nbsp;'.$bukunama.'</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
 						<td>Kode Member</td>
 						<td align="center">:</td>
-						<td><input type="text" name="kode_member" value="<?php echo $d['kode_member'] ?>"></td>
+						<td>
+							<?php 
+								$q_select_member	= "SELECT * FROM member";
+								$p_select_member	= mysql_query($q_select_member) or die(mysql_error());
+								$n_select_member	= mysql_num_rows($p_select_member);
+								echo '<select name="kode_member">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_member!=0)
+											{	
+												while ($r_select_member = mysql_fetch_array($p_select_member)){
+												$memberkode = $r_select_member['kode_member'];
+												$membernama = $r_select_member['nama'];
+												echo '<option value="'.$memberkode.'">['.$memberkode.']&nbsp;'.$membernama. '</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
+					</tr>
+					<tr>
+						<td>Judul</td>
+						<td align="center">:</td>
+						<td>
+							<?php 
+								$q_select_member	= "SELECT * FROM buku";
+								$p_select_member	= mysql_query($q_select_member) or die(mysql_error());
+								$n_select_member	= mysql_num_rows($p_select_member);
+								echo '<select name="judul">
+										<option value="">-- Pilih --</option>';
+										if ($n_select_member!=0)
+											{	
+												while ($r_select_member = mysql_fetch_array($p_select_member)){
+												$memberkode = $r_select_member['judul'];
+												$membernama = $r_select_member['penulis'];
+												echo '<option value="'.$memberkode.'">['.$memberkode.']&nbsp;'.$membernama. '</option>';
+											}
+										}
+								echo "</select>";
+							?>
+						</td>
 					</tr>
 					<tr>
 						<td>Tanggal Pinjam</td>
