@@ -284,7 +284,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="admin_bio.php"><i class="fa fa-user fa-fw"></i> Biodata </a>
+                            <a href="admin_bio.php?page=0"><i class="fa fa-user fa-fw"></i> Biodata </a>
                         </li>
                         <li>
                             <a href="admin_akun.php"><i class="fa fa-gear fa-fw"></i> Kelola Akun </a>

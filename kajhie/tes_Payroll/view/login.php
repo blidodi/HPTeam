@@ -35,24 +35,25 @@
                         <h2 class="panel-title">Halaman Login</h2>
                     </div>
                     <div class="panel-body">
-
-<!--                     <?php
-                    // if ($_POST['pesan']==1) {
-                        ?>
-                        <div class="alert alert-danger alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <a class="alert-link">Email</a> dan <a class="alert-link">Password</a> Anda salah.
-                        </div>
-                        <?php
-                    // }
-                    ?> -->
-                        <form role="form" action="control/cek_login.php" method="post">
+                     <?php
+                        if($_GET['page']==1) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                Pastikan <a class="alert-link">Email</a> dan <a class="alert-link">Password</a> Anda Benar.
+                            </div>
+                            <?php
+                        }else{
+                            
+                        }
+                    ?>
+                        <form role="form" action="../control/cek_login.php" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                                 </div>
                                 <div class="checkbox">
                                     <label>

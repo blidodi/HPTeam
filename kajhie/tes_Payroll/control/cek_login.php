@@ -4,7 +4,7 @@
 
 		if (empty($_POST['email']) && empty($_POST['password'])) {
 
-			header('location:login.php');
+			header('location:../view/login.php');
 
 		} else if (isset($_POST['email']) && isset($_POST['password'])) {
 			
@@ -23,17 +23,19 @@
 				$_SESSION['email'] = $_POST['email'];
 				$_SESSION['password'] = $_POST['password'];
 				$_SESSION['nama'] = $row['user_name'];
+				$_SESSION['id'] = $row['id_pegawai'];
 				if ($row['level']==3) {
-					header('location:user_halaman_utama.php');
+					header('location:../view/user_halaman_utama.php');
 				}else if ($row['level']==2) {
-					header('location:admin_halaman_utama.php');
+					header('location:../view/admin_halaman_utama.php');
 				}
-			}
-
+			}else{
+			header('location:../view/login.php?page=1');
+		}
 		}else{
-			header('location:login.php');
+			header('location:../view/login.php');
 		}
 	}else{
-			header('location:login.php');
+			header('location:../view/login.php');
 	}
 ?>

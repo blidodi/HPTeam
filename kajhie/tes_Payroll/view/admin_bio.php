@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kepegawaian |Biodata Pegawai</title>
+    <title>Kepegawaian |Biodata Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -284,7 +287,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="admin_bio.php"><i class="fa fa-user fa-fw"></i> Biodata </a>
+                            <a href="admin_bio.php?page=0"><i class="fa fa-user fa-fw"></i> Biodata </a>
                         </li>
                         <li>
                             <a href="admin_akun.php"><i class="fa fa-gear fa-fw"></i> Kelola Akun </a>
@@ -303,79 +306,20 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Selamat Datang, PAIDI</h1>
+                    <h1 class="page-header">Biodata <?php echo $_SESSION['nama']?></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                
-                    <a href="" class="btn btn-success"><i class="fa fa-edit"></i> Perbarui Biodata</a>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <th>NIK</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                            <th style="width: 200px">Nama</th>
-                                            <td style="width: 5px">:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tempat Lahir</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tanggal Lahir</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Alamat KTP</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Alamat Sekarang</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Agama</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Status Perkawinan</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Kewarganegaraan</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>No. Telp/hp</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th>E-mail</th>
-                                            <td>:</td>
-                                            <td><?php ?></td>
-                                        </tr>
-                                </table>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-
+                <?php
+                    if ($_GET['page']==1) {
+                        include '../control/edit_bio.php';    
+                    } else{
+                        include '../control/tampil_bio.php';
+                    }  
+                ?>
                 </div>
                 <!-- /.col-lg-6 -->
             </div>

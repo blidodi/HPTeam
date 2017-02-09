@@ -270,16 +270,16 @@
                             <!-- /input-group -->
                         </li>
                          <li>
-                            <a href="halaman_utama.php"><i class="fa fa-home fa-fw"></i> Halaman Utama </a>
+                            <a href="user_halaman_utama.php"><i class="fa fa-home fa-fw"></i> Halaman Utama </a>
                         </li>
                         <li>
-                            <a href="tabel.php"><i class="fa fa-table fa-fw"></i> Tabel Gaji </a>
+                            <a href="user_tabel.php"><i class="fa fa-table fa-fw"></i> Tabel Gaji </a>
                         </li>
                         <li>
-                            <a href="bio.php"><i class="fa fa-user fa-fw"></i> Biodata </a>
+                            <a href="user_bio.php?page=0"><i class="fa fa-user fa-fw"></i> Biodata </a>
                         </li>
                         <li>
-                            <a href="akun.php"><i class="fa fa-gear fa-fw"></i> Kelola Akun </a>
+                            <a href="user_akun.php"><i class="fa fa-gear fa-fw"></i> Kelola Akun </a>
                         </li>
                         </li>
                     </ul>

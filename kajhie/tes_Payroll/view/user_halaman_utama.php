@@ -280,7 +280,7 @@
                             <a href="user_tabel.php"><i class="fa fa-table fa-fw"></i> Tabel Gaji </a>
                         </li>
                         <li>
-                            <a href="user_bio.php"><i class="fa fa-user fa-fw"></i> Biodata </a>
+                            <a href="user_bio.php?page=0"><i class="fa fa-user fa-fw"></i> Biodata </a>
                         </li>
                         <li>
                             <a href="user_akun.php"><i class="fa fa-gear fa-fw"></i> Kelola Akun </a>
