@@ -11,7 +11,11 @@
 						include "templates/jabatan.php";
 						break;
 					case 'user':
-						include "templates/user.php";
+						if($_SESSION['role']==1){
+							include "templates/user.php";
+						} else {
+							include "404.php";
+						}
 						break;
 					case 'gaji':
 						include "templates/gaji.php";

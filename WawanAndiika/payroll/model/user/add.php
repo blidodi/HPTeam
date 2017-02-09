@@ -31,7 +31,7 @@
 				echo $form->formbootstrap_header('col-sm-2 control-label','Password','col-sm-10');
 				echo $form->inputsubmit('password','password','form-control','masukan password...');
 				echo $form->formbootstrap_footer();
-				echo $form->formbootstrap_header('col-sm-2 control-label','Jabatan karyawan','col-sm-10'); 
+				echo $form->formbootstrap_header('col-sm-2 control-label','User Role','col-sm-10'); 
 				echo $form->selectbootstrap('header','form-control','status');
 				echo $form->optionbootstrap('0','','Accounting');
 				echo $form->optionbootstrap('1','','Administrator');

@@ -5,6 +5,18 @@
 			case 'bayar':
 				include "model/gaji/bayar.php";
 				break;
+			case 'list':
+				if(isset($_GET['id'])) {
+					include "model/gaji/proses.php";
+				} else {
+					include "model/gaji/list.php";
+				}
+				break;
+			case 'print';
+				if(isset($_GET['id'])) {
+					include "model/gaji/print.php";
+				}
+				break;
 			default:
 				include "templates/404.php";
 		}
