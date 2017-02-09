@@ -24,7 +24,7 @@
 <body>
 	<div id="container">
 	    <div id="header">
-			<h1>Tabel Penyewaan</h1>
+			<h1>Sistem Penyewaan Buku</h1>
 		</div>
 		<ul>
 			<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -43,9 +43,9 @@
 			foreach($db->tampil_edit_sewa($_GET['id']) as $edit){
 		?>
 		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
-		<label>Tanggal :</label>
+		<label>Tanggal Sewa:</label>
 		<input type="text" name="tanggal" value="<?php echo $edit['tanggal']  ?>" id="datepickersewa"/>
-		<label>Kembali :</label>
+		<label>Tanggal Kembali :</label>
 		<input type="text" name="kembali" value="<?php echo $edit['kembali']  ?>" id="datepickerkembali"/>
 		<label>Member :</label>
 		<select name="member">

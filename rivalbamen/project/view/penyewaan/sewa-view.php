@@ -20,7 +20,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Penyewaan</h1>	
+		<h1>Sistem Penyewaan Buku</h1>	
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -35,8 +35,7 @@
 	<div class="form">
 	<a class="button2" href="sewa-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>No.</th>
-			<th>Tanggal</th>
+		<tr><th>Tanggal</th>
 			<th>Kembali</th>
 			<th>Member</th>
 			<th>Buku</th>
@@ -44,19 +43,18 @@
 			<th>Opsi</th>
 		</tr>
 		<?php
-			$no = 1;
 			foreach($db->tampil_sewa() as $tampil){
 		?>
 		<tr>
-			<td><?php echo $no++; ?></td>
 			<td><?php echo $tampil['tanggal']; ?></td>
 			<td><?php echo $tampil['kembali']; ?></td>
 			<td><?php echo $tampil['nama']; ?></td>
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['harga']; ?></td>
 			<td>
-				<a class="button1" href="sewa-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>
-				<a class="button" href="javascript:confirmDelete('../../controller/sewa-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i> Hapus</a>			
+				<a class="button3" href="sewa-kwitansi.php?id=<?php echo $tampil['id']; ?>&action=print"><i class="fa fa-print"></i></a>
+				<a class="button1" href="sewa-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
+				<a class="button" href="javascript:confirmDelete('../../controller/sewa-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>
 		</tr>
 		<?php }	?>

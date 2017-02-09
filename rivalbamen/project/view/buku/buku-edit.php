@@ -13,7 +13,7 @@
 <body>
 	<div id="container">
 	    <div id="header">
-			<h1>Tabel Buku</h1>
+			<h1>Sistem Penyewaan Buku</h1>
 		</div>
 		<ul>
 			<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -27,7 +27,7 @@
 		<div id="body">
 		<div class="form">
 		<p><a class="p-color" href="buku-view.php">Tabel Member</a> / Ubah Member</p>
-		<form action="../../controller/buku-controller.php?action=edit" method="post"action>
+		<form action="../../controller/buku-controller.php?action=edit" method="post" enctype="multipart/form-data">
 		<?php
 			foreach($db->tampil_edit_buku($_GET['id']) as $edit){
 		?>
@@ -41,7 +41,6 @@
 		<label>Penerbit :</label>
 		<input type="text" name="penerbit" value="<?php echo $edit['penerbit'] ?>" />
 		<label>Kategori :</label>
-		<!--<input type="text" name="kategori" value="<?php //echo $edit['kategori'] ?>" />-->
 		<select name="kategori">
 		<option value="">-- Pilih --</option>
 				<?php 
@@ -63,6 +62,9 @@
 		</select>
 		<label>Tahun :</label>
 		<input type="text" name="tahun" value="<?php echo $edit['tahun'] ?>" />
+		<label>Cover :</label>
+		<input type="file" name="cover">
+		<img class="cover" src="<?php echo "../../image/".$edit['cover']; ?>">
 		<br/>
 		<input type="submit" name="ubah" value="Ubah">
 		<?php } ?>

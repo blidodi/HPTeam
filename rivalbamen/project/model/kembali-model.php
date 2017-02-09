@@ -6,7 +6,7 @@ class Kembali extends Database {
 	//Menampilkan Data Kembali
 	function tampil_kembali()
 	{
-		$kembali = mysql_query("SELECT * FROM kembali");
+		$kembali = mysql_query("SELECT * FROM kembali ORDER BY tgl_kembali DESC");
 		while($tampil = mysql_fetch_array($kembali)){
 			$hasil[] = $tampil;
 		}

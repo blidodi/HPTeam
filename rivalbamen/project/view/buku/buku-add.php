@@ -13,7 +13,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Buku</h1>
+		<h1>Sistem Penyewaan Buku</h1>
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -27,7 +27,7 @@
 	<div id="body">
 	<div class="form">
 	<p><a class="p-color" href="buku-view.php">Tabel Buku</a> / Tambah Buku</p>
-	<form action="../../controller/buku-controller.php?action=add" method="post">
+	<form action="../../controller/buku-controller.php?action=add" method="post" enctype="multipart/form-data">
 		<label>ISBN :</label>
 		<input type="text" name="isbn" />
 		<label>Judul :</label>
@@ -53,6 +53,8 @@
 
 		<label>Tahun :</label>
 		<input type="text" name="tahun" />
+		<label>Cover :</label>
+		<input type="file" name="cover">
 		<br/>
 		<input type="submit" name="simpan" value="Simpan">
 	</form>

@@ -10,7 +10,8 @@ class Sewa extends Database
 		$sewa = mysql_query("SELECT sewa.id as id, sewa.tanggal, sewa.kembali, 
 							member.nama, buku.judul, sewa.harga
 							FROM sewa, buku, member
-							WHERE sewa.buku=buku.isbn AND sewa.member=member.no_member");
+							WHERE sewa.buku=buku.isbn AND sewa.member=member.no_member
+							ORDER BY tanggal DESC");
 		while($tampil = mysql_fetch_array($sewa)){
 			$hasil[] = $tampil;
 		}
@@ -47,6 +48,19 @@ class Sewa extends Database
 		return $hasil;
 	}
 
+	function tampil_kwitansi($id)
+	{
+		$kwi = mysql_query("SELECT sewa.id, sewa.tanggal, sewa.kembali, 
+							member.nama, buku.judul, sewa.harga
+							FROM sewa, buku, member
+							WHERE sewa.buku=buku.isbn AND sewa.member=member.no_member
+							AND sewa.id='$id'");
+		while($tansi = mysql_fetch_array($kwi)){
+			$kwitansi[] = $tansi;
+		}
+		return $kwitansi;
+	}
+
 	//menampilkan member
 	function tampil_member(){
 		$tampil = mysql_query("SELECT * FROM member");
@@ -64,7 +78,7 @@ class Sewa extends Database
 		}
 		return $hasil;
 	}
-	
+
 } 
 
-	?>
+?>

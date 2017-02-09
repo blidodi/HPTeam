@@ -20,7 +20,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel User</h1>	
+		<h1>Sistem Penyewaan Buku</h1>	
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -49,8 +49,8 @@
 			<td><?php echo $tampil['nama']; ?></td>
 			<td><?php echo $tampil['username']; ?></td>
 			<td>
-				<a class="button1" href="user-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>
-				<a class="button" href="javascript:confirmDelete('../../controller/user-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i> Hapus</a>			
+				<a class="button1" href="user-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
+				<a class="button" href="javascript:confirmDelete('../../controller/user-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>
 		</tr>
 		<?php }	?>

@@ -20,7 +20,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Pengembalian</h1>	
+		<h1>Sistem Penyewaan Buku</h1>	
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -35,26 +35,23 @@
 	<div class="form">
 	<a class="button2" href="kembali-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>No.</th>
-			<th>Tanggal</th>
+		<tr><th>Tanggal</th>
 			<th>Member</th>
 			<th>Buku</th>
 			<th>Denda</th>
 			<th>Opsi</th>
 		</tr>
 		<?php
-			$no = 1;
 			foreach($db->tampil_kembali() as $tampil){
 		?>
 		<tr>
-			<td><?php echo $no++; ?></td>
 			<td><?php echo $tampil['tgl_kembali']; ?></td>
 			<td><?php echo $tampil['member']; ?></td>
 			<td><?php echo $tampil['buku']; ?></td>
 			<td><?php echo $tampil['denda']; ?></td>
 			<td>
-				<a class="button1" href="kembali-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>
-				<a class="button" href="javascript:confirmDelete('../../controller/kembali-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i> Hapus</a>			
+				<a class="button1" href="kembali-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
+				<a class="button" href="javascript:confirmDelete('../../controller/kembali-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>
 		</tr>
 		<?php }	?>

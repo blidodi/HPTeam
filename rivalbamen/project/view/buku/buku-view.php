@@ -8,19 +8,21 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<script>
 		function confirmDelete(delUrl) {
 		  if (confirm("Apakah Yakin dihapus?")) {
 		    document.location = delUrl;
 		  }
-		}
+		}	
 	</script>
+
 	<title>Tabel Buku</title>
 </head>
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Buku</h1>	
+		<h1>Sistem Penyewaan Buku</h1>	
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -35,7 +37,7 @@
 	<div class="form">
 	<a class="button2" href="buku-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>No.</th>
+		<tr><th>Cover</th>
 			<th>Judul</th>
 			<th>Pengarang</th>
 			<th>Penerbit</th>
@@ -44,19 +46,20 @@
 			<th>Opsi</th>
 		</tr>
 		<?php
-			$no = 1;
 			foreach($db->tampil_buku() as $tampil){
 		?>
 		<tr>
-			<td><?php echo $no++; ?></td>
+			<td>
+			  <img class="cover" src="<?php echo "../../image/".$tampil['cover']; ?>">
+			</td>
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['pengarang']; ?></td>
 			<td><?php echo $tampil['penerbit']; ?></td>
 			<td><?php echo $tampil['kategori']; ?></td>
 			<td><?php echo $tampil['harga']; ?></td>
 			<td>
-				<a class="button1" href="buku-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i> Ubah</a>
-				<a class="button" href="javascript:confirmDelete('../../controller/buku-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i> Hapus</a>			
+				<a class="button1" href="buku-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
+				<a class="button" href="javascript:confirmDelete('../../controller/buku-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>
 		</tr>
 		<?php }	?>

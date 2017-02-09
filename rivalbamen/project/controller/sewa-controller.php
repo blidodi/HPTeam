@@ -12,6 +12,8 @@ header("location:../view/penyewaan/sewa-view.php");
 }elseif($action == "edit"){
 	$db->edit_sewa($_POST['id'], $_POST['tanggal'], $_POST['kembali'], $_POST['member'], $_POST['buku'], $_POST['harga']);
 	header("location:../view/penyewaan/sewa-view.php");
+}elseif($action == "print"){
+	$db->cetak_sewa($_POST['id'], $_POST['tanggal'], $_POST['kembali'], $_POST['member'], $_POST['buku'], $_POST['harga']);
 }
 
 ?>

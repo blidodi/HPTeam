@@ -10,6 +10,7 @@
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
 		<script>
 			$(function() {
+				$( "#datepickersewa" ).datepicker({ dateFormat: 'yy-mm-dd' });
 				$( "#datepickerkembali" ).datepicker({ dateFormat: 'yy-mm-dd' });
 			});
 		</script>
@@ -19,7 +20,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Pengembalian</h1>
+		<h1>Sistem Penyewaan Buku</h1>
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -34,10 +35,13 @@
 	<div class="form">
 	<p><a class="p-color" href="kembali-view.php">Tabel Pengembalian</a> / Tambah Pengembalian</p>
 	<form action="../../controller/kembali-controller.php?action=add" method="post">
-		<label>Tanggal :</label>
-		<input type="text" name="tgl_kembali" id="datepickerkembali" />
-		<!--<label>Kembali :</label>
-		<input type="text" name="kembali" id="datepickerkembali" />-->
+		<?php 
+			$tanggal = date("Y-m-d");
+		?>
+		<label>Tanggal Sewa :</label>
+		<input type="text" name="tgl_sewa" id="datepickersewa" />
+		<label>Tanggal Kembali:</label>
+		<input type="text" name="tgl_kembali" id="datepickerkembali" value="<?php echo $tanggal ?>" />
 		<label>Member :</label>
 		<input type="text" name="member" />
 		<label>Buku :</label>

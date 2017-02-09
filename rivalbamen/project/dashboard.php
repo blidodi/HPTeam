@@ -22,7 +22,7 @@ session_start();
 <body>
 	<div id="container">
     	<div id="header">
-			<h1>Dashboard</h1>
+			<h1>Sistem Penyewaan Buku</h1>
 		</div>
 		<ul>
 			<li><a class="active" href="#dashboard"><i class="fa fa-home"></i> Home</a></li>
@@ -37,8 +37,7 @@ session_start();
 		<div class="form">
 			<p>Selamat Datang di <b>Dashboard</b> <i class="fa fa-user"> </i><?php echo " "."<u>".$row['nama']; ?></u></p>
 			<br/>
-			<h2 align="center">Sistem Penyewaan Buku</h2>
-			<img align="center" src="image/rb-icon.png" class="image">
+			<center><img src="image/rb.png" class="image"></center>
 		</div>
 		</div>
 		<div id="footer">

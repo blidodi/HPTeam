@@ -14,7 +14,9 @@
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
 		<script>
 			$(function() {
+				$( "#datepickersewa" ).datepicker({ dateFormat: 'yy-mm-dd' });
 				$( "#datepickerkembali" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
 			});
 		</script>
 
@@ -23,7 +25,7 @@
 <body>
 	<div id="container">
 	    <div id="header">
-			<h1>Tabel Penyewaan</h1>
+			<h1>Sistem Penyewaan Buku</h1>
 		</div>
 		<ul>
 			<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -42,7 +44,9 @@
 			foreach($db->tampil_edit_kembali($_GET['id']) as $edit){
 		?>
 		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
-		<label>Tanggal :</label>
+		<label>Tanggal Sewa :</label>
+		<input type="text" name="tgl_sewa" value="<?php echo $edit['tgl_sewa']  ?>" id="datepickerkembali"/>
+		<label>Tanggal Kembali:</label>
 		<input type="text" name="tgl_kembali" value="<?php echo $edit['tgl_kembali']  ?>" id="datepickerkembali"/>
 		<label>Member :</label>
 		<input type="text" name="member" value="<?php echo $edit['member'] ?>" />

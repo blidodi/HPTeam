@@ -25,7 +25,7 @@
 <body>
 <div id="container">
     <div id="header">
-		<h1>Tabel Penyewaan</h1>
+		<h1>Sistem Penyewaan Buku</h1>
 	</div>
 	<ul>
 		<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
@@ -40,9 +40,12 @@
 		<div class="form">
 		<p><a class="p-color" href="sewa-view.php">Tabel Penyewaan</a> / Tambah Penyewaan</p>		
 		<form action="../../controller/sewa-controller.php?action=add" method="post">
-			<label>Tanggal :</label>
-			<input type="text" name="tanggal" id="datepickersewa" />
-			<label>Kembali :</label>
+			<?php 
+				$tanggal = date("Y-m-d");
+			?>
+			<label>Tanggal Sewa:</label>
+			<input type="text" name="tanggal" id="datepickersewa" value="<?php echo $tanggal ?>" />
+			<label>Tanggal Kembali :</label>
 			<input type="text" name="kembali" id="datepickerkembali" />
 			<label>Member :</label>
 			<select name="member">

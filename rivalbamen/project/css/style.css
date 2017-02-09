@@ -8,7 +8,7 @@ table {
 }
 
 table, th, td {
-    border: 0px solid black;
+    border: 0px solid #7C7D7D;
     height: 25px;
     padding: 3px 3px 3px 8px;
 }
@@ -40,7 +40,7 @@ a:hover {
     background-color: #FF6347; /*Tomato*/
     border: none;
     color: white;
-    padding: 10px 25px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -57,7 +57,7 @@ a:hover {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 10px 25px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -74,7 +74,7 @@ a:hover {
     background-color: #4682B4; /* SteelBlue */
     border: none;
     color: white;
-    padding: 10px 25px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -87,6 +87,22 @@ a:hover {
 	background-color: rgb(150, 222, 254);
 }
 
+.button3 {
+    background-color: #C7D127; /* SteelBlue */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button3:hover {
+    background-color: #DFE490;
+}
 input, select {
 	display: block;
 	height: 35px;
@@ -208,4 +224,9 @@ h1{
 img {
     display: block;
     margin: auto;
+}
+
+.cover {
+    width: 50px;
+    height: 75px;
 }

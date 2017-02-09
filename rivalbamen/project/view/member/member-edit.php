@@ -13,7 +13,7 @@
 <body>
 	<div id="container">
 	    <div id="header">
-			<h1>Tabel Member</h1>
+			<h1>Sistem Penyewaan Buku</h1>
 		</div>
 		<ul>
 			<li><a href="../../dashboard.php"><i class="fa fa-home"></i> Home</a></li>
