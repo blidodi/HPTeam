@@ -36,6 +36,13 @@ class Buku extends Database {
 					WHERE id='$id'");
 	}
 
+	//Mengubah Buku tanpa cover
+	function edit_book($id, $judul, $pengarang, $penerbit, $tahun, $isbn, $kategori){
+		mysql_query("UPDATE buku SET judul='$judul', pengarang='$pengarang', 
+						penerbit='$penerbit', tahun='$tahun', isbn='$isbn', 
+						kategori='$kategori'
+					WHERE id='$id'");
+	}
 	//Menampilkan data buku di ubah buku
 	function tampil_edit_buku($id){
 		$buku = mysql_query("SELECT * FROM buku WHERE id='$id'");

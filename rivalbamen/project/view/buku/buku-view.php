@@ -8,18 +8,19 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<script src="my_js.js"></script>
 	<script>
 		function confirmDelete(delUrl) {
 		  if (confirm("Apakah Yakin dihapus?")) {
 		    document.location = delUrl;
 		  }
-		}	
+		}
+		
 	</script>
 
 	<title>Tabel Buku</title>
 </head>
-<body>
+<body style="overflow:hidden;">
 <div id="container">
     <div id="header">
 		<h1>Sistem Penyewaan Buku</h1>	
@@ -34,10 +35,11 @@
 		<li style="float:right"><a href="../../logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
 	</ul>
 	<div id="body">
-	<div class="form">
+	<div class="form">		
 	<a class="button2" href="buku-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>Cover</th>
+		<tr>
+			<th>No.</th>
 			<th>Judul</th>
 			<th>Pengarang</th>
 			<th>Penerbit</th>
@@ -46,22 +48,38 @@
 			<th>Opsi</th>
 		</tr>
 		<?php
+			$no = 1;
+			$i = 1;
 			foreach($db->tampil_buku() as $tampil){
 		?>
 		<tr>
-			<td>
-			  <img class="cover" src="<?php echo "../../image/".$tampil['cover']; ?>">
-			</td>
+			<td><?php echo $no++ ?></td>
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['pengarang']; ?></td>
 			<td><?php echo $tampil['penerbit']; ?></td>
 			<td><?php echo $tampil['kategori']; ?></td>
 			<td><?php echo $tampil['harga']; ?></td>
 			<td>
+				<a class="button3" id="popup" onclick="div_show('id')"><i class="fa fa-eye"></i></a>
+					<div id="abc">
+						<!-- Popup Div Starts Here -->
+						<div id="popupContact" >
+						<!-- Contact Us Form -->
+							<form class="formpop" id="form" method="post">
+							<i id="close" class="fa fa-times" onclick ="div_hide()"></i>
+							<h2>Detail</h2>
+							<hr>
+							<img class="cover" src="<?php echo "../../image/".$tampil['cover']; ?>">
+							</form>
+						</div>
+						<!-- Popup Div Ends Here -->
+					</div>
 				<a class="button1" href="buku-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
 				<a class="button" href="javascript:confirmDelete('../../controller/buku-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>
 		</tr>
+
+
 		<?php }	?>
 	</table>
 	</div>
@@ -70,5 +88,6 @@
 		<center>Copyright &copy; 2017 Designed by Rivalbamen</center>
 	</div>
 </div>
+
 </body>
 </html>
