@@ -21,6 +21,7 @@
 
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['password'] = $_POST['password'];
+				$_SESSION['id'] = $row['id'];
 				if ($row['level']==1) {
 					header('location:dashboard_admin.php');
 				}else if ($row['level']==2) {

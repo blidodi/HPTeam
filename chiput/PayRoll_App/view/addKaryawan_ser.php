@@ -1,11 +1,47 @@
 <?php
-// include '../controller/controller.php';
-// $input = new Form();
+include '../controller/controller.php';
 
-// if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
-			
-// 				 $input->input_kar($_POST['nik'],$_POST['nama'], $_POST['tmpt_lahir'], $_POST['tgl_lahir'], $_POST['almt'], $_POST['tlpn'], $_POST['jabatan'], $_POST['status'], $_POST['username'], $_POST['password']);		
-// 		}
+$input = new Form();
+$tampil = new Table();
+
+
+if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
+				 
+				 
+
+			if($input->input_kar($_FILES['foto'])){
+				$ekstensi_diperbolehkan	= array('png','jpg');
+				$nama = $_FILES['file']['name'];
+				$x = explode('.', $nama);
+				$ekstensi = strtolower(end($x));
+				$ukuran	= $_FILES['file']['size'];
+				$file_tmp = $_FILES['file']['tmp_name'];
+
+				$simpan = $input->input_kar($_POST['nik'],$_POST['nama'], $_POST['tmpt_lahir'], $_POST['tgl_lahir'], $_POST['almt'], $_POST['agama'], $_POST['status'], $_POST['tlpn'], $_FILES['foto']['name']);
+
+					if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+					if($ukuran < 1044070){			
+						move_uploaded_file($file_tmp, '../img/'.$nama);
+						
+						if($simpan){
+							echo 'FILE BERHASIL DI UPLOAD';
+						}else{
+							echo 'GAGAL MENGUPLOAD GAMBAR';
+						}
+					}else{
+						echo 'UKURAN FILE TERLALU BESAR';
+					}
+				}else{
+					echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+				}
+			}
+
+				 header("location:dashboard_user.php");	 
+			}
+
+			// if (isset($_POST['logout']) && $_POST['logout'] == Logout) {
+				
+			// }			
 ?>
 
 <!doctype html>
@@ -106,7 +142,13 @@
 			<h2>Data Karyawan &raquo; Tambah Data</h2>
 			<hr />
 			
-				<form class="form-horizontal" action="" method="post">
+				<form class="form-horizontal" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+				<?php 
+				foreach ($tampil->tampil_namaAkun($_GET['nama']) as $nama)  {
+				 	# code...
+				 } 					
+				
+				?>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">NIK</label>
 					<div class="col-sm-2">
@@ -116,7 +158,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Nama</label>
 					<div class="col-sm-4">
-						<input type="text" name="nama" class="form-control" placeholder="Nama" required>
+						<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $nama['nama']?>" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -138,29 +180,26 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label class="col-sm-3 control-label">Agama</label>
+					<div class="col-sm-2">
+					<input type="text" name="agama" class="form-control" placeholder="Agama">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Status Perkawinan</label>
+					<div class="col-sm-2">
+					<input type="text" name="status" class="form-control" placeholder="Status Perkawinan">
+					</div>
+				</div>
+				<div class="form-group">
 					<label class="col-sm-3 control-label">No Telepon</label>
 					<div class="col-sm-3">
 						<input type="text" name="tlpn" class="form-control" placeholder="No Telepon" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Username</label>
-					<div class="col-sm-2">
-						<input type="text" name="username" class="form-control" placeholder="Username">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Password</label>
-					<div class="col-sm-2">
-						<input type="password" name="password" class="form-control" placeholder="Password">
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="col-sm-3 control-label">Foto Profil</label>
-					<div class="col-sm-2">
-						<input type="file" name="file" >
-						<input type="submit" name="upload" value="Upload" class="btn btn-primary btn-sm">
-					</div>
+					<input type="file" name="foto">
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
@@ -169,6 +208,7 @@
 						<a href="addKaryawan_min.php" class="btn btn-sm btn-danger">Batal</a>
 					</div>
 				</div>
+			
 			</form>
 		</div>
 	</div>

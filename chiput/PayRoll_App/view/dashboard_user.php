@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -77,7 +82,9 @@
 						</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php
+							echo $_SESSION['id'];
+							?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -112,7 +119,7 @@
 							
 						</div>
 						<div class="col-md-4">
-							
+
 						</div>
 					</div>
 				</div>

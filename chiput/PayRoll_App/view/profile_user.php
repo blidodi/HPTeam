@@ -1,7 +1,14 @@
+<?php
+include '../controller/controller.php';
+$tampil_profil = new Table();
+
+$tampil_profil->tampil_profil($_POST['id']);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Form Input Data Karyawan</title>
+	<title>Profile</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -97,23 +104,23 @@
 			<hr />
 			
 			<!-- <?php
-			$nik = $_GET['nik'];
+			// $nik = $_GET['nik'];
 			
-			$sql = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
-			if(mysqli_num_rows($sql) == 0){
-				header("Location: index.php");
-			}else{
-				$row = mysqli_fetch_assoc($sql);
-			}
+			// $sql = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
+			// if(mysqli_num_rows($sql) == 0){
+			// 	header("Location: index.php");
+			// }else{
+			// 	$row = mysqli_fetch_assoc($sql);
+			// }
 			
-			if(isset($_GET['aksi']) == 'delete'){
-				$delete = mysqli_query($koneksi, "DELETE FROM karyawan WHERE nik='$nik'");
-				if($delete){
-					echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil dihapus.</div>';
-				}else{
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data gagal dihapus.</div>';
-				}
-			}
+			// if(isset($_GET['aksi']) == 'delete'){
+			// 	$delete = mysqli_query($koneksi, "DELETE FROM karyawan WHERE nik='$nik'");
+			// 	if($delete){
+			// 		echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil dihapus.</div>';
+			// 	}else{
+			// 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data gagal dihapus.</div>';
+			// 	}
+			// }
 			?> -->
 			
 			<table class="table table-striped table-condensed">

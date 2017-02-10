@@ -3,8 +3,9 @@ include '../controller/controller.php';
 $input_user = new Form();
 
 if(isset($_POST['tambah']) && $_POST['tambah'] == 'input'){ 
-		$input_user->input_user($_POST['username'],$_POST['password'], $_POST['nama'], $_POST['handphone']);
-		header("location:addKaryawan_user.php");
+		$input_user->input_user($_POST['nama'],$_POST['username'], $_POST['password']);
+		//header("location:addKaryawan_ser.php?nama=$_POST[nama]");
+		header('location:form_login.php');
 	}
 ?>
 
@@ -44,10 +45,6 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'input'){
 								<div class="form-group">
 									<label for="signup-email" class="control-label sr-only">Nama Lengkap</label>
 									<input type="text" class="form-control" id="signup-email" name="nama" placeholder="nama lengkap">
-								</div>
-								<div class="form-group">
-									<label for="signup-email" class="control-label sr-only">No. Handphone</label>
-									<input type="text" class="form-control" id="signup-email" name="handphone" placeholder="no. handphone">
 								</div>
 								<div class="form-group">
 									<label for="signup-email" class="control-label sr-only">Username</label>
