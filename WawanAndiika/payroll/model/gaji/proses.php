@@ -14,7 +14,17 @@
 				  <strong>Peringatan!</strong> Harap isi semua field.
 				</div>';
 		} else {
-			$jabatan->savefinal($pph,$final,$id,$pegawainya);
+			$query = $jabatan->savefinal($pph,$final,$id,$pegawainya);
+
+			if(!$query){
+				echo '<div class="alert alert-success">
+					  <strong>Success!</strong> Data berhasil di simpan.
+					</div>';
+			} else {
+				echo '<div class="alert alert-danger">
+					  <strong>Gagal!</strong> Data gagal di simpan.
+					</div>';
+			}
 		} 
 	}
 	$query = $jabatan->printgaji($id);

@@ -12,12 +12,33 @@
 				$user = new User();
 				$id = $_GET['id'];
 				$query = $user->removeuser($id);
-				header("location:/page/user/");
+				header("location:/user/");
 				break;
 			default:
 				include "templates/404.php";
 		}
 	} if(!isset($_GET['act'])){?> 
+	<?php
+      if(isset($_POST['search'])) {
+        $search = $_POST['search'];
+        $search = preg_replace("#[^0-9a-z]i#","", $search); 
+        $cari = new Search();
+        $kueri = $cari->searchuser($search);?>
+        <div class="table-responsive">
+	        <table class="table table-striped">
+	          <thead>
+	            <tr>
+	              <th>Nama</th>
+	              <th>Gaji</th>
+	              <th width="200px;">Action</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	          <?php include "templates/search/user.php" ?>
+	          </tbody>
+	        </table>
+	    </div>
+      <?php } else { ?>
 	<div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -43,5 +64,5 @@
            </tbody>
         </table>
 	</div>
-	<?php } ?>
+	<?php } } ?>
 <?php include "footer.php"; ?> 

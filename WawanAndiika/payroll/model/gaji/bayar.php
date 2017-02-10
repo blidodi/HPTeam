@@ -31,7 +31,7 @@
 	}
 	$query = $pegawai->editpegawai($id);
 	$result = mysqli_fetch_array($query); ?>
-	<a href="/page/gaji/" class="btn btn-warning" style="display:block;float: right;"><i style="margin-right: 10px;" class="fa fa-undo" aria-hidden="true"></i>Kembali</a>
+	<a href="/gaji/" class="btn btn-warning" style="display:block;float: right;"><i style="margin-right: 10px;" class="fa fa-undo" aria-hidden="true"></i>Kembali</a>
 	<h4 style="border-bottom: 3px double #cecece;padding: 10px;color: #5a5a5a;padding-left: 0;margin-top:0;">Detail Karyawan</h4>
     
     <div class="row">

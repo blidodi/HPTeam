@@ -22,7 +22,7 @@
                       <?php if ($result['status']==1){ ?>
 			              	<a class="btn btn-success" href="<?= $result['id_gaji'];?>/">Bayar</a>
                       <?php } else { ?>
-                      <a class="btn btn-primary" href="/page/gaji/print/<?= $result['id_gaji'];?>/" target="_BLANK"><i class="fa fa-print" aria-hidden="true" style="margin-right: 10px;"></i>Print</a>
+                      <a class="btn btn-primary" href="/gaji/print/<?= $result['id_gaji'];?>/" target="_BLANK"><i class="fa fa-print" aria-hidden="true" style="margin-right: 10px;"></i>Print</a>
                       <?php } ?>
 			              </td>
 			            </tr>

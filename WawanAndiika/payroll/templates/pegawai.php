@@ -15,12 +15,33 @@
 				$result = mysqli_fetch_array($query);
 				unlink("img/karyawan/".$result['foto']);
 				$pegawai->removepegawai($id);
-				header("location:/page/pegawai/");
+				header("location:/pegawai/");
 				break;
 			default:
 				include "templates/404.php";
 		}
 	} if(!isset($_GET['act'])){?> 
+	<?php
+      if(isset($_POST['search'])) {
+        $search = $_POST['search'];
+        $search = preg_replace("#[^0-9a-z]i#","", $search); 
+        $cari = new Search();
+        $kueri = $cari->searchpegawai($search);?>
+        <div class="table-responsive">
+	        <table class="table table-striped">
+	          <thead>
+	            <tr>
+	              <th>Nama Pegawai</th>
+	              <th>Nomer Pegawai</th>
+	              <th>Nomer Rekening</th>
+	              <th width="200px;">Action</th>
+	          </thead>
+	          <tbody>
+	          <?php include "templates/search/pegawai.php" ?>
+	          </tbody>
+	        </table>
+	    </div>
+      <?php } else { ?>
 	<div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -48,6 +69,6 @@
            </tbody>
         </table>
 	</div>
-	<?php } 
+	<?php } }
 	
 	include "footer.php";

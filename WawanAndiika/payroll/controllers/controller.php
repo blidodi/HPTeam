@@ -7,5 +7,6 @@
 	include "ClassPegawai.php";
 	include "ClassGaji.php";
 	include "ClassDashboard.php";
+	include "ClassSearch.php";
 	include "function.php";
 ?>

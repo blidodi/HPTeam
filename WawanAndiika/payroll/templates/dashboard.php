@@ -117,8 +117,8 @@
 		              <div class="caption">
 		                <h4><?= $result['nama_pegawai']; ?></h4>
 		                <p><b>Jabatan: </b><?php $jabatan = new Gaji(); echo $jabatan->jabatannya($result['id_jabatan']);?></p>
-		                <a href="/page/pegawai/edit/<?= $result['id_pegawai']?>/" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> 
-		                <a href="/page/pegawai/edit/<?= $result['id_pegawai']?>/" class="btn btn-info btn-xs" role="button">Edit Karyawan</a>
+		                <a href="/pegawai/edit/<?= $result['id_pegawai']?>/" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> 
+		                <a href="/pegawai/edit/<?= $result['id_pegawai']?>/" class="btn btn-info btn-xs" role="button">Edit Karyawan</a>
 		            </div>
 		          </div>
 		        </div>   
