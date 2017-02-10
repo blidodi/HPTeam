@@ -15,12 +15,27 @@ $aksi = $_GET['aksi'];
  		header("location:user/tampil_user.php");
  	}
 
-
 //aksi buku
 $aksi = $_GET['aksi'];
  	if($aksi == "tambah_buku"){
- 		$db->input_buku($_POST['kode_buku'],$_POST['isbn'],$_POST['judul'],$_POST['penulis'],$_POST['penerbit'],$_POST['tahun_terbit'],$_POST['jenis']);
+		$ekstensi_diperbolehkan	= array('png','jpg');
+		$foto = $_FILES['foto']['name'];
+		$x = explode('.', $foto);
+		$ekstensi = strtolower(end($x));
+		$ukuran	= $_FILES['foto']['size'];
+		$file_tmp = $_FILES['foto']['tmp_name'];	
+			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+				if($ukuran < 1044070){			
+					move_uploaded_file($file_tmp, '../image/'.$foto);
+					$db->input_buku($_POST['kode_buku'],$_POST['isbn'],$_POST['judul'],$_POST['penulis'],$_POST['penerbit'],$_POST['tahun_terbit'],$_POST['jenis'],$_FILES['foto']['name']);
  		header("location:buku/tampil_buku.php");
+			}else{
+				echo 'UKURAN FILE TERLALU BESAR';
+			}
+	}else{
+			echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+	}
+
 	}elseif($aksi == "hapus_buku"){ 	
  		$db->hapus_buku($_GET['id']);
 		header("location:buku/tampil_buku.php");
@@ -33,8 +48,24 @@ $aksi = $_GET['aksi'];
 //aksi member
 $aksi = $_GET['aksi'];
  	if($aksi == "tambah_member"){
- 		$db->input_member($_POST['kode_member'],$_POST['nama'],$_POST['alamat'],$_FILES['foto']);
- 		header("location:member/tampil_member.php");
+		$ekstensi_diperbolehkan	= array('png','jpg');
+		$foto = $_FILES['foto']['name'];
+		$x = explode('.', $foto);
+		$ekstensi = strtolower(end($x));
+		$ukuran	= $_FILES['foto']['size'];
+		$file_tmp = $_FILES['foto']['tmp_name'];	
+			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+				if($ukuran < 1044070){			
+					move_uploaded_file($file_tmp, '../image/'.$foto);
+					$db->input_member($_POST['kode_member'],$_POST['nama'],$_POST['alamat'],$_FILES['foto']['name']);
+		 		header("location:member/tampil_member.php");
+			}else{
+				echo 'UKURAN FILE TERLALU BESAR';
+			}
+	}else{
+			echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+	}
+
 	}elseif($aksi == "hapus_member"){ 	
  		$db->hapus_member($_GET['id']);
 		header("location:member/tampil_member.php");

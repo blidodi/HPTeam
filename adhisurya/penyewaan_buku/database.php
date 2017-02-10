@@ -56,8 +56,8 @@ class database{
 	}
 
 	//tambah buku
-	function input_buku($kode_buku,$isbn,$judul,$penulis,$penerbit,$tahun_terbit,$jenis){
-	mysql_query("insert into buku values('','$kode_buku','$isbn','$judul','$penulis','$penerbit','$tahun_terbit','$jenis')");
+	function input_buku($kode_buku,$isbn,$judul,$penulis,$penerbit,$tahun_terbit,$jenis,$foto){
+	mysql_query("insert into buku values('','$kode_buku','$isbn','$judul','$penulis','$penerbit','$tahun_terbit','$jenis','$foto')");
 	}
  	
 	//hapus buku
@@ -147,7 +147,6 @@ class database{
 		mysql_query("update penyewa set kode_sewa='$kode_sewa', kode_user='$kode_user', kode_buku='$kode_buku', kode_member='$kode_member', judul='$judul',tanggal_pinjam='$tanggal_pinjam',tanggal_kembali='$tanggal_kembali' where id='$id'");
 	}
 
-	//Print Penyewaan
 	function print_penyewa($id){
 		$data = mysql_query("select * from penyewa where id='$id'");
 		while($d = mysql_fetch_array($data)){
@@ -155,7 +154,7 @@ class database{
 		}
 		return $hasil;
 	}
-
+	
 
 	//select pengembalian
 	function pengembalian(){
@@ -222,6 +221,14 @@ class database{
  	//update member
 	function update_kwitansi($id,$no,$nama,$uang_sejumlah,$untuk_pembayaran,$status){
 		mysql_query("update kwitansi set no='$no', nama='$nama', uang_sejumlah='$uang_sejumlah', untuk_pembayaran='$untuk_pembayaran', status='$status' where id='$id'");
+	}
+
+		function print_kwitansi($id){
+		$data = mysql_query("select * from penyewa where id='$id'");
+		while($d = mysql_fetch_array($data)){
+			$hasil[] = $d;
+		}
+		return $hasil;
 	}
 
 } 
