@@ -5,28 +5,61 @@
 
 	$db = new data_base();
 	// echo $_POST['bday'];
+
 	if (isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan') {
-		$query1 = "UPDATE `user` SET email = '".$_POST['email']."' WHERE id_pegawai = $id";
-		$result1 = $db->key($query1);
+        
+    $query = "SELECT `pegawai`.*, `email` as `email` FROM `pegawai` JOIN `user` WHERE `user`.`id_pegawai`='$id' AND `pegawai`.`id_pegawai`='$id'";
+    $result = $db->key($query);
 
-		$query2 = "UPDATE `pegawai` SET id_pegawai = '$id', nik = '".$_POST['nik']."', nama = '".$_POST['nama']."', tempat_lahir = '".$_POST['tl']."', tanggal_lahir = '".$_POST['ttl']."', alamat_ktp = '".$_POST['almt_ktp']."', alamat_sekarang = '".$_POST['almt_skrg']."', agama = '".$_POST['agama']."', status_perkawinan = '".$_POST['status']."', kewarganegaraan = '".$_POST['kewarganegaraan']."', no_telp = '".$_POST['tlp']."' WHERE id_pegawai = $id";
+    $tampils = mysql_fetch_array($result);
+        $foto = $_FILES['foto_pegawai']['name'];
+        $extension = end(explode(".", $foto));
+         if (!($foto == "")) {
 
-		$result2 = $db->key($query2);
-					
-					if(isset($result2)){
-						echo "Data berhasil diubah";
-					} else {
-						echo "Data Tidak berhasil diubah !!!";
-					}
+            unlink("../img/".$tampils['foto']);
+
+            $random_nama = rand(0000,9999);
+            $falidasi = preg_replace("/\s+/", "_", "".$_POST['nama'].".".$extension);
+            $new_file = $random_nama."_".$falidasi;
+            $photo_path = $_FILES['foto_pegawai']['tmp_name'];
+            $directory = "../img/".$new_file;
+            move_uploaded_file($photo_path,$directory);
+
+            $query1 = "UPDATE `user` SET email = '".$_POST['email']."' WHERE id_pegawai = $id";
+            $result1 = $db->key($query1);
+
+            $query2 = "UPDATE `pegawai` SET id_pegawai = '$id', nik = '".$_POST['nik']."', nama = '".$_POST['nama']."', tempat_lahir = '".$_POST['tl']."', tanggal_lahir = '".$_POST['ttl']."', alamat_ktp = '".$_POST['almt_ktp']."', alamat_sekarang = '".$_POST['almt_skrg']."', agama = '".$_POST['agama']."', status_perkawinan = '".$_POST['status']."', kewarganegaraan = '".$_POST['kewarganegaraan']."', no_telp = '".$_POST['tlp']."', foto = '".$new_file."' WHERE id_pegawai = $id";
+
+            $result2 = $db->key($query2);
+                    
+                    if(isset($result2)){
+                        echo "Data berhasil diubah";
+                    } else {
+                        echo "Data Tidak berhasil diubah !!!";
+                    }
+        }else{
+
+        $query1 = "UPDATE `user` SET email = '".$_POST['email']."' WHERE id_pegawai = $id";
+        $result1 = $db->key($query1);
+
+        $query2 = "UPDATE `pegawai` SET id_pegawai = '$id', nik = '".$_POST['nik']."', nama = '".$_POST['nama']."', tempat_lahir = '".$_POST['tl']."', tanggal_lahir = '".$_POST['ttl']."', alamat_ktp = '".$_POST['almt_ktp']."', alamat_sekarang = '".$_POST['almt_skrg']."', agama = '".$_POST['agama']."', status_perkawinan = '".$_POST['status']."', kewarganegaraan = '".$_POST['kewarganegaraan']."', no_telp = '".$_POST['tlp']."' WHERE id_pegawai = $id";
+
+        $result2 = $db->key($query2);
+                    
+                    if(isset($result2)){
+                        echo "Data berhasil diubah";
+                    } else {
+                        echo "Data Tidak berhasil diubah !!!";
+                    }
+        }
 	}
+    $querys = "SELECT `pegawai`.*, `email` as `email` FROM `pegawai` JOIN `user` WHERE `user`.`id_pegawai`='$id' AND `pegawai`.`id_pegawai`='$id'";
+    $results = $db->key($querys);
 
-	$query = "SELECT `pegawai`.*, `email` as `email` FROM `pegawai` JOIN `user` WHERE `user`.`id_pegawai`='$id' AND `pegawai`.`id_pegawai`='$id'";
-	$result = $db->key($query);
-
-	while ($tampil = mysql_fetch_array($result)) {
+    $tampil = mysql_fetch_array($results);
 
 ?>
-<form action="user_bio.php?page=1" method="post">
+<form action="user_bio.php?page=1" method="post" enctype="multipart/form-data">
 <div class="panel-body">
     <div class="table-responsive">
         <table class="table table-striped">
@@ -36,9 +69,23 @@
                     <td>:</td>
                     <td><input type="number" name="nik" class="form-control"  min="0" max="9999999999999999" value="<?php echo $tampil['nik'] ?>"></td>
                 </tr>
-                <th style="width: 200px">Nama</th>
+                    <th style="width: 200px">Nama</th>
                     <td style="width: 5px">:</td>
                     <td><input type="text" name="nama" class="form-control" value="<?php echo $tampil['nama'] ?>"></td>
+                </tr>
+                <tr>
+                    <th>Foto</th>
+                    <td>:</td>
+                    <td>
+                    <?php 
+                        if (isset($tampil['foto'])) {
+                    ?>
+                            <img width="200" height="auto" src="../img/<?php echo $tampil['foto'];?>">
+                    <?php
+                        }
+                    ?>
+                    <input type="file" name="foto_pegawai">
+                    </td>
                 </tr>
                 <tr>
                     <th>Tempat Lahir</th>
@@ -78,7 +125,7 @@
                 <tr>
                     <th>No. Telp/hp</th>
                     <td>:</td>
-                    <td><input type="number" class="form-control" name="tlp" min="0" max="2000" value="<?php echo $tampil['no_telp'] ?>"></td>
+                    <td><input type="number" class="form-control" name="tlp" min="0" max="999999999999" value="<?php echo $tampil['no_telp'] ?>"></td>
                 </tr>
                 <tr>
                     <th>E-mail</th>
@@ -94,5 +141,5 @@
 </div> 
 </form>
 <?php
-	}
+	
 ?>

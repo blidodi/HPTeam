@@ -14,6 +14,7 @@
 <a href="?page=1" class="btn btn-success"><i class="fa fa-edit"></i> Perbarui Biodata</a>
 	<div class="panel-body">
 		<div class="table-responsive">
+                    
         	<table class="table table-striped">
             <tbody>
             	<tr>
@@ -21,6 +22,20 @@
                     <td>:</td>
                     <td><?php echo $tampil['nik'] ?></td>
 				</tr>
+                <tr>
+                    <th>Foto</th>
+                    <td>:</td>
+                    <td>
+                    <?php 
+                        if (isset($tampil['foto'])) {
+                    ?>
+                            <img width="200" height="auto" src="../img/<?php echo $tampil['foto'];?>">
+                    <?php
+                        }
+                    ?>
+                    </td>
+                </tr>
+                <tr>
                     <th style="width: 200px">Nama</th>
                     <td style="width: 5px">:</td>
                     <td><?php echo $tampil['nama'] ?></td>
