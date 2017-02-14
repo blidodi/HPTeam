@@ -15,9 +15,9 @@
         $foto = $_FILES['foto_pegawai']['name'];
         $extension = end(explode(".", $foto));
          if (!($foto == "")) {
-
-            unlink("../img/".$tampils['foto']);
-
+            if (isset($tampils['foto'])) {
+                unlink("../img/".$tampils['foto']);
+            }
             $random_nama = rand(0000,9999);
             $falidasi = preg_replace("/\s+/", "_", "".$_POST['nama'].".".$extension);
             $new_file = $random_nama."_".$falidasi;
@@ -57,9 +57,9 @@
     $results = $db->key($querys);
 
     $tampil = mysql_fetch_array($results);
-
+    echo $tampil['nama']
 ?>
-<form action="user_bio.php?page=1" method="post" enctype="multipart/form-data">
+<form action="?page=1" method="post" enctype="multipart/form-data">
 <div class="panel-body">
     <div class="table-responsive">
         <table class="table table-striped">
@@ -136,7 +136,7 @@
         </div>
         <input class="btn btn-primary" type="submit" name="simpan" value="Simpan">
         <!-- <i class="fa fa-save"></i> Simpan</a>  -->
-        <a href="user_bio.php?page=0" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
+        <a href="?page=0" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
     </div>
 </div> 
 </form>

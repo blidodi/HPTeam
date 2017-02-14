@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['email'] ) && !isset($_SESSION['password'])) {
+       header('location:login.php');
+    }
+    require "../control/fungsi.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -346,5 +354,4 @@
     <script src="../asset/dist/js/sb-admin-2.js"></script>
 
 </body>
-
 </html>

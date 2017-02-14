@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['email'] ) && !isset($_SESSION['password'])) {
+       header('location:login.php');
+    }
+
+    require "../control/fungsi.php";
+    $id = $_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -315,6 +325,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <?php
+                    echo $id;
                     include '../control/tampil_gaji.php';
                     ?>
                 </div>
