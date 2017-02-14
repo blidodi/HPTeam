@@ -15,7 +15,7 @@
 		  }
 		}
 	</script>
-	<title>Tabel User</title>
+	<title>Tabel Buku</title>
 </head>
 <body>
 <div id="container">

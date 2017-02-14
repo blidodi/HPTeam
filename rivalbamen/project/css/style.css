@@ -1,0 +1,274 @@
+* {
+	font-family: Verdana, Geneva, sans-serif;
+    
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 0px solid #7C7D7D;
+    height: 25px;
+    padding: 3px 3px 3px 8px;
+}
+
+th {
+    background-color: #EBEAE9;
+    color: #000000;
+    text-align: left;
+}
+
+td {
+    padding: 3px 3px 3px 8px;
+}
+
+tr:nth-child(even){
+	background-color: #F7FCED;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+.button {
+    background-color: #FF6347; /*Tomato*/
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button:hover {
+	background-color: #FC9485;
+}
+
+.button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button1:hover {
+	background-color: #B0E7B3;
+}
+
+.button2 {
+    background-color: #4682B4; /* SteelBlue */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button2:hover {
+	background-color: rgb(150, 222, 254);
+}
+
+.button3 {
+    background-color: #C7D127; /* SteelBlue */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button3:hover {
+    background-color: #DFE490;
+}
+input, select {
+	display: block;
+	height: 35px;
+	width: 300px;
+	margin-top: 2px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 0px;
+    padding: 3px 3px 3px 8px;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+	border: none;
+	background: #1abc9d;
+	border-radius: 5px;
+	color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+  background: #28B6AF;
+}
+
+p {
+	color: #000000;
+}
+
+.p-color {
+	color: #1abc9d;;
+}
+
+#footer {
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    color: #000000;
+    position: absolute;
+    bottom: 0px;
+    width: 100%; /*biar memenuhi layar*/
+}
+
+#container{
+    position:relative;
+    min-height:100%;
+}
+ 
+#header{
+    background: #1abc9d;
+    padding: 3px 3px 3px 8px;
+}
+
+html, body{
+    height:100%;
+    margin: 0px;
+    padding: 0px;
+    background: #EBEAE9;
+    }
+    
+#body {
+   padding:10px;
+   padding-bottom:60px;
+}
+
+#content{
+    padding:10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #EBEAE9;
+    color: #000000;
+    border-bottom: 5px solid #1abc9d;
+}
+
+.active {
+    background-color: #EBEAE9;
+    color: #000000;
+    border-bottom: 5px solid #1abc9d;
+}
+
+h1{
+  color: #fff;
+}
+
+.form{
+  width: 96%;
+  background: #EBEAE9;
+  margin: 5px auto;
+  padding-top: 0px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+}
+img {
+    display: block;
+    margin: auto;
+}
+
+.cover {
+    width: 75px;
+    height: 125px;
+}
+
+@import "http://fonts.googleapis.com/css?family=Raleway";
+/*----------------------------------------------
+CSS settings for HTML div Exact Center
+------------------------------------------------*/
+#abc {
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:#313131;
+    overflow:auto
+}
+i#close {
+    position:absolute;
+    right: 10px;
+    top: 10px;
+    cursor:pointer;
+}
+div#popupContact {
+    position:absolute;
+    left:50%;
+    top:17%;
+    margin-left:-202px;
+    font-family:'Raleway',sans-serif
+}
+.formpop {
+    max-width:300px;
+    min-width:250px;
+    padding:10px 50px;
+    border:2px solid gray;
+    border-radius:10px;
+    font-family:raleway;
+    background-color:#fff;
+}
+span {
+    color:red;
+    font-weight:700;
+}

@@ -92,3 +92,6 @@
 	- php -S localhost:8080 -t public public/index.php (run sebelum menggunakan slim)
 	- composer start
 	- composer dump-autoload -o
+
+#Hari 13
+- Belajar Upload Image

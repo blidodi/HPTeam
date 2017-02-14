@@ -13,4 +13,5 @@ $action = $_GET['action'];
  	$db->ubah_buku($_POST['id'], $_POST['isbn'], $_POST['judul'], $_POST['pengarang'], $_POST['penerbit']);
  	header("location:index.php");
  }
+ 
 ?>
