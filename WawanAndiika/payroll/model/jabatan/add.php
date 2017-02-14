@@ -2,7 +2,8 @@
 			$jabatan = new Jabatan();
 				if(isset($_POST['simpan'])){
 					$nama = $_POST['namajabatan'];
-					$gaji = $_POST['gajijabatan'];
+					$gaji = explode(".", str_replace(",","",$_POST['gajijabatan']));
+					$gaji = $gaji[0];
 
 					if($nama==''||$gaji==''){
 						echo '<div class="alert alert-warning">
@@ -28,9 +29,10 @@
 				echo $form->inputsubmit('text','namajabatan','form-control','masukan nama Jabatan...');
 				echo $form->formbootstrap_footer();
 				echo $form->formbootstrap_header('col-sm-2 control-label','Gaji Jabatan','col-sm-10');
-				echo $form->inputsubmit('number','gajijabatan','form-control','masukan gaji Jabatan...');
+				echo $form->inputsubmit('text','gajijabatan','form-control gaji','masukan gaji Jabatan...');
 				echo $form->formbootstrap_footer();
 				echo $form->submitbootstrap_header('col-sm-offset-2 col-sm-10');
 				echo $form->button('submit','simpan','btn btn-primary','Simpan');
 				echo $form->formbootstrap_footer();
-				echo $form->footer();
+				echo $form->footer(); ?>
+				<script type="text/javascript">$(".gaji").maskMoney();</script>

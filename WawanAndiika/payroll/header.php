@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?= title();?></title>
+	<title><?= title();?> - Harmoni Permata</title>
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/dashboard.css">
   <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+
+  <link rel="icon" href="/assets/img/trans-logo.png" type="image/x-icon" />
+
+  <!-- javascript list -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="/assets/jquery.maskMoney.js" type="text/javascript"></script>
+
 </head>
 <body>
 	<!-- Navigation Bar

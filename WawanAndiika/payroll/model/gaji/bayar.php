@@ -6,14 +6,23 @@
 		$pegawais = $id;
 		$jabatans = $_POST['jabatan'];
 		$absen = $_POST['absen'];
-		$bonus = $_POST['bonus'];
+		$bonus = explode(".", str_replace(",","",$_POST['bonus']));
+		$bonus = $bonus[0];
 		$gajis = (string)$_POST['total'];
 
 		$gaji = new Gaji();
+		$querys = $pegawai->editpegawai($id);
+		$resultt = mysqli_fetch_array($querys);
+
+		$statusbor = $resultt['status'];
 
 		if($absen==""||$bonus==""){
 			echo '<div class="alert alert-warning">
 				  <strong>Peringatan!</strong> Harap isi semua field.
+				</div>';
+		} elseif ($statusbor==2||$statusbor==1){
+			echo '<div class="alert alert-danger">
+				  <strong>Peringatan!</strong> Karyawan ini sudah diproses.
 				</div>';
 		} else {
 			$query = $gaji->savegaji($pegawais,$jabatans,$absen,$bonus,$gajis);
@@ -63,7 +72,7 @@
 			echo '<input class="form-control absen" type="number" name="absen" placeholder="Absen..." onkeyup="kalkulasi()"/>';
 			echo $form->formbootstrap_footer();
 			echo $form->formbootstrap_header('col-sm-2 control-label','Bonus bulan ini','col-sm-10');
-			echo '<input class="form-control" type="number" name="bonus" placeholder="Bonus bulan ini..."  onkeyup="kalkulasi()"/>';
+			echo '<input class="form-control bonus" type="text" name="bonus" placeholder="Bonus bulan ini..."  onkeyup="kalkulasi()"/>';
 			echo $form->inputvalue('text','jabatan','hide',$result['id_jabatan']);
 			echo $form->formbootstrap_footer();
 			echo $form->formbootstrap_header('col-sm-2 control-label','Gaji','col-sm-10');
@@ -82,7 +91,10 @@
 		function kalkulasi() {
 			var gaji = <?php echo $jabatan->gajinya($result['id_jabatan']); ?>;
 			var absen = document.getElementsByName('absen')[0].value;
-			var bonus = document.getElementsByName('bonus')[0].value;
+			var str = document.getElementsByName('bonus')[0].value;
+			var bon = str.replace(new RegExp(',', 'g'),"");
+			var bonus2 = bon.split(".");
+			var bonus = bonus2[0];
 			
 			if(bonus == ""){
 				bonusnya = 0;
@@ -96,3 +108,4 @@
 
 		}
 	</script>
+	<script type="text/javascript">$(".bonus").maskMoney();</script>

@@ -32,6 +32,7 @@
 	$pph = (5/100*$result['total_gaji'])/12;
 	//$bonus = $result['total_gaji'] - ($jabatan->gajinya($result['id_jabatan'])/30)*(30-$result['absen']);
 ?>
+<a href="/gaji/list/" class="btn btn-warning" style="display:block;float: right;"><i style="margin-right: 10px;" class="fa fa-undo" aria-hidden="true"></i>Kembali</a>
 <h4 style="border-bottom: 3px double #cecece;padding: 10px;color: #5a5a5a;padding-left: 0;margin-top:0;">Detail Gaji</h4>
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-3">
