@@ -145,6 +145,15 @@
 					$sql = "SELECT user.ID, user.nama, user.username, user_role.role
 							FROM user, user_role 
 							WHERE user.role=user_role.ID";
+
+
+
+
+
+					$sql = "SELECT user.kode_user, user.nama, user.username, user.password, penyewa.kode_sewa, 			   penyewa.kode_user, penyewa.kode_buku, penyewa.kode_member, penyewa.					   tanggal_pinjam, penyewa.tanggal_kembali
+							 FROM user, penyewa 
+							 WHERE user.kode_user=penyewa.kode_user";
+		
 		
 
 					/* $sql = "SELECT `ID`, `nama`, `username`, `password` FROM `user`"; */
