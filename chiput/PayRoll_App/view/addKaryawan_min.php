@@ -26,7 +26,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -35,8 +35,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
@@ -85,9 +84,19 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 								<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 							</div>
 						</form>
+						<?php
+						session_start();
+						if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+						 header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
+						 }
+						 else {
+
+						 	$nama = $_SESSION['username'];
+						 	
+						?>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php echo $nama ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -213,5 +222,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 	})
 	</script>
 </body>
-
 </html>
+<?php
+}
+?>

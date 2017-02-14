@@ -48,6 +48,16 @@ class Table extends Config
 		return $result;
 	}
 
+	public function edit_Depart($kode)
+	{
+		$sql_departemen = mysql_query("SELECT * FROM tbl_departemen WHERE kode_depart ='$kode'");
+		
+		while ($hasil = mysql_fetch_array($sql_departemen)) {
+			$result[] = $hasil;
+		}
+		return $result;
+	}
+
 	public function tampil_profil($id)
 	{
 		$sql_profil = mysql_query("SELECT `tbl_karyawan`.* ,`username` as `username`,`password` as `password` FROM `tbl_karyawan` JOIN `tbl_user` WHERE `tbl_karyawan`.`ID_karyawan` = `$id` AND `tbl_user`.`ID_user` = `$id`");
@@ -91,10 +101,26 @@ class Form extends Config
 		return $sql_depart;
 	}
 
-	// public function input_gaji()
-	// {
-	// 	$sql_gaji = mysql_query("INSERT INTO tbl_gaji(kode_gaji, gajibulan, tgl_transfer, absensi, no_rek, gajipokok, tunjangan, uang)")
-	// }
+	public function del_depart($id_ser)
+	{
+		$sql_depart = mysql_query("DELETE FROM tbl_departemen WHERE ID_department='$id_ser'");
+
+		return $sql_depart;
+	}
+
+	public function del_karyawan($id_kar)
+	{
+		$sql_depart = mysql_query("DELETE FROM tbl_karyawan WHERE ID_karyawan='$id_kar'");
+
+		return $sql_depart;
+	}
+
+	public function update_depart($id_depart, $kode_depart, $jbtn, $gaji, $tunjangan)
+	{
+		$sql_depart = mysql_query("UPDATE tbl_departemen SET kode_depart='$kode_depart', jabatan='$jbtn', gajipokok='$gaji', tunjangan='$tunjangan' WHERE ID_department='$id_depart' OR die(mysql_error()");
+
+		return $sql_depart;
+	}
 
 }
 

@@ -16,7 +16,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
@@ -84,7 +84,7 @@
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="../controller/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>

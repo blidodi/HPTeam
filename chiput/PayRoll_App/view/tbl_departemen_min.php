@@ -1,4 +1,7 @@
 <?php
+include '../controller/controller.php';
+$tbl_depart = new Table();
+
 session_start();
 if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
  header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
@@ -6,14 +9,14 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
  else {
 
  	$nama = $_SESSION['username'];
- 	
+
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Home | PayRoll Application</title>
+	<title>Tables | Departemen</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -67,7 +70,6 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 		</div>
 		<!-- END SIDEBAR -->
 		<!-- MAIN -->
-
 		<div class="main">
 			<!-- NAVBAR -->
 			<nav class="navbar navbar-default">
@@ -95,76 +97,65 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="../controller/logout.php" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="../controller/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-
-			<div class="main-content">
-				<div class="container-fluid">
-					<!-- OVERVIEW -->
-							<div class="row">
-							<div class="col-md-12">
-							<!-- PANEL HEADLINE -->
-							<div class="panel panel-headline">
-								<div class="panel-heading">
-									<h1>Welcome Admin <?php echo $nama ?> </h1>
-								</div>
-								<div class="panel-body">
-									
-								</div>
-								<div class="panel-body">
-									<a><span><h2>PayRoll</span> Applications</h2></a>
-								</div>
-								<div class="panel-body">
-									
-								</div>
-							</div>
-							<!-- END PANEL HEADLINE -->
-						</div>
-
-							</div>
-							</div>
-					
-					<!-- END OVERVIEW -->
-					
-				</div>
-			</div>
-			     
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
-
 			<div class="main-content">
 				<div class="container-fluid">
-						<div class="row">
-						<div class="col-md-6">
-						</div>
-						<div class="col-md-6">
-							</div>
-					</div>
 					<div class="row">
-						<div class="col-md-7">
+						<div class="col-md-12">
+							<!-- TABLE STRIPED -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Data Departemen</h3>
+								</div>
+								<div class="table-responsive">
+								<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+					                    <th>No</th>
+										<th>Kode Departemen</th>
+										<th>Jabatan</th>
+										<th>Gaji Pokok</th>
+										<th>Tunjangan</th>
+										<th>Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+											$i = 1;
+											foreach ($tbl_depart->tampil_Depart() as $tampil) {
+												?>
+											<tr>
+												<td><?php echo $i++; ?></td>
+												<td><?php echo $tampil['kode_depart'] ?></td>
+												<td><?php echo $tampil['jabatan'] ?></td>
+												<td><?php echo $tampil['gajipokok'] ?></td>
+												<td><?php echo $tampil['tunjangan'] ?></td>
+												<td>
+													<a href="editDepartemen_min.php?id_depart=<?php echo $tampil['id_depart'] ?>" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
+													<a href="../controller/del_depart.php?aksi=<?php echo $tampil['ID_department'] ?>" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$tampil['ID_department'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
+												</td>
+												</tr>
+											<?php
+											}
+										?>
+								</tbody>
+								</table>
+								</div>
 							</div>
-						<div class="col-md-5">
-							</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							</div>
-						<div class="col-md-4">
-							
-						</div>
-						<div class="col-md-4">
-							
+							<!-- END TABLE STRIPED -->
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
-			
 		</div>
 		<!-- END MAIN -->
 	</div>
@@ -173,9 +164,9 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 	<script src="../asset/js/jquery/jquery-2.1.0.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap.min.js"></script>
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="../asset/js/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
-	<script src="../asset/js/plugins/chartist/chartist.min.js"></script>
 	<script src="../asset/js/klorofil.min.js"></script>
 </body>
 </html>
-<?php } ?>
+<?php
+}
+?>

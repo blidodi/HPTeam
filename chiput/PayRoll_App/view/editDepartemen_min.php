@@ -1,3 +1,26 @@
+<?php 
+
+include '../controller/controller.php';
+$edit = new Table();
+$edit_depart = new Form();
+
+session_start();
+	if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+		header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
+	} else {
+
+	$nama = $_SESSION['username'];
+
+if (isset($_POST['simpan']) && $_POST['simpan'] == 'Simpan') {
+	$aksi = $_GET[aksi];
+	if ($aksi == 'update') {
+		$edit_depart->update_depart($_POST['kode_depart'], $_POST['jabatan'], $_POST['gaji'], $_POST['tunjangan'], $_POST['id_depart']);
+		header('location:tbl_departemen_min.php');
+	}
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +39,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -25,25 +48,25 @@
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						<li><a href="dashboard_admin.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="tbl_karyawan_min.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-layers"></i> <span>Department</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+									<li><a href="addDepartemen_min.php" class="">Tambah Data</a></li>
+									<li><a href="tbl_departemen_min.php" class="">Master Data</a></li>
 								</ul>
 							</div>
 						</li>
+						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
+						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -75,14 +98,15 @@
 								<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 							</div>
 						</form>
+
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php echo $nama ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="?quit=logout" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="../controller/logout.php" name="logout" value="Logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -92,57 +116,20 @@
 			<!-- END NAVBAR -->
 			<!-- MAIN CONTENT -->
 			<div class="container">
-		<div class="content">
+			<div class="content">
 			<h2>Data Departemen &raquo; Edit Data</h2>
-			<hr />
-			
-			<!-- <?php
-			$nik = $_GET['nik'];
-			$sql = mysqli_query($koneksi, "SELECT * FROM karyawan WHERE nik='$nik'");
-			if(mysqli_num_rows($sql) == 0){
-				header("Location: index.php");
-			}else{
-				$row = mysqli_fetch_assoc($sql);
-			}
-			if(isset($_POST['save'])){
-				$nik		     = $_POST['nik'];
-				$nama		     = $_POST['nama'];
-				$tempat_lahir	 = $_POST['tempat_lahir'];
-				$tanggal_lahir	 = $_POST['tanggal_lahir'];
-				$alamat		     = $_POST['alamat'];
-				$no_telepon		 = $_POST['no_telepon'];
-				$jabatan		 = $_POST['jabatan'];
-				$status			 = $_POST['status'];
-				
-				$update = mysqli_query($koneksi, "UPDATE karyawan SET nama='$nama', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', alamat='$alamat', no_telepon='$no_telepon', jabatan='$jabatan', status='$status' WHERE nik='$nik'") or die(mysqli_error());
-				if($update){
-					header("Location: edit.php?nik=".$nik."&pesan=sukses");
-				}else{
-					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data gagal disimpan, silahkan coba lagi.</div>';
-				}
-			}
-			
-			if(isset($_GET['pesan']) == 'sukses'){
-				echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil disimpan.</div>';
-			}
-			?> -->
-			<form class="form-horizontal" action="" method="post">
+
+			<hr/>
+			<form class="form-horizontal" action="editDepartemen_min.php?aksi=update" method="post">
+			<?php
+			foreach ($edit->edit_Depart($_GET['kode_depart']) as $tampil){
+
+			?>
+			<input type="hidden" name="id_depart" value="<?php echo $tampil['ID_departement']; ?>">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Kode Departemen</label>
 					<div class="col-sm-2">
-						<input type="text" name="nik" value="<?php //echo $row ['nik']; ?>" class="form-control" placeholder="Kode Departemen" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">NIK</label>
-					<div class="col-sm-2">
-						<input type="text" name="nik" value="<?php //echo $row ['nik']; ?>" class="form-control" placeholder="NIK" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Nama</label>
-					<div class="col-sm-4">
-						<input type="text" name="nama" value="<?php //echo $row ['nama']; ?>" class="form-control" placeholder="Nama" required>
+						<input type="text" name="kode_depart" value="<?php echo $tampil['kode_depart']; ?>" class="form-control" placeholder="Kode Departemen" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -150,41 +137,44 @@
 					<div class="col-sm-2">
 						<select name="jabatan" class="form-control" required>
 							<option value=""> - Jabatan Terbaru - </option>
-							<option value="Operator">Operator</option>
+							<option value="Operator">Staf Administrasi</option>
 							<option value="Leader">Leader</option>
                             <option value="Supervisor">Supervisor</option>
 							<option value="Manager">Manager</option>
 						</select>
 					</div>
                     <div class="col-sm-3">
-                    <b>Jabatan Sekarang :</b> <span class="label label-success"><?php echo $row['jabatan']; ?></span>
+                    <b>Jabatan Sekarang :</b> <span class="label label-success"><?php echo $tampil['jabatan']; ?></span>
 				    </div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Gaji Pokok</label>
 					<div class="col-sm-2">
-						<input type="text" name="gaji" value="<?php //echo $row ['nik']; ?>" class="form-control" placeholder="Gaji Pokok" required>
+						<input type="text" name="gaji" class="form-control" value="<?php echo $tampil['gajipokok']; ?>" placeholder="Gaji Pokok" required>
 					</div>
-					<div class="col-sm-3">
-                    <b>Gaji Pokok Sekarang :</b> <span class="label label-success"><?php echo $row['jabatan']; ?></span>
+					 <div class="col-sm-3">
+                    <b>Gaji Pokok :</b> <span class="label label-success"><?php echo $tampil['gajipokok']; ?></span>
 				    </div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Tunjangan</label>
 					<div class="col-sm-2">
-						<input type="text" name="tunjangan" value="<?php //echo $row ['nik']; ?>" class="form-control" placeholder="Tunjangan" required>
+						<input type="text" name="tunjangan" value="<?php echo $tampil['tunjangan']; ?>" class="form-control" placeholder="Tunjangan" required>
 					</div>
 					<div class="col-sm-3">
-                    <b>Tunjangan Sekarang :</b> <span class="label label-success"><?php echo $row['jabatan']; ?></span>
+                    <b>Tunjangan Sekarang :</b> <span class="label label-success"><?php echo $tampil['tunjangan']; ?></span>
 				    </div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>
 					<div class="col-sm-6">
-						<input type="submit" name="save" class="btn btn-sm btn-primary" value="Simpan">
-						<a href="index.php" class="btn btn-sm btn-danger">Batal</a>
+						<input type="submit" name="simpan" class="btn btn-sm btn-primary" value="Simpan">
+						<a href="editDepartemen_min.php" class="btn btn-sm btn-danger">Batal</a>
 					</div>
 				</div>
+				<?php
+				}
+				?>
 			</form>
 		</div>
 	</div>
@@ -202,11 +192,9 @@
 	<script src="../asset/js/plugins/chartist/chartist.min.js"></script> -->
 	<script src="../asset/js/klorofil.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap-datepicker.js"></script>
-	<script>
-	$('.date').datepicker({
-		format: 'yyyy-mm-dd',
-	})
-	</script>
 </body>
 
 </html>
+<?php
+}
+?>

@@ -21,7 +21,7 @@
 
 				$_SESSION['username'] = $_POST['username'];
 				$_SESSION['password'] = $_POST['password'];
-				$_SESSION['id'] = $row['id'];
+				$_SESSION['id'] = $row['ID_user'];
 				if ($row['level']==1) {
 					header('location:dashboard_admin.php');
 				}else if ($row['level']==2) {
@@ -55,7 +55,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>

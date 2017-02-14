@@ -1,40 +1,50 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+ header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
+ }
+ else {
+
+$nama = $_SESSION['username'];
+
 include '../controller/controller.php';
 
 $input = new Form();
 $tampil = new Table();
 
-
 if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 				 
 				 
 
-			if($input->input_kar($_FILES['foto'])){
-				$ekstensi_diperbolehkan	= array('png','jpg');
-				$nama = $_FILES['file']['name'];
-				$x = explode('.', $nama);
-				$ekstensi = strtolower(end($x));
-				$ukuran	= $_FILES['file']['size'];
-				$file_tmp = $_FILES['file']['tmp_name'];
+			// if($input->input_kar($_FILES['foto'])){
+			// 	$ekstensi_diperbolehkan	= array('png','jpg');
+			// 	$nama = $_FILES['file']['name'];
+			// 	$x = explode('.', $nama);
+			// 	$ekstensi = strtolower(end($x));
+			// 	$ukuran	= $_FILES['file']['size'];
+			// 	$file_tmp = $_FILES['file']['tmp_name'];
 
-				$simpan = $input->input_kar($_POST['nik'],$_POST['nama'], $_POST['tmpt_lahir'], $_POST['tgl_lahir'], $_POST['almt'], $_POST['agama'], $_POST['status'], $_POST['tlpn'], $_FILES['foto']['name']);
 
-					if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-					if($ukuran < 1044070){			
-						move_uploaded_file($file_tmp, '../img/'.$nama);
+				$simpan = $input->input_kar($id,$_POST['nik'],$_POST['nama'], $_POST['tmpt_lahir'], $_POST['tgl_lahir'], $_POST['almt'], $_POST['agama'], $_POST['status'], $_POST['tlpn']);
+					// , $_FILES['foto']['name']);
+
+			// 		if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+			// 		if($ukuran < 1044070){			
+			// 			move_uploaded_file($file_tmp, '../img/'.$nama);
 						
-						if($simpan){
-							echo 'FILE BERHASIL DI UPLOAD';
-						}else{
-							echo 'GAGAL MENGUPLOAD GAMBAR';
-						}
-					}else{
-						echo 'UKURAN FILE TERLALU BESAR';
-					}
-				}else{
-					echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
-				}
-			}
+			// 			if($simpan){
+			// 				echo 'FILE BERHASIL DI UPLOAD';
+			// 			}else{
+			// 				echo 'GAGAL MENGUPLOAD GAMBAR';
+			// 			}
+			// 		}else{
+			// 			echo 'UKURAN FILE TERLALU BESAR';
+			// 		}
+			// 	}else{
+			// 		echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+			// 	}
+			// }
 
 				 header("location:dashboard_user.php");	 
 			}
@@ -62,7 +72,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -71,25 +81,23 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
 						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>Data Karyawan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+									<li><a href="addKaryawan_ser.php" class="">Tambah Data</a></li>
+									<li><a href="tbl_karyawan_ser.php" class="">Master Data</a></li>
 								</ul>
 							</div>
 						</li>
+						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -123,7 +131,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 						</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php echo $nama ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -144,9 +152,9 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 			
 				<form class="form-horizontal" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
 				<?php 
-				foreach ($tampil->tampil_namaAkun($_GET['nama']) as $nama)  {
-				 	# code...
-				 } 					
+				// foreach ($tampil->tampil_namaAkun($_GET['nama']) as $nama)  {
+				//  	# code...
+				//  } 					
 				
 				?>
 				<div class="form-group">
@@ -158,7 +166,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Nama</label>
 					<div class="col-sm-4">
-						<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $nama['nama']?>" required>
+						<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php //echo $nama['nama']?>" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -205,7 +213,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 					<label class="col-sm-3 control-label">&nbsp;</label>
 					<div class="col-sm-6">
 						<input type="submit" name="tambah" class="btn btn-sm btn-primary" value="Simpan">
-						<a href="addKaryawan_min.php" class="btn btn-sm btn-danger">Batal</a>
+						<a href="addKaryawan_ser.php" class="btn btn-sm btn-danger">Batal</a>
 					</div>
 				</div>
 			
@@ -234,3 +242,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 </body>
 
 </html>
+<?php
+}
+?>
+

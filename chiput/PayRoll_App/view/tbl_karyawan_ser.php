@@ -1,6 +1,14 @@
 <?php
+
 include '../controller/controller.php';
 $tbl_kar = new Table();
+
+session_start();
+if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+ header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
+ }
+ else {
+ 	$nama = $_SESSION['username'];
 ?>
 
 <!doctype html>
@@ -21,7 +29,7 @@ $tbl_kar = new Table();
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -30,27 +38,23 @@ $tbl_kar = new Table();
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_departemen.php" class=""><i class="lnr lnr-layers"></i> <span>Departmen</span></a></li>
-						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
-						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
-						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
+						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>Data Karyawan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+									<li><a href="addKaryawan_ser.php" class="">Tambah Data</a></li>
+									<li><a href="tbl_karyawan_ser.php" class="">Master Data</a></li>
 								</ul>
 							</div>
 						</li>
+						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -84,12 +88,12 @@ $tbl_kar = new Table();
 						</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php echo $nama ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 									<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-									<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+									<li><a href="../controller/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -150,9 +154,9 @@ $tbl_kar = new Table();
 												<td><?php echo $tampil['jabatan'] ?></td>
 												<td><?php echo $tampil['status'] ?></td>
 												<td>
-													<a href="edit.php?nik='.$row['nik'].'" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
-													<a href="password.php?nik='.$row['nik'].'" title="Ganti Password" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="lnr lnr-user" aria-hidden="true"></span></a>
-													<a href="index.php?aksi=delete&nik='.$row['nik'].'" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$row['nama'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
+													<a href="#" title="Edit Data" class="btn btn-primary btn-sm"> <span class="lnr lnr-pencil" aria-hidden="true"></span></a>
+													<a href="#" title="Ganti Password" data-placement="bottom" data-toggle="tooltip" class="btn btn-warning btn-sm"><span class="lnr lnr-user" aria-hidden="true"></span></a>
+													<a href="../controller/del_depart.php?aksi=<?php echo $tampil['ID_karyawan'] ?>" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus data '.$tampil['ID_karyawan'].'?\')" class="btn btn-danger btn-sm"><span class="lnr lnr-trash" aria-hidden="true"></span></a>
 												</td>
 											</tr>
 											<?php
@@ -178,5 +182,5 @@ $tbl_kar = new Table();
 	<script src="../asset/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="../asset/js/klorofil.min.js"></script>
 </body>
-
 </html>
+<?php } ?>

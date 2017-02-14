@@ -26,7 +26,7 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="../asset/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="../asset/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../img/logoPayRoll.png">
 </head>
 
 <body>
@@ -35,25 +35,26 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 		<!-- SIDEBAR -->
 		<div class="sidebar">
 			<div class="brand">
-				<!-- <a href="index.html"><img src="../asset/img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a> -->
-				<a class=""><span>PayRoll</span> Applications</a>
+				<img src="../img/logo.png" class="img-responsive logo">
 			</div>
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="dashboard_user.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="tbl_karyawan_useer.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
-						<li><a href="tbl_gaji_user.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						<li><a href="dashboard_admin.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="tbl_karyawan_min.php" class=""><i class="lnr lnr-users"></i> <span>Karyawan</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-layers"></i> <span>Department</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+									<li><a href="addDepartemen_min.php" class="">Tambah Data</a></li>
+									<li><a href="tbl_departemen_min.php" class="">Master Data</a></li>
 								</ul>
 							</div>
 						</li>
+						<li><a href="tbl_gaji.php" class=""><i class="lnr lnr-paperclip"></i> <span>Penggajian</span></a></li>
+						<li><a href="tbl_akun.php" class=""><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
+						<li><a href="" class=""><i class="lnr lnr-book"></i> <span>Laporan</span></a></li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -85,9 +86,19 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 								<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 							</div>
 						</form>
+						<?php
+						session_start();
+						if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+						 header("location:form_login.php"); // jika belum login, maka dikembalikan ke file form_login.php
+						 }
+						 else {
+
+						 	$nama = $_SESSION['username'];
+						 	
+						?>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span>Chiput</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../asset/img/chiput.jpg" class="img-circle" alt="Avatar"> <span><?php echo $nama ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 								<ul class="dropdown-menu">
 									<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 									<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -161,11 +172,8 @@ if(isset($_POST['tambah']) && $_POST['tambah'] == 'Simpan'){
 	<script src="../asset/js/plugins/chartist/chartist.min.js"></script> -->
 	<script src="../asset/js/klorofil.min.js"></script>
 	<script src="../asset/js/bootstrap/bootstrap-datepicker.js"></script>
-	<script>
-	$('.date').datepicker({
-		format: 'yyyy-mm-dd',
-	})
-	</script>
 </body>
-
 </html>
+<?php
+}
+?>

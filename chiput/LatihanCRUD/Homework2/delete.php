@@ -1,7 +1,7 @@
 <?php
 
 			if ($_GET['id']) {
-				include "koneksi.php";
+				include 'koneksi.php';
 				$id = $_GET['id'];
 				$sql = "DELETE FROM `user` WHERE `user`.`id_user`=$id";
 				$sql1 = "DELETE FROM `user_role` WHERE `user_role`.`id`=$id";
