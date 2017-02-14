@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use Slim\Http\Request;
@@ -10,7 +9,14 @@ class NameController extends Controller
 {
 	public function __invoke(Request $request, Response $response, Array $args)
 	{
-		$data['names'] = "rudi";
+		//$data['names'] = "rudi";
+		return $this->renderer->render($response, 'user-name');
+	}
+
+	public function saya(Request $request, Response $response, Array $args)
+	{
+		$data['names'] = "Andre";
+		$data['title'] = "Halaman Nama";
 		return $this->renderer->render($response, 'user-name', $data);
 	}
 }
