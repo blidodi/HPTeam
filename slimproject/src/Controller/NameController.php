@@ -15,7 +15,7 @@ class NameController extends Controller
 
 	public function saya(Request $request, Response $response, Array $args)
 	{
-		$data['names'] = "Andre";
+		$data['names'] = $args['nama'];
 		$data['title'] = "Halaman Nama";
 		return $this->renderer->render($response, 'user-name', $data);
 	}

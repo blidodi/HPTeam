@@ -10,4 +10,4 @@
 });*/
 
 $app->get('/', App\Controller\NameController::class)->setName('name-url');
-$app->get('/tampil', App\Controller\NameController::class.':saya')->setName('saya-url');
+$app->get('/tampil/[{nama}]', App\Controller\NameController::class.':saya')->setName('saya-url');
