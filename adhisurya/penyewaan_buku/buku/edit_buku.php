@@ -17,7 +17,6 @@ $db = new database();
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='../http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
 </head>
 <body>
     <div id="wrapper">
@@ -59,69 +58,68 @@ $db = new database();
             </div>
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
+          <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><i class="fa fa-pencil" aria-hidden="true"></i> Edit Buku</h3>
+
                     </div>
                 </div>
-		<form action="../proses.php?aksi=update_buku" method="post">
+                <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+               <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-edit "></i> FORM EDIT <b>MEMBER</b>
+                    </div>
+                <div class="panel-body"> 
+		<form action="../proses.php?aksi=update_buku" method="post" enctype="multipart/form-data">
 			<?php
 				foreach($db->edit_buku($_GET['id']) as $d){
 			?>
-				<table>
-					<tr>
-						<td>Kode Buku</td>
-						<td align="center">:</td>
-						<td>
-							<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-							<input type="text" name="kode_buku" value="<?php echo $d['kode_buku'] ?>">
-						</td>
-					</tr>
-					<tr>
-						<td>ISBN</td>
-						<td align="center">:</td>
-						<td><input type="text" name="isbn" value="<?php echo $d['isbn'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Judul</td>
-						<td align="center">:</td>
-						<td><input type="text" name="judul" value="<?php echo $d['judul'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Penulis</td>
-						<td align="center">:</td>
-						<td><input type="text" name="penulis" value="<?php echo $d['penulis'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Penerbit</td>
-						<td align="center">:</td>
-						<td><input type="text" name="penerbit" value="<?php echo $d['penerbit'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Tahun</td>
-						<td align="center">:</td>
-						<td><input type="text" name="tahun_terbit" value="<?php echo $d['tahun_terbit'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Jenis</td>
-						<td align="center">:</td>
-						<td><input type="text" name="jenis" value="<?php echo $d['jenis'] ?>"></td>
-					</tr>
-                    <tr>
-                        <td>Foto</td>
-                        <td align="center">:</td>
-                        <td><input type="file" name="foto" value="<?php echo $d['foto'] ?>"></td>
-                    </tr>
-					<tr>
-						<td></td>
-						<td align="center"></td>
-						<td><input class="button button2" type="submit" value="Simpan"><a href="tampil_buku.php" class="button button2">Batal</a></td>
-
-					</tr>
-				</table>
-			<?php } ?>
-		</form>
-</body>
-</html>	
+				<div class="col-md-6">
+                    <label>Kode Buku</label>
+				    <input class="form-control" type="hidden" name="id" value="<?php echo $d['id'] ?>">
+					<input class="form-control" type="text" name="kode_buku" value="<?php echo $d['kode_buku'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div>
+				<div class="col-md-6">
+                    <label>ISBN</label>
+				    <input class="form-control" type="text" name="isbn" value="<?php echo $d['isbn'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div>
+				<div class="col-md-6">
+                    <label>Judul Buku</label>
+                    <input class="form-control" type="text" name="judul" value="<?php echo $d['judul'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div>    
+				<div class="col-md-6">
+                    <label>Penulis</label>
+                    <input class="form-control" type="text" name="penulis" value="<?php echo $d['penulis'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div> 
+				<div class="col-md-6">
+                    <label>Penerbit</label>
+                    <input class="form-control" type="text" name="penerbit" value="<?php echo $d['penerbit'] ?>">
+					<p class="help-block">Help text here.</p>
+                </div>
+				<div class="col-md-6">
+                    <label>Tahun Terbit</label>
+                    <input class="form-control" type="text" name="tahun_terbit" value="<?php echo $d['tahun_terbit'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div>
+				<div class="col-md-6">
+                    <label>Jenis Buku</label>
+                    <input class="form-control" type="text" name="jenis" value="<?php echo $d['jenis'] ?>">
+                    <p class="help-block">Help text here.</p>
+                </div>
+                <div class="col-md-6">
+                    <label>Cover Buku</label>
+                    <input type="file" name="foto">
+                    <p class="help-block">Help file here.</p>
+                <button type="submit" value="Simpan" class="btn btn-info-edit">Simpan </button>
+                <a class="btn btn-info-edit" href="tampil_buku.php">Batal</a>
+                </div>
+            </form>
+        <?php } ?>    
+    </body>
+</html>

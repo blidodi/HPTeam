@@ -3,29 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tambah Member</title>
-    <!-- BOOTSTRAP STYLES-->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLES-->
-    <link href="../assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='../http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
+        <title>Tambah User</title>
+        <!-- BOOTSTRAP STYLES-->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- FONTAWESOME STYLES-->
+        <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+        <link href="../assets/css/custom.css" rel="stylesheet" />
+        <!-- GOOGLE FONTS-->
+        <link href='../http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body>
-    <div id="wrapper">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="adjust-nav">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>&nbsp;Penyewaan Buku</a>
-                </div>
+    <body>
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="adjust-nav">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-square-o "></i>&nbsp;Penyewaan Buku</a>
+                    </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">See Website</a></li>
@@ -58,42 +57,45 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><i class="fa fa-plus-circle" aria-hidden="true"></i>  Tambah Member</h3>
+
                     </div>
                 </div>
-	<form action="../proses.php?aksi=tambah_member" method="post" enctype="multipart/form-data">
-		<table>
-			<tr>
-				<td>Kode Member</td>
-				<td align="center">:</td>
-				<td><input type="text" name="kode_member"></td>
-			</tr>
-			<tr>
-				<td>Nama</td>
-				<td align="center">:</td>
-				<td><input type="text" name="nama"></td>
-			</tr>
-			<tr>
-				<td>Alamat</td>
-				<td align="center">:</td>
-				<td><input type="text" name="alamat"></td>
-			</tr>
-			<tr>
-				<td>Foto</td>
-				<td align="center">:</td>
-				<td>
-                    <input type="file" name="foto">
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td align="center"></td>
-				<td>
-					<input class ="button button1" type="submit" value="Simpan">
-					<a class="button button1" href="tampil_member.php">Batal</a>
-				</td>
-			</tr>
-		</table>
-	</form>
-</body>
+            <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-plus" aria-hidden="true"></i> FORM TAMBAH <b>MEMBER</b>
+                </div>
+            <div class="panel-body">
+	            <form action="../proses.php?aksi=tambah_member" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Kode Member</label>
+                        <input class="form-control" type="text" name="kode_member">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input class="form-control" type="text" name="nama">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <input class="form-control" type="text" name="alamat">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Foto</label>
+                        <input type="file" name="foto">
+                        <p class="help-block">Help file here.</p>
+                    <button type="submit" value="Simpan" class="btn btn-info-add">Simpan </button>
+                    <a class="btn btn-info-add" href="tampil_member.php">Batal</a>
+                </form>
+            </div>
+        <hr />
+            <!-- /. NAV FOOTER  -->
+            <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

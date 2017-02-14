@@ -21,6 +21,7 @@
     <!-- TABLE STYLE-->
     <link href="../assets2/css/bootstrap.css" rel="stylesheet" />
     <link href="../assets2/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="wrapper">
@@ -72,7 +73,7 @@
                     </div>
                 </div>
                  <!-- /. ROW  -->
-                 <hr />
+                <hr />
                 <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -81,7 +82,6 @@
                              Advanced Tables
                         </div>
                             <a class="buttonadd buttonadd" href="input_buku.php" title="Add"><i class="fa fa-plus-square" aria-hidden="true"></i> Add</a>
-                            <a class="buttonview buttonadd" href="#" title="View"><i class="fa fa-eye" aria-hidden="true"></i> View</a>   
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -89,19 +89,23 @@
                                 		<tr>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> No.
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode Buku</th>
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode Buku
+                                            </th>
+                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Cover Buku
+                                            </th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> ISBN
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Judul
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Judul Buku
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Penulis</th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Penerbit</th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Tahun Terbit</th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Jenis
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Penulis
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Foto
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Penerbit
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Opsi
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Tahun
+                                            </th>
+                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Jenis Buku
+                                            </th>
+                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Action
                                             </th>
                                 		</tr>
                                     </thead>
@@ -113,32 +117,24 @@
                 		<tr>
                 			<td align="center"><?php echo $no++; ?></td>
                 			<td align="center"><?php echo $x['kode_buku']; ?></td>
+                            <td><img class="foto" src="<?php echo "../image/".$x['foto']; ?>"></td></td>
                 			<td><?php echo $x['isbn']; ?></td>
                 			<td><?php echo $x['judul']; ?></td>
                 			<td><?php echo $x['penulis']; ?></td>
                 			<td><?php echo $x['penerbit']; ?></td>
                 			<td align="center"><?php echo $x['tahun_terbit']; ?></td>
                 			<td><?php echo $x['jenis']; ?></td>
-                			<td><img class="foto" src="<?php echo "../image/".$x['foto']; ?>"></td></td>
-                			<td align="center">
-                				<a class="button button2" href="edit_buku.php?id=<?php echo $x['id']; ?>&aksi=edit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                				<a class="button button3" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_buku" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
-                			</td>
+                            <td align="center">
+                                <a class="buttoncrud button1crud" href="view_buku.php?id=<?php echo $x['id'];?>&aksi=view" title="View"><i class="fa fa-eye" aria-hidden="true"></i> </a>
+                                <a class="buttoncrud button2crud" href="edit_buku.php?id=<?php echo $x['id']; ?>&aksi=edit"><i class="fa fa-edit "></i> </a>
+                                <a class="buttoncrud button3crud" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_buku" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-eraser" aria-hidden="true"></i> </a>          
+                            </td>
 		                </tr>
 		            <?php } ?>
 	            </tbody>
             </table>
         <hr />
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <div id="right">&copy; 2014 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
-                </thead>
-            </table>
-        </div>
-    </div>            
-    <tbody>           
+    <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>         
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->

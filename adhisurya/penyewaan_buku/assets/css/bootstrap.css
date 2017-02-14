@@ -1,4 +1,4 @@
-/*!
+*!/
  * Bootstrap v3.1.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1681,6 +1681,17 @@ input[type="checkbox"]:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
+input[type=file] {
+  width: 350px;
+  padding: 12px 20px;
+  margin: 2px 2px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 output {
   display: block;
   padding-top: 7px;
@@ -1690,8 +1701,43 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
-  height: 34px;
+  width: 350px;
+  height: 50px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control-select {
+  display: block;
+  width: 350px;
+  height: 50px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control-file {
+  display: block;
+  width: 350px;
+  height: 50px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -1706,10 +1752,8 @@ output {
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  border-color: #999;
+
 }
 .form-control::-moz-placeholder {
   color: #999;
@@ -2161,47 +2205,91 @@ fieldset[disabled] .btn-success.active {
   color: #5cb85c;
   background-color: #fff;
 }
-.btn-info {
+.btn-info-add {
   color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #8b7bff;
+  border-color: #9a8eee;
 }
-.btn-info:hover,
-.btn-info:focus,
-.btn-info:active,
-.btn-info.active,
-.open .dropdown-toggle.btn-info {
+.btn-info-add:hover,
+.btn-info-add:focus,
+.btn-info-add:active,
+.btn-info-add.active,
+.open .dropdown-toggle.btn-info-add {
   color: #fff;
-  background-color: #39b3d7;
+  background-color: #7a6be8;
   border-color: #269abc;
 }
-.btn-info:active,
-.btn-info.active,
-.open .dropdown-toggle.btn-info {
+.btn-info-add:active,
+.btn-info-add.active,
+.open .dropdown-toggle.btn-info-add {
   background-image: none;
 }
-.btn-info.disabled,
-.btn-info[disabled],
-fieldset[disabled] .btn-info,
-.btn-info.disabled:hover,
-.btn-info[disabled]:hover,
-fieldset[disabled] .btn-info:hover,
-.btn-info.disabled:focus,
-.btn-info[disabled]:focus,
-fieldset[disabled] .btn-info:focus,
-.btn-info.disabled:active,
-.btn-info[disabled]:active,
-fieldset[disabled] .btn-info:active,
-.btn-info.disabled.active,
-.btn-info[disabled].active,
-fieldset[disabled] .btn-info.active {
+.btn-info-add.disabled,
+.btn-info-add[disabled],
+fieldset[disabled] .btn-info-add,
+.btn-info-add.disabled:hover,
+.btn-info-add[disabled]:hover,
+fieldset[disabled] .btn-info-add:hover,
+.btn-info-add.disabled:focus,
+.btn-info-add[disabled]:focus,
+fieldset[disabled] .btn-info-add:focus,
+.btn-info-add.disabled:active,
+.btn-info-add[disabled]:active,
+fieldset[disabled] .btn-info-add:active,
+.btn-info-add.disabled.active,
+.btn-info-add[disabled].active,
+fieldset[disabled] .btn-info-add.active {
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.btn-info .badge {
+.btn-info-add .badge {
   color: #5bc0de;
   background-color: #fff;
 }
+
+
+.btn-info-edit {
+  color: #fff;
+  background-color: #00a65a;
+  border-color: #04b564;
+}
+.btn-info-edit:hover,
+.btn-info-edit:focus,
+.btn-info-edit:active,
+.btn-info-edit.active,
+.open .dropdown-toggle.btn-info-edit {
+  color: #fff;
+  background-color: #04b564;
+  border-color: #04b564;
+}
+.btn-info-edit:active,
+.btn-info-edit.active,
+.open .dropdown-toggle.btn-info-edit {
+  background-image: none;
+}
+.btn-info-edit.disabled,
+.btn-info-edit[disabled],
+fieldset[disabled] .btn-info-edit,
+.btn-info-edit.disabled:hover,
+.btn-info-edit[disabled]:hover,
+fieldset[disabled] .btn-info-edit:hover,
+.btn-info-edit.disabled:focus,
+.btn-info-edit[disabled]:focus,
+fieldset[disabled] .btn-info-edit:focus,
+.btn-info-edit.disabled:active,
+.btn-info-edit[disabled]:active,
+fieldset[disabled] .btn-info-edit:active,
+.btn-info-edit.disabled.active,
+.btn-info-edit[disabled].active,
+fieldset[disabled] .btn-info-edit.active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+.btn-info-edit .badge {
+  color: #5bc0de;
+  background-color: #fff;
+}
+
 .btn-warning {
   color: #fff;
   background-color: #f0ad4e;
@@ -4762,7 +4850,7 @@ a.list-group-item-danger.active:focus {
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 .panel-body {
-  padding: 15px;
+  padding: 20px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -4993,12 +5081,13 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #d6e9c6;
 }
 .panel-info {
-  border-color: #bce8f1;
+  border-color: #f3f3f3;
+  width: 1009px;
 }
 .panel-info > .panel-heading {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #333;
+  background-color: #f3f3f3;
+  border-color: #f3f3f3;
 }
 .panel-info > .panel-heading + .panel-collapse .panel-body {
   border-top-color: #bce8f1;
@@ -5777,5 +5866,9 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+#right {
+  text-align: right;;
 }
 /*# sourceMappingURL=bootstrap.css.map */

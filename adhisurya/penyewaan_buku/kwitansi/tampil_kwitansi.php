@@ -66,7 +66,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h3><i class="fa fa-book" aria-hidden="true"></i> Data Kwitansi Buku</h3>   
+                     <h3><i class="fa fa-table "></i> Data Kwitansi Buku</h3>   
                         <h5>Sistem Penyewaan Buku</h5>
                        
                     </div>
@@ -111,8 +111,8 @@
                     		<td align="center"><?php echo $x['tanggal_pinjam']; ?></td>
                     		<td align="center"><?php echo $x['tanggal_kembali']; ?></td>
                     		<td align="center">
-                    			<a class="button button1" href="print_kwitansi.php?id=<?php echo $x['id']; ?>&aksi=print" title="View"><i class="fa fa-eye" aria-hidden="true"></i> </a>
-                    			<a class="button button3" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_penyewa" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
+                    			<a class="buttoncrud button1crud" href="print_kwitansi.php?id=<?php echo $x['id']; ?>&aksi=print" title="View"><i class="fa fa-eye" aria-hidden="true"></i> </a>
+                    			<a class="buttoncrud button3crud" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_penyewa" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
                     		</td>
                     	</tr>
                     <?php } ?>
@@ -123,7 +123,7 @@
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
-                    <div id="right">&copy; 2014 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
+                    <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
                 </thead>
             </table>
         </div>

@@ -86,8 +86,8 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                 		<tr>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> No.
-                                            </th>
+                                			<th><center><i class="fa fa-sort" aria-hidden="true"></i> No.
+                                            </center></th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode Member</th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Nama
                                             </th>
@@ -95,8 +95,7 @@
                                             </th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Foto
                                             </th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Opsi
-                                            </th>
+                                			<th><center><i class="fa fa-sort" aria-hidden="true"></i> Action </center></th>
                                 		</tr>
                                     </thead>
                                 <tbody>
@@ -111,24 +110,15 @@
                     		<td><?php echo $x['alamat']; ?></td>
                     		<td align="center"><img class="foto" src="<?php echo "../image/".$x['foto']; ?>"></td>
                     		<td align="center">
-                    			<a class="button button2" href="edit_member.php?id=<?php echo $x['id']; ?>&aksi=edit" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    			<a class="button button3" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_member" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>	
+                    			<a class="buttoncrud button2crud" href="edit_member.php?id=<?php echo $x['id']; ?>&aksi=edit" title="Update"><i class="fa fa-edit "></i> </a>
+                    			<a class="buttoncrud button3crud" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_member" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>	
                     		</td>
                     	</tr>
                     <?php } ?>
                 </tbody>
             </table>
         <hr />
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <div id="right">&copy; 2014 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
-                </thead>
-            </table>
-        </div>
-    </div>            
-    <tbody>       
+    <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>       
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->

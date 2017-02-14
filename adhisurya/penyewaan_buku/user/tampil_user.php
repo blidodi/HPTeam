@@ -20,7 +20,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
     <link href="../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
     <link href="../assets2/css/bootstrap.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 </head>
 <body>
     <div id="wrapper">
@@ -66,7 +67,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h3><i class="fa fa-users" aria-hidden="true"></i> Data User</h3>   
+                     <h3><i class="fa fa-user" aria-hidden="true"></i> Data User</h3>   
                         <h5>Sistem Penyewaan Buku</h5>
                        
                     </div>
@@ -86,15 +87,13 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th><i class="fa fa-sort" aria-hidden="true"></i> No.
-                                            </th>
+                                            <th><center><i class="fa fa-sort" aria-hidden="true"></i> No. </center></th>
                                             <th><i class="fa fa-sort" aria-hidden="true"></i> Kode User</th>
                                             <th><i class="fa fa-sort" aria-hidden="true"></i> Nama
                                             </th>
-                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Username</th>
-                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Password</th>
-                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Opsi
+                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Username
                                             </th>
+                                            <th><center><i class="fa fa-sort" aria-hidden="true"></i> Action </center></th>
                                         </tr>
                                     </thead>
                                 <tbody>
@@ -107,26 +106,16 @@
             			<td><?php echo $x['kode_user']; ?></td>
             			<td><?php echo $x['nama']; ?></td>
             			<td><?php echo $x['username']; ?></td>
-            			<td><?php echo $x['password']; ?></td>
-            			<td align="center">
-            				<a class="button button2" href="edit_user.php?id=<?php echo $x['id']; ?>&aksi=edit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-            				<a class="button button3" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_user" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
-            			</td>
+            	           <td align="center">
+                            <a class="buttoncrud button2crud" href="edit_user.php?id=<?php echo $x['id']; ?>&aksi=edit"><i class="fa fa-edit "></i> </a>
+                            <a class="buttoncrud button3crud" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_user" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-eraser" aria-hidden="true"></i> </a>
+                        </td>
             		</tr>
                 <?php } ?>
             </tbody>
         </table>
     <hr />
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <div id="right">&copy; 2014 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
-                </thead>
-            </table>
-        </div>
-    </div>            
-    <tbody>       
+    <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>   
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->

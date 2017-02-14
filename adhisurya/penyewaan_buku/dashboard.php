@@ -55,7 +55,7 @@
                     <li><a href="penyewa/tampil_penyewa.php"><i class="fa fa-bar-chart-o"></i>Penyewaan</a></li>
                     <li><a href="pengembalian/tampil_pengembalian.php"><i class="fa fa-edit "></i>Pengembalian</a></li>
                     <li><a href="kwitansi/tampil_kwitansi.php"><i class="fa fa-table "></i>Kwitansi</a></li>
-                    <li><a href="../Logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                    <li><a href="Logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -77,10 +77,7 @@
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
                                 <h3>8</h3>
                             </div>
-                            <div class="panel-footer back-footer-blue">
-                                Disk Space Available
-                            
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
@@ -88,7 +85,7 @@
                         <div class="alert alert-info text-center">
                             <i class="fa fa-bar-chart-o fa-5x"></i>
                             <h3>12</h3>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            
                         </div>
                     </div>
                     <div class="col-md-6">

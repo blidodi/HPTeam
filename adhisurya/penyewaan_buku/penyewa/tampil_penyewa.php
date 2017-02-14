@@ -66,7 +66,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h3><i class="fa fa-book" aria-hidden="true"></i> Data Penyewa Buku</h3>   
+                     <h3><i class="fa fa-bar-chart-o"></i> Data Penyewaan Buku</h3>   
                         <h5>Sistem Penyewaan Buku</h5>
                        
                     </div>
@@ -81,14 +81,13 @@
                              Advanced Tables
                         </div>
                             <a class="buttonadd buttonadd" href="input_penyewa.php" title="Add"><i class="fa fa-plus-square" aria-hidden="true"></i> Add</a> 
-                            <a class="buttonview buttonadd" href="print_penyewa.php?id=<?php echo $x['id']; ?>&aksi=print" title="View"><i class="fa fa-eye" aria-hidden="true"></i> View</a> 
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                 		<tr>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> No.
-                                            </th>
+                                			<th><center><i class="fa fa-sort" aria-hidden="true"></i> No.
+                                            </center></th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode Penyewaan</th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode User</th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Kode Buku</th>
@@ -97,8 +96,8 @@
                                             </th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Tanggal Pinjam</th>
                                 			<th><i class="fa fa-sort" aria-hidden="true"></i> Tanggal Kembali</th>
-                                			<th><i class="fa fa-sort" aria-hidden="true"></i> Opsi
-                                            </th>
+                                            <th><i class="fa fa-sort" aria-hidden="true"></i> Harga</th>
+                                			<th><center><i class="fa fa-sort" aria-hidden="true"></i> Action</center></th>
                                 		</tr>
                                     </thead>
                                 <tbody>
@@ -115,25 +114,18 @@
                     		<td><?php echo $x['judul']; ?></td>
                     		<td align="center"><?php echo $x['tanggal_pinjam']; ?></td>
                     		<td align="center"><?php echo $x['tanggal_kembali']; ?></td>
+                            <td><?php echo $x['harga']; ?></td>
                     		<td align="center">
-                    			<a class="button button2" href="edit_penyewa.php?id=<?php echo $x['id']; ?>&aksi=edit" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                    			<a class="button button3" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_penyewa" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
+                                <a class="buttoncrud button1crud" href="#" title="View"><i class="fa fa-eye" aria-hidden="true"></i> </a>
+                    			<a class="buttoncrud button2crud" href="edit_penyewa.php?id=<?php echo $x['id']; ?>&aksi=edit" title="Update"><i class="fa fa-edit "></i> </a>
+                    			<a class="buttoncrud button3crud" href="../proses.php?id=<?php echo $x['id']; ?>&aksi=hapus_penyewa" onclick="return confirm('Are you sure you want to delete this item?');" title="Delete"><i class="fa fa-eraser" aria-hidden="true"></i> </a>			
                     		</td>
                     	</tr>
                     <?php } ?>
 	            </tbody>
             </table>
-        <hr />
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <div id="right">&copy; 2014 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div>
-                </thead>
-            </table>
-        </div>
-    </div>            
-    <tbody>   
+         <hr />
+    <div id="right">&copy; 2017 Penyewaan Buku | Design By : <a href="#" target="_blank">Adhi Surya</a></div> 
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->

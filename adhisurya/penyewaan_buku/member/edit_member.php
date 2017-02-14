@@ -17,7 +17,6 @@ $db = new database();
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='../http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
 </head>
 <body>
     <div id="wrapper">
@@ -59,52 +58,48 @@ $db = new database();
             </div>
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
+       <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><i class="fa fa-pencil" aria-hidden="true"></i> Edit Buku</h3>
+
                     </div>
                 </div>
-		<form action="../proses.php?aksi=update_member" method="post" enctype="multipart/form-data">
-			<?php
-				foreach($db->edit_member($_GET['id']) as $d){
-			?>
-				<table>
-					<tr>
-						<td>Kode Member</td>
-						<td align="center">:</td>
-						<td>
-							<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-							<input type="text" name="kode_member" value="<?php echo $d['kode_member'] ?>">
-						</td>
-					</tr>
-					<tr>
-						<td>Nama</td>
-						<td align="center">:</td>
-						<td><input type="text" name="nama" value="<?php echo $d['nama'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Alamat</td>
-						<td align="center">:</td>
-						<td><input type="text" name="alamat" value="<?php echo $d['alamat'] ?>"></td>
-					</tr>
-					<tr>
-						<td>Foto</td>
-						<td align="center">:</td>
-						<td><input type="file" name="foto" value="<?php echo $d['foto'] ?>"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td align="center"></td>
-						<td>
-							<input class="button button2" type="submit" value="Simpan">
-							<a class="button button2" href="tampil_member.php">Batal</a>
-						</td>
-					</tr>
-				</table>
-			<?php } ?>
-			<table>
-		</form>
-</body>
-</html>	
+                <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+               <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-edit "></i> FORM EDIT <b>MEMBER</b>
+                    </div>
+                <div class="panel-body">
+            <form action="../proses.php?aksi=update_member" method="post" enctype="multipart/form-data">
+    			<?php
+    				foreach($db->edit_member($_GET['id']) as $d){
+    			?>
+				    <div class="form-group">
+                        <label>Kode Member</label>
+						<input class="form-control" type="hidden" name="id" value="<?php echo $d['id'] ?>">
+						<input class="form-control" type="text" name="kode_member" value="<?php echo $d['kode_member'] ?>">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+					<div class="form-group">
+                        <label>Nama</label>
+                        <input class="form-control" type="text" name="nama" value="<?php echo $d['nama'] ?>">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+					<div class="form-group">
+                        <label>Alamat</label>
+                        <input class="form-control" type="text" name="alamat" value="<?php echo $d['alamat'] ?>"></td>
+                        <p class="help-block">Help text here.</p>
+                    </div>
+					<div class="form-group">
+                       <label>Foto</label>
+                    <input type="file" name="foto">
+                    <p class="help-block">Help file here.</p>
+                <button type="submit" value="Simpan" class="btn btn-info-edit">Simpan </button>
+                <a class="btn btn-info-edit" href="tampil_member.php">Batal</a>
+                </div>
+            </form>
+        <?php } ?>    
+    </body>
+</html>

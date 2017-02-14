@@ -74,19 +74,28 @@ $db = new database();
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><i class="fa fa-plus-circle" aria-hidden="true"></i>  Tambah Penyewaan Buku</h3>
+
                     </div>
                 </div>
+                <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+               <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-plus" aria-hidden="true"></i> FORM TAMBAH <b>PENYEWAAN BUKU</b>
+                    </div>
+                    <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
 	<form action="../proses.php?aksi=tambah_penyewa" method="post">
 		<table>
 			<tr>
-				<td>Kode Penyewa</td>
-				<td align="center">:</td>
+				<td><b>Kode Penyewa</b></td>
+				<td align="center"></td>
 				<td><input type="text" name="kode_sewa"></td>
 			</tr>
 			<tr>
-				<td>Kode User</td>
-				<td align="center">:</td>
+				<td><b>Kode User</b></td>
+				<td align="center"></td>
 				<td>
 					<?php 
 						$q_select_user	= "SELECT * FROM user";
@@ -107,8 +116,8 @@ $db = new database();
 				</td>
 			</tr>
 			<tr>
-				<td>Kode Buku</td>
-				<td align="center">:</td>
+				<td><b>Kode Buku</b></td>
+				<td align="center"></td>
 				<td>
 					<?php 
 						$q_select_buku	= "SELECT * FROM buku";
@@ -129,8 +138,8 @@ $db = new database();
 				</td>
 			</tr>
 			<tr>
-				<td>Kode Member</td>
-				<td align="center">:</td>
+				<td><b>Kode Member</b></td>
+				<td align="center"></td>
 				<td>
 					<?php 
 						$q_select_member	= "SELECT * FROM member";
@@ -151,8 +160,8 @@ $db = new database();
 				</td>
 			</tr>
 			<tr>
-				<td>Judul</td>
-				<td align="center">:</td>
+				<td><b>Judul</b></td>
+				<td align="center"></td>
 				<td>
 					<?php 
 						$q_select_member	= "SELECT * FROM buku";
@@ -173,21 +182,26 @@ $db = new database();
 				</td>
 			</tr>
 			<tr>
-				<td>Tanggal Pinjam</td>
-				<td align="center">:</td>
+				<td><b>Tanggal Pinjam</b></td>
+				<td align="center"></td>
 				<td><input type="text" id="datepickerpinjam" name="tanggal_pinjam"></td>
 			</tr>
 			<tr>
-				<td>Tanggal Kembali</td>
-				<td align="center">:</td>
+				<td><b>Tanggal Kembali</b></td>
+				<td align="center"></td>
 				<td><input type="text" id="datepickerkembali" name="tanggal_kembali"></td>
+			</tr>
+			<tr>
+				<td><b>Harga</b></td>
+				<td align="center"></td>
+				<td><input type="text" name="harga"></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td align="center"></td>
 				<td>
-					<input class ="button button1" type="submit" value="Simpan">
-					<a class="button button1" href="tampil_penyewa.php">Batal</a>
+					<button type="submit" value="Simpan" class="btn btn-info-add">Simpan </button>
+					<a class="btn btn-info-add" href="tampil_penyewa.php">Batal</a>
 				</td>
 			</tr>
 		</table>
