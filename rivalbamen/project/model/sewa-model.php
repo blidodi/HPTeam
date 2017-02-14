@@ -19,9 +19,9 @@ class Sewa extends Database
 	}
 
 	//Menambah Sewa
-	function add_sewa($tanggal, $kembali, $member, $buku, $harga) 
+	function add_sewa($tanggal, $kembali, $member, $buku, $harga, $status) 
 	{
-		mysql_query("INSERT INTO sewa VALUES('','$tanggal', '$kembali','$member','$buku', '$harga')");
+		mysql_query("INSERT INTO sewa VALUES('','$tanggal', '$kembali','$member','$buku', '$harga', 'Sewa')");
 	}
 
 	//Menghapus Sewa
@@ -77,6 +77,20 @@ class Sewa extends Database
 			$hasil[] = $buku;
 		}
 		return $hasil;
+	}
+
+	function tampil_kembali_sewa($id){
+		$kembali = mysql_query("SELECT * FROM sewa WHERE id='$id'");
+		while($edit = mysql_fetch_array($kembali)){
+			$hasil[] = $edit;
+		}
+		return $hasil;
+	}
+
+	function kembali_sewa($tgl_sewa, $tgl_kembali, $member, $buku, $denda) 
+	{
+		mysql_query("INSERT INTO kembali VALUES($tgl_sewa', '$tgl_kembali', '$member', '$buku', '$denda')");
+		mysql_query("UPDATE sewa SET status='Kembali' WHERE member='$member'");
 	}
 
 } 

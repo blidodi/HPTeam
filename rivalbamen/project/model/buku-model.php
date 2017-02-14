@@ -8,7 +8,7 @@ class Buku extends Database {
 	function tampil_buku()
 	{
 		$buku = mysql_query("SELECT buku.id AS id, buku.judul, buku.pengarang, buku.
-							penerbit, kategori_buku.kategori, kategori_buku.harga, buku.cover 
+							penerbit, kategori_buku.kategori, kategori_buku.harga, buku.cover, buku.tahun, buku.isbn 
 							FROM buku, kategori_buku
 							WHERE buku.kategori=kategori_buku.kode");
 		while($tampil = mysql_fetch_array($buku)){

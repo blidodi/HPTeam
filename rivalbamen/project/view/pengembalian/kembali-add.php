@@ -1,3 +1,7 @@
+<?php 
+	include '../../model/kembali-model.php';
+	$db = new Kembali();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +17,26 @@
 				$( "#datepickersewa" ).datepicker({ dateFormat: 'yy-mm-dd' });
 				$( "#datepickerkembali" ).datepicker({ dateFormat: 'yy-mm-dd' });
 			});
+
+			var htmlobjek;
+			$(document).ready(function(){
+			  //apabila terjadi event onchange terhadap object <select id=propinsi>
+			  $("#member").change(function(){
+			    var member = $("#member").val();
+			    $.ajax({
+			        url: "../../kembali-model.php",
+			        data: "member="+member,
+			        cache: false,
+			        success: function(msg){
+			            //jika data sukses diambil dari server kita tampilkan
+			            //di <select id=kota>
+			            $("#tanggal").html(msg);
+			            $("#kembali").html(msg);
+			            $("#buku").html(msg);
+			        }
+			    });
+			  });
+});
 		</script>
 
 	<title>Tambah Pengembalian</title>
@@ -38,16 +62,25 @@
 		<?php 
 			$tanggal = date("Y-m-d");
 		?>
-		<label>Tanggal Sewa :</label>
-		<input type="text" name="tgl_sewa" id="datepickersewa" />
-		<label>Tanggal Kembali:</label>
-		<input type="text" name="tgl_kembali" id="datepickerkembali" value="<?php echo $tanggal ?>" />
 		<label>Member :</label>
-		<input type="text" name="member" />
+		<select name="member">
+			<option value="">-- Pilih --</option>
+				<?php 
+					foreach($db->tampil_sewa() as $sewa) {
+						?>
+							<option value="<?php echo $sewa['member']; ?>"><?php echo $sewa['member'] ?>
+							</option>	
+			<?php }	?>
+			</select>
+		<label>Tanggal Sewa :</label>
+		<input type="text" name="tgl_sewa" id="datepickersewa" id="tanggal" />
+		<label>Tanggal Kembali:</label>
+		<input type="text" name="tgl_kembali" id="datepickerkembali" id="kembali" />
 		<label>Buku :</label>
-		<input type="text" name="buku" />
+		<input type="text" name="buku" id="buku" />	
 		<label>Denda :</label>
 		<input type="text" name="denda" />
+		<input type="hidden" name="status" />
 		<br/>
 		<input type="submit" name="simpan" value="Simpan">
 

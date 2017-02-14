@@ -35,7 +35,7 @@
 	<div class="form">
 	<a class="button2" href="kembali-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>Tanggal</th>
+		<tr><th>Tanggal Kembali</th>
 			<th>Member</th>
 			<th>Buku</th>
 			<th>Denda</th>
@@ -46,8 +46,8 @@
 		?>
 		<tr>
 			<td><?php echo $tampil['tgl_kembali']; ?></td>
-			<td><?php echo $tampil['member']; ?></td>
-			<td><?php echo $tampil['buku']; ?></td>
+			<td><?php echo $tampil['nama']; ?></td>
+			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['denda']; ?></td>
 			<td>
 				<a class="button1" href="kembali-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>

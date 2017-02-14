@@ -16,10 +16,10 @@ table, th, td {
 th {
     background-color: #EBEAE9;
     color: #000000;
+    text-align: left;
 }
 
 td {
-    text-align: center;
     padding: 3px 3px 3px 8px;
 }
 
@@ -227,8 +227,8 @@ img {
 }
 
 .cover {
-    width: 150px;
-    height: 250px;
+    width: 75px;
+    height: 125px;
 }
 
 @import "http://fonts.googleapis.com/css?family=Raleway";

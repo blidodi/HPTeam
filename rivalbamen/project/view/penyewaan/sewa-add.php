@@ -74,6 +74,7 @@
 			</select>
 			<label>Harga :</label>
 			<input type="text" name="harga" />
+			<input type="hidden" name="status" />
 			<br/>
 			<input type="submit" name="simpan" value="Simpan">
 

@@ -39,41 +39,44 @@
 	<a class="button2" href="buku-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
 		<tr>
-			<th>No.</th>
+			<th></th>
 			<th>Judul</th>
 			<th>Pengarang</th>
 			<th>Penerbit</th>
-			<th>Kategori</th>
-			<th>Harga</th>
 			<th>Opsi</th>
 		</tr>
 		<?php
-			$no = 1;
-			$i = 1;
 			foreach($db->tampil_buku() as $tampil){
 		?>
 		<tr>
-			<td><?php echo $no++ ?></td>
+			<td>
+			<details>
+				<summary></summary>
+				<img align="left" class="cover" src="<?php echo "../../image/".$tampil['cover']; ?>">
+				<p align="left">ISBN : <?php echo $tampil['isbn']; ?></p>
+				<p align="left">Tahun : <?php echo $tampil['tahun']; ?></p>
+				<p align="left">Kategori :  <?php echo $tampil['kategori']; ?></p>
+				<p align="left">Harga : <?php echo $tampil['harga']; ?></p>
+			</details></td>
 			<td><?php echo $tampil['judul']; ?></td>
 			<td><?php echo $tampil['pengarang']; ?></td>
 			<td><?php echo $tampil['penerbit']; ?></td>
-			<td><?php echo $tampil['kategori']; ?></td>
-			<td><?php echo $tampil['harga']; ?></td>
 			<td>
-				<a class="button3" id="popup" onclick="div_show('id')"><i class="fa fa-eye"></i></a>
+				<!--<a class="button3" id="popup" onclick="div_show('id')"><i class="fa fa-eye"></i></a>
 					<div id="abc">
-						<!-- Popup Div Starts Here -->
+						 Popup Div Starts Here 
 						<div id="popupContact" >
-						<!-- Contact Us Form -->
+						 Contact Us Form 
 							<form class="formpop" id="form" method="post">
 							<i id="close" class="fa fa-times" onclick ="div_hide()"></i>
 							<h2>Detail</h2>
 							<hr>
-							<img class="cover" src="<?php echo "../../image/".$tampil['cover']; ?>">
+							<img class="cover" src="<?php //echo "../../image/".$tampil['cover']; ?>">
 							</form>
 						</div>
-						<!-- Popup Div Ends Here -->
-					</div>
+						 Popup Div Ends Here 
+					</div> -->
+
 				<a class="button1" href="buku-edit.php?id=<?php echo $tampil['id']; ?>&action=edit"><i class="fa fa-pencil"></i></a>
 				<a class="button" href="javascript:confirmDelete('../../controller/buku-controller.php?id=<?php echo $tampil['id']; ?>&action=delete')"><i class="fa fa-close"></i></a>			
 			</td>

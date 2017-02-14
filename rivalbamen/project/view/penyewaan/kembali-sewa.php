@@ -1,6 +1,6 @@
 <?php 
-	include '../../model/kembali-model.php';
-	$db = new Kembali();
+	include '../../model/sewa-model.php';
+	$db = new Sewa();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 			});
 		</script>
 
-	<title>Ubah Penyewaan</title>
+	<title>Tambah Pengembalian</title>
 </head>
 <body>
 	<div id="container">
@@ -38,24 +38,28 @@
 		</ul>
 		<div id="body">
 		<div class="form">
-		<p><a class="p-color" href="kembali-view.php">Tabel Penyewaan</a> / Ubah Penyewaan</p>
-		<form action="../../controller/kembali-controller.php?action=edit" method="post"action>
+		<p><a class="p-color" href="../pengembalian/kembali-view.php">Tabel Pengembalian</a> / Tambah Pengembalian</p>
+		<form action="../../controller/kembali-controller.php?action=add" method="post"action>
 		<?php
-			foreach($db->tampil_edit_kembali($_GET['id']) as $edit){
+			foreach($db->tampil_kembali_sewa($_GET['id']) as $sewa){
 		?>
-		<input type="hidden" name="id" value="<?php echo $edit['id'] ?>" />
+		<input type="hidden" name="id" value="<?php echo $sewa['id'] ?>" />
 		<label>Member :</label>
-		<input type="text" name="member" value="<?php echo $edit['member'] ?>" />
+		<select name="member">
+				<option value="<?php echo $sewa['member']; ?>"><?php echo $sewa['member'] ?>
+				</option>		
+			</select>
 		<label>Tanggal Sewa :</label>
-		<input type="text" name="tgl_sewa" value="<?php echo $edit['tgl_sewa']  ?>" id="datepickersewa"/>
+		<input type="text" name="tgl_sewa" value="<?php echo $sewa['tanggal']  ?>" id="datepickersewa"/>
 		<label>Tanggal Kembali:</label>
-		<input type="text" name="tgl_kembali" value="<?php echo $edit['tgl_kembali']  ?>" id="datepickerkembali"/>
+		<input type="text" name="tgl_kembali" value="<?php echo $sewa['kembali']  ?>" id="datepickerkembali"/>
 		<label>Buku :</label>
-		<input type="text" name="buku" value="<?php echo $edit['buku'] ?>" />
+		<input type="text" name="buku" value="<?php echo $sewa['buku'] ?>" />
 		<label>Denda :</label>
-		<input type="text" name="denda" value="<?php echo $edit['denda'] ?>" />
+		<input type="text" name="denda" />
+		<input type="hidden" name="status" />
 		<br/>
-		<input type="submit" name="ubah" value="Ubah">
+		<input type="submit" name="simpan" value="Simpan">
 		<?php } ?>
 	</form>
 		</div>

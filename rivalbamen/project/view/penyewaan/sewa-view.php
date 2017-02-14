@@ -35,7 +35,8 @@
 	<div class="form">
 	<a class="button2" href="sewa-add.php"><i class="fa fa-plus"></i> Tambah</a>
 	<table>
-		<tr><th>Tanggal</th>
+		<tr><th></th>
+			<th>Tanggal</th>
 			<th>Kembali</th>
 			<th>Member</th>
 			<th>Buku</th>
@@ -46,6 +47,11 @@
 			foreach($db->tampil_sewa() as $tampil){
 		?>
 		<tr>
+			<td>
+			<details>
+				<summary></summary>
+				<a class="button1" href="kembali-sewa.php?id=<?php echo $tampil['id']; ?>&action=kembali"><i class=""></i> Kembali</a>	
+			</details></td>
 			<td><?php echo $tampil['tanggal']; ?></td>
 			<td><?php echo $tampil['kembali']; ?></td>
 			<td><?php echo $tampil['nama']; ?></td>
