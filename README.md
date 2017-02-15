@@ -19,6 +19,7 @@ Here the member :
 3. [Belajar JavaScript] (http://www.duniailkom.com/tutorial-belajar-javascript-dasar-untuk-pemula/)
 4. [Basic Slim] (https://www.codecourse.com/lessons/learn-slim-3)
 5. [Slim Controller Dependency Injection] (https://www.codecourse.com/lessons/slim-3-controllers-dependency-injection)
+6. [Basic Elloquent Database] (https://laravel.com/docs/5.2/eloquent)
 
 
 #Basic Code
