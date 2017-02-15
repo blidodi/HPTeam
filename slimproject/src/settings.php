@@ -20,7 +20,7 @@ return [
         'database' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'test_host',
+            'database'  => 'taskdb',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8',
